@@ -1,0 +1,3 @@
+[submodule "openmodel02"]
+	path = demo_pm
+	url = git@github.com:hothello/openmodel02.git
