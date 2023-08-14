@@ -9,9 +9,15 @@ The first demonstration of the OpenModel Platform uses a simple workflow consist
 
 The demonstration uses OntoFlow to represent each individual component and to retrieve one or more working workflows as a result of a high-level query such as "I want to know the density of a fluid". Starting from a [knowledge base](Deliverable5.5/ontoKB/individuals.ttl) describing the various tasks and their input/output datasets, OntoFlow builds a tree of all the possible workflows leading to the density of a fluid.
 
-![Possible workflows leading to the density of a fluid.](./images/ontoflow_demo1.png)
+![Possible workflows leading to the density of a fluid.](./images/ontoflow_demo2.png)
 
 The output of OntoFlow is a high-level description of the executable worfklows leading to a solution for an user-specified query. The conversion between the ontological representation of a workflow and its serialisation in the YAML format (i.e. the declarative workflow syntax used in ExecFlow) is out of the scope of this demonstration and will be addressed in a future deliverable.
+
+### The OpenModel domain ontology
+
+The semantic representation of materials modelling workflows, data, and computational methods is based on a domain ontology developed using [EMMO v1.0.0-beta5](https://github.com/emmo-repo/EMMO/tree/1.0.0-beta5) as top reference. A graphical representation of the knowledge base storing some of the tasks forming the demo workflow 1 is shown below:
+
+![Graphical representation of the Knowledge Base.](images/knowledgebase1.png)
 
 > TODO: 
 >
@@ -72,7 +78,10 @@ The local execution of this demonstration using ExecFlow requires the following 
 
   Do the same for [oteapi-dlite](https://github.com/EMMC-ASBL/oteapi-dlite).
 
-  **TO DO:** Replace these steps with a `pip` installation, once those components will be released publicly.
+> TODO: 
+>
+> * Replace these steps with a `pip` installation, once those components will be released publicly.
+>
 
 ### Execute the workflow
 
@@ -91,7 +100,7 @@ cd /tmp
 ln -s /path/to/Public/Deliverable5.5
 ```
 
-Note that the LAMMPS executable in the script is called `lmp_23Jun22`. You can create a symbolic link with that name to any other valid LAMMPS binary file, or replace that string in the YAML files with the name of your local LAMMPS binary.
+Note that the LAMMPS executable in the script is called `lmp_23Jun22`. You can create a symbolic link with that name to any other valid LAMMPS binary file, or replace the string `command: "lmp_23Jun22"` in the YAML files with the name of your local LAMMPS binary.
 
 The workflow is executed from the AiiDA shell with `verdi` running:
 
@@ -107,10 +116,8 @@ The workflow execution is inspected with the commands:
 ```bash
 verdi process list -a
 verdi node show 5601
-verdi node attributes  5601
+verdi node attributes 5601
 ```
-
-
 
 ### List of directories
 
