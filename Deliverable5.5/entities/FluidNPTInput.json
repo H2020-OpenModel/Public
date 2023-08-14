@@ -1,0 +1,63 @@
+{
+    "uri": "http://ontotrans.eu/meta/0.1/FluidNPTInput",
+    "description": "Data model describing input variables for the simulation",
+    "dimensions": [],
+    "properties": {
+       "run": {
+            "type": "str",
+            "description": "Name of the root files created by MOLTEMPLATE and LAMMPS."
+        },
+        "ts": {
+            "type": "int",
+            "description": "Time step for numerical integration.",
+            "unit": "fs"
+        },
+        "temp": {
+            "type": "float",
+            "description": "Temperature",
+            "unit": "K"
+        },
+        "p": {
+            "type": "float",
+            "description": "Pressure.",
+            "unit": "atmospheres"
+        },
+        "cutoff": {
+            "type": "float",
+            "description": "Cut-off radius for interactions in real space.",
+            "unit": "Angstroms"
+        },
+        "cl": {
+            "type": "int",
+            "description": "Correlation length, used to sample the thermodynamic output."
+        },
+        "s": {
+            "type": "int",
+            "description": "Sample interval, used to sample the thermodynamic output."
+        },
+        "prod": {
+            "type": "int",
+            "description": "Number of steps to be computed in the current MD simulation."
+        },
+        "force_field1": {
+            "type": "str",
+            "description": "Filename of the force field for the 1st molecule type in the simulation."
+        },
+        "aa_atb": {
+            "type": "str",
+            "description": "LT file containing the macros for the GROMOS-ATB force field."
+        },
+        "aa_tasks": {
+            "type": "str",
+            "description": "LT file containing the macros defining various simulation styles and thermodynamic outputs."
+        },
+        "TYPE1": {
+            "type": "str",
+            "description": "Name of the 1st molecule type in the simulation, as defined in the corresponding LT file."
+        },
+        "nmols1": {
+            "type": "int",
+            "description": "Number of molecules of type 1."
+        }
+    }
+}

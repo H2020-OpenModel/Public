@@ -1,0 +1,106 @@
+---
+steps:
+
+  # Create a data pipeline reading the input dataset. 
+  - workflow: execflow.oteapipipeline
+    inputs:
+      pipeline:
+        $ref: file:pipeline_waterdensity.yml
+      from_cuds:
+        - lt_input 
+    postprocess:
+    #   First oteapi pipeline creates the collection, this  should be saved to the ctx and passed to the
+    #   other oteapi pipelines
+      - "{{ ctx.current.outputs['collection_id']|to_ctx('collection_uuid') }}"
+      - "{{ ctx.current.outputs['results']['lt_input']|to_ctx('master_lt') }}"
+
+  - workflow: execflow.exec_wrapper
+    inputs:
+      command: "moltemplate.sh"
+      arguments:
+        - "-atomstyle"
+        - "full"
+        - "-overlay-all"
+        - "-pdb"
+        - "{in_pdb}"
+        - "{in_lt}"
+      files:
+        aa_atb:
+          filename: "aa_atb.lt"
+          template: "/tmp/ExecFlowDemo/demo_pm/molc/aa_atb.lt"
+        aa_tasks:
+          filename: "aa_tasks.lt"
+          template: "/tmp/ExecFlowDemo/demo_pm/molc/aa_tasks.lt"
+        random:
+          filename: "random_init.lt"
+          template: "/tmp/ExecFlowDemo/demo_pm/molc/random_init.lt"
+        force_field:
+          filename: "water.lt"
+          template: "/tmp/ExecFlowDemo/demo_pm/molc/water_tip3p_01.lt"
+        in_pdb:
+          filename: "input.pdb"
+          template: "/tmp/ExecFlowDemo/demo_pm/multiscale/02_water_bm.pdb"
+        in_lt:
+          filename: "water_aa.lt" # ideally, this should be linked to "run: water_aa".
+          node: "{{ ctx.master_lt }}"
+      # Do we need to hard-code the outputs? The root name is deternimed by in_lt.filename.
+      outputs:
+        - water_aa.in
+        - water_aa.data
+        - water_aa.in.settings
+        - water_aa.in.run
+        - water_aa.in.init
+
+    postprocess:
+      - "{{ ctx.current.outputs['remote_folder']|to_ctx('lammps_dir') }}"
+      - "{{ ctx.current.outputs['water_aa_in']|to_ctx('lammps_in') }}"
+      - "{{ ctx.current.outputs['water_aa_data']|to_ctx('lammps_data') }}"
+      - "{{ ctx.current.outputs['water_aa_in_settings']|to_ctx('lammps_settings') }}"
+      - "{{ ctx.current.outputs['water_aa_in_run']|to_ctx('lammps_run') }}"
+      - "{{ ctx.current.outputs['water_aa_in_init']|to_ctx('lammps_init') }}"
+
+# Example of a conversion function that replaces a data pipeline.
+#
+# - calcfunction: conversions.angstrom2bohr
+#   inputs:
+#     angstrom: "{{ ctx.output_in_angstrom}}"
+#   postprocess:
+#     - "{{ctx.current.outputs['bohr']|to_ctx('ctx.input_in_bohr')}}"
+
+  - workflow: execflow.exec_wrapper
+#    node: 6963
+    inputs:
+      command: "lmp_23Jun22"
+      arguments:
+        - "-in"
+        - "{in}"
+        - "-l"
+        - "water_aa.log"
+      files:
+        in: 
+          filename: "water_aa.in"
+          node: "{{ ctx.lammps_in }}"
+        data:
+          filename: "water_aa.data" 
+          node: "{{ ctx.lammps_data }}"
+        settings: 
+          node: "{{ ctx.lammps_settings }}"
+          filename: "water_aa.in.settings"
+        run: 
+          node: "{{ ctx.lammps_run }}"
+          filename: "water_aa.in.run"
+        init: 
+          node: "{{ ctx.lammps_init }}"
+          filename: "water_aa.in.init" 
+      outputs:
+        - water_aa.log
+        - water_aa.dcd
+    postprocess:
+      - "{{ ctx.current.outputs['water_aa_log']|to_ctx('lammps_log') }}"
+
+  - calcjob: execflowdemo.lammps.density
+    inputs: 
+      log: "{{ ctx.lammps_log }}"
+    postprocess: 
+      - "{{ ctx.current.outputs['density'] | to_results('density') }}"
+

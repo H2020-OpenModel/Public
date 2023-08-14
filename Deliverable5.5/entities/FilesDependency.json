@@ -1,0 +1,27 @@
+{
+    "uri": "http://ontotrans.eu/meta/0.1/FilesDependency",
+    "description": "Additional files required to run the Water Demo workflow",
+    "dimensions": [],
+    "properties": {
+       "gromos_settings": {
+            "type": "string",
+            "description": "LT macros defining the settings for the GROMOS force field."
+        },
+        "md_tasks": {
+            "type": "string",
+            "description": "LT file macros to perform different MD simulations, e.g. microcanonical, canonical etc."
+        },
+        "random_init": {
+            "type": "string",
+            "description": "LT file macro to initialise a variable containing a random seed."
+        },
+        "force_field": {
+            "type": "string",
+            "idescription": "LT file containing the force field definition of one or more molecules."
+        },
+        "input_structure_pdb": {
+            "type": "string",
+            "description": "Initial structure of an atomistic sample in PDB format."
+        }
+    }
+}

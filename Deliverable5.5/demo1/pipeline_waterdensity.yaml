@@ -1,0 +1,58 @@
+version: 1
+
+strategies:
+  - dataresource: load_data
+    downloadUrl: file:///tmp/Public/Deliverable5.5/demo1/data/moltemplate_input.yaml
+    mediaType: application/vnd.dlite-parse
+    configuration:
+      driver: yaml
+      label: parameters_input
+
+  - mapping: mappings
+    mappingType: triples
+    prefixes:
+      emmo:  http://emmo.info/emmo#
+      om:    http://emmo.info/emmo/domain/openmodel#
+      map:   http://emmo.info/domain-mappings#
+      fluid: http://ontotrans.eu/meta/0.1/FluidNPTInput#
+    triples:
+      - ["fluid:run", "map:mapsTo", "om:Root"]
+      - ["fluid:ts", "map:mapsTo", "om:Timestep"]
+      - ["fluid:temp", "map:mapsTo", "om:ThermodynamicTemperature"]
+      - ["fluid:p", "map:mapsTo", "om:Pressure"]
+      - ["fluid:cutoff", "map:mapsTo", "om:CutoffRadius"]
+      - ["fluid:cl", "map:mapsTo", "om:CorrelationLength"]
+      - ["fluid:s", "map:mapsTo", "om:SamplingInterval"]
+      - ["fluid:prod", "map:mapsTo", "om:ProductionSteps"]
+      - ["fluid:force_field1", "map:mapsTo", "om:WaterTIP3PLT"]
+      - ["fluid:aa_atb", "map:mapsTo", "om:GROMOSSettingsLT"]
+      - ["fluid:aa_tasks", "map:mapsTo", "om:AAMDTaskLT  "]
+      - ["fluid:TYPE1", "map:mapsTo", "om:MolecularType"]
+      - ["fluid:nmols1", "map:mapsTo", "om:NumberMolecules"]
+
+  - function: cuds2datanode
+    functionType: aiidacuds/cuds2datanode
+    configuration:
+      names: from_cuds
+
+  - function: datanode2cuds
+    functionType: aiidacuds/datanode2cuds
+    configuration:
+      names: to_cuds
+
+  - function: write_masterfile_lt
+    functionType: application/vnd.dlite-generate
+    configuration:
+      driver: template
+      location: /tmp/water_aa.lt 
+      options: "template=/tmp/Public/Deliverable5.5/demo1/data/lt_water_aa.template;engine=jinja"
+      label: parameters_input
+
+  - function: file2collection
+    functionType: aiidacuds/file2collection
+    configuration:
+      path: /tmp/water_aa.lt
+      label: lt_input
+
+pipelines:
+  pipe: load_data | mappings | write_masterfile_lt | file2collection | cuds2datanode

@@ -1,0 +1,114 @@
+---
+# A workflow that uses OTEAPI pipelines to retrieve the input dataset and map the data to ontological concepts.
+
+steps:
+
+  # Create a data pipeline reading the input dataset. 
+  - workflow: execflow.oteapipipeline
+    inputs:
+      pipeline:
+        $ref: file:pipeline_waterdensity.yml
+      from_cuds:
+        - parameters_input
+        - lt_input 
+    postprocess:
+    # The first oteapi pipeline creates the collection and parameter set,
+    # which are then passed to the ctx.
+      - "{{ ctx.current.outputs['collection_id']|to_ctx('collection_uuid') }}"
+      - "{{ ctx.current.outputs.results['parameters_input']|to_ctx('parameters') }}"
+      - "{{ ctx.current.outputs.results['lt_input']|to_ctx('master_lt') }}"
+
+  # Another pipeline retrieving the file includes, resolved from the URIs
+  # pointing to various input files.
+  - workflow: execflow.oteapipipeline
+    inputs:
+      pipeline:
+        $ref: file:pipeline_dependencies.yml
+      from_cuds:
+        - moltemplate_input 
+    postprocess:
+      - "{{ ctx.current.outputs['collection_id']|to_ctx('collection_uuid') }}"
+      - "{{ ctx.current.outputs.results['moltemplate_input']|to_ctx('includes') }}"
+
+  - workflow: execflow.exec_wrapper
+    inputs:
+      command: "moltemplate.sh"
+      arguments:
+        - "-atomstyle"
+        - "full"
+        - "-overlay-all"
+        - "-pdb"
+        - "{in_pdb}"
+        - "{in_lt}"
+      files:
+        aa_atb:
+          filename: "aa_atb.lt"
+          template: "{{ ctx.includes.gromos_settings }}"
+        aa_tasks:
+          filename: "aa_tasks.lt"
+          template: "{{ ctx.includes.md_tasks }}"
+        random:
+          filename: "random_init.lt"
+          template: "{{ ctx.includes.random_init }}"
+        force_field:
+          filename: "water.lt"
+          template: "{{ ctx.includes.force_field }}"
+        in_pdb:
+          filename: "input.pdb"
+          template: "{{ ctx.includes.input_structure_pdb }}"
+        in_lt:
+          filename: "{{ ctx.parameters.run }}.lt"  # Resolved to "water_aa.lt"
+          node: "{{ ctx.master_lt }}"
+      outputs:
+        - water_aa.in
+        - water_aa.data
+        - water_aa.in.settings
+        - water_aa.in.run
+        - water_aa.in.init
+
+    postprocess:
+      - "{{ ctx.current.outputs['remote_folder']|to_ctx('lammps_dir') }}"
+      - "{{ ctx.current.outputs['water_aa_in']|to_ctx('lammps_in') }}"
+      - "{{ ctx.current.outputs['water_aa_data']|to_ctx('lammps_data') }}"
+      - "{{ ctx.current.outputs['water_aa_in_settings']|to_ctx('lammps_settings') }}"
+      - "{{ ctx.current.outputs['water_aa_in_run']|to_ctx('lammps_run') }}"
+      - "{{ ctx.current.outputs['water_aa_in_init']|to_ctx('lammps_init') }}"
+
+  - workflow: execflow.exec_wrapper
+    inputs:
+      command: "lmp_23Jun22"
+      arguments:
+        - "-in"
+        - "{in}"
+        - "-l"
+        - "water_aa.log"
+      files:
+        in: 
+          filename: "water_aa.in"
+          node: "{{ ctx.lammps_in }}"
+        data:
+          filename: "water_aa.data" 
+          node: "{{ ctx.lammps_data }}"
+        settings: 
+          node: "{{ ctx.lammps_settings }}"
+          filename: "water_aa.in.settings"
+        run: 
+          node: "{{ ctx.lammps_run }}"
+          filename: "water_aa.in.run"
+        init: 
+          node: "{{ ctx.lammps_init }}"
+          filename: "water_aa.in.init" 
+      outputs:
+        - water_aa.log
+        - water_aa.dcd
+    postprocess:
+      - "{{ ctx.current.outputs['water_aa_log']|to_ctx('lammps_log') }}"
+
+  - calcjob: execflowdemo.lammps.density
+    inputs: 
+      log: "{{ ctx.lammps_log }}"
+    postprocess: 
+      - "{{ ctx.current.outputs['density'] | to_results('density') }}"
+      - "{{ ctx.current.outputs['density'] | to_ctx('density') }}"
+
+...

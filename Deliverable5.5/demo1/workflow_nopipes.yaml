@@ -1,0 +1,99 @@
+---
+# Self-contained workflow that uses ExecFlow's declarative syntax and includes the input dataset.
+
+steps:
+
+  - workflow: execflow.exec_wrapper
+    inputs:
+      command: "moltemplate.sh"
+      arguments:
+        - "-atomstyle"
+        - "full"
+        - "-overlay-all"
+        - "-pdb"
+        - "{in_pdb}"
+        - "{in_lt}"
+      files:
+        aa_atb:
+          filename: "aa_atb.lt"
+          template: "/tmp/Public/Deliverable5.5/demo1/data/aa_atb.lt"
+        aa_tasks:
+          filename: "aa_tasks.lt"
+          template: "/tmp/Public/Deliverable5.5/demo1/data/aa_tasks.lt"
+        random:
+          filename: "random_init.lt"
+          template: "/tmp/Public/Deliverable5.5/demo1/data/random_init.lt"
+        force_field:
+          filename: "water.lt"
+          template: "/tmp/Public/Deliverable5.5/demo1/data/water_tip3p_01.lt"
+        in_pdb:
+          filename: "input.pdb"
+          template: "/tmp/Public/Deliverable5.5/demo1/data/02_water_bm.pdb"
+        in_lt:
+          filename: "water_aa.lt"
+          template: "/tmp/Public/Deliverable5.5/demo1/data/lt_water_aa.template"
+          parameters:
+            run: water_aa
+            ts: 2
+            temp: 298.15
+            p: 1.0
+            cl: 40
+            cutoff: 13.
+            s: 5
+            prod: 400
+            force_field1: "water.lt"
+            aa_atb: "aa_atb.lt"
+            aa_tasks: "aa_tasks.lt"
+            TYPE1: TIP3
+            nmols1: 64
+      outputs:
+        - water_aa.in
+        - water_aa.data
+        - water_aa.in.settings
+        - water_aa.in.run
+        - water_aa.in.init
+
+    postprocess:
+      - "{{ ctx.current.outputs['remote_folder']|to_ctx('lammps_dir') }}"
+      - "{{ ctx.current.outputs['water_aa_in']|to_ctx('lammps_in') }}"
+      - "{{ ctx.current.outputs['water_aa_data']|to_ctx('lammps_data') }}"
+      - "{{ ctx.current.outputs['water_aa_in_settings']|to_ctx('lammps_settings') }}"
+      - "{{ ctx.current.outputs['water_aa_in_run']|to_ctx('lammps_run') }}"
+      - "{{ ctx.current.outputs['water_aa_in_init']|to_ctx('lammps_init') }}"
+
+  - workflow: execflow.exec_wrapper
+    inputs:
+      command: "lmp_23Jun22"
+      arguments:
+        - "-in"
+        - "{in}"
+        - "-l"
+        - "water_aa.log"
+      files:
+        in: 
+          filename: "water_aa.in"
+          node: "{{ ctx.lammps_in }}"
+        data:
+          filename: "water_aa.data" 
+          node: "{{ ctx.lammps_data }}"
+        settings: 
+          node: "{{ ctx.lammps_settings }}"
+          filename: "water_aa.in.settings"
+        run: 
+          node: "{{ ctx.lammps_run }}"
+          filename: "water_aa.in.run"
+        init: 
+          node: "{{ ctx.lammps_init }}"
+          filename: "water_aa.in.init" 
+      outputs:
+        - water_aa.log
+        - water_aa.dcd
+    postprocess:
+      - "{{ ctx.current.outputs['water_aa_log']|to_ctx('lammps_log') }}"
+
+  - calcjob: execflowdemo.lammps.density
+    inputs: 
+      log: "{{ ctx.lammps_log }}"
+    postprocess: 
+      - "{{ ctx.current.outputs['density'] | to_results('density') }}"
+

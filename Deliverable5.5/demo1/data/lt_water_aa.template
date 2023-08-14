@@ -1,0 +1,45 @@
+# Compute the density of water. This is a LAMMPS TEMPLATE file, with hard-coded values replaced with
+# Jinja web template syntax.
+
+# METADATA: the input variables that control the simulation.
+write_once("In Init"){
+
+ # Input variables. These need a data type to become AiiDA nodes.
+ variable run    string {{run}}    # output log
+ variable ts     equal  {{ts}}     # timestep
+ variable tf     equal  {{temp}}   # equilibrium temperature
+ variable p      equal  {{p}}      # equilibrium pressure
+ variable cutoff equal  {{cutoff}} # For interactions in real space.
+ variable cl     equal  {{cl}}     # correlation length for averaging
+ variable s      equal  {{s}}      # sample interval
+ variable prod   equal  {{prod}}   # Production steps
+
+ # PBC 
+ boundary p p p
+}
+
+# Import the force field.
+import {{force_field1}}
+import {{aa_atb}}
+ff = new atb_long
+
+# Create the molecules. The number MUST match number
+# of molecules in the input PDB structure.
+sol = new {{TYPE1}}[{{nmols1}}]
+
+# Create the initial velocity. This command in this point
+# is required when a simulation is restarted from a static
+# structure, i.e. without velocities.
+write_once("In Run"){
+ variable r format r1 %.0f
+ velocity all create \$\{tf\} \$r dist gaussian
+
+ # Apply the SHAKE algorithm to hydrogen atoms.
+ fix SHK all shake .0001 10 0 m 1.0079 a 1
+}
+
+# Define the task to execute.
+# It depends on files aa_tasks.lt and random_init.lt
+import {{aa_tasks}}
+task = default               # It includes the density and other standard thermodynamic output
+run = new aa_npt

@@ -1,0 +1,36 @@
+version: 1
+
+strategies:
+  - dataresource: load_data
+    downloadUrl: file:///tmp/Public/Deliverable5.5/demo1/data/moltemplate_dependency.yaml
+    mediaType: application/vnd.dlite-parse
+    configuration:
+      driver: yaml
+      label: moltemplate_input
+
+  - mapping: mappings
+    mappingType: triples
+    prefixes:
+      emmo: http://emmo.info/emmo#
+      om:   http://emmo.info/emmo/domain/openmodel#
+      map:  http://emmo.info/domain-mappings#
+      fd:   http://ontotrans.eu/meta/0.1/FilesDependency#
+    triples:
+      - ["fd:gromos_settings", "map:mapsTo", "om:GROMOSSettingsLT"]
+      - ["fd:md_tasks", "map:mapsTo", "om:AAMDTaskLT"]
+      - ["fd:random_init", "map:mapsTo", "om:RandomGeneratorLT"]
+      - ["fd:force_field", "map:mapsTo", "om:WaterTIP3PLT"]
+      - ["fd:input_structure_pdb", "map:mapsTo", "om:PDBFile"]
+
+  - function: cuds2datanode
+    functionType: aiidacuds/cuds2datanode
+    configuration:
+      names: from_cuds
+
+  - function: datanode2cuds
+    functionType: aiidacuds/datanode2cuds
+    configuration:
+      names: to_cuds
+
+pipelines:
+  pipe: load_data | mappings | cuds2datanode

@@ -1,0 +1,17 @@
+moltemplate_input:
+  meta: http://ontotrans.eu/meta/0.1/FluidNPTInput 
+  dimensions: {}
+  properties:
+    run: "water_aa"
+    ts: 2
+    temp: 298.15
+    p: 1.0
+    cutoff: 13.
+    cl: 40
+    s: 5
+    prod: 400
+    force_field1: "water.lt"
+    aa_atb: "aa_atb.lt"
+    aa_tasks: "aa_tasks.lt"
+    TYPE1: TIP3
+    nmols1: 64

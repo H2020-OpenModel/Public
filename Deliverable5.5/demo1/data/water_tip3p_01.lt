@@ -1,0 +1,30 @@
+# All-Atom model of TIP3P water optimised for long-range electrostatics [Price and Brooks, J Chem Phys, 121, 10096 (2004)].
+#
+# Modifield to be compatible with ATB force field.
+#
+# moltemplate.sh -overlay-bonds -overlay-angles -overlay-dihedrals -overlay-impropers test01.lt
+
+TIP3 {
+  write("Data Atoms"){
+      $atom:O1     $mol @atom:OW  -0.830   0.000000     0.000000     0.000000
+      $atom:H1     $mol @atom:HW   0.415  -0.756950     0.585882     0.000000
+      $atom:H2     $mol @atom:HW   0.415   0.756950     0.585882     0.000000
+  }
+  write("Data Bonds"){   
+      $bond:b1      @bond:g1   $atom:O1     $atom:H1
+      $bond:b2      @bond:g1   $atom:O1     $atom:H2
+  }
+  write("Data Angles"){
+      $angle:a1      @angle:g1 $atom:H2     $atom:O1     $atom:H1     
+  }
+  write_once("In Settings") {
+     mass @atom:OW  15.9994
+     mass @atom:HW   1.0079
+     
+     pair_coeff  @atom:OW @atom:OW 0.102 3.188
+     pair_coeff  @atom:HW @atom:HW 0.0 0.0
+     
+     bond_coeff  @bond:g1  450.0 0.9572
+     angle_coeff @angle:g1  55.0 104.52
+  }
+}
