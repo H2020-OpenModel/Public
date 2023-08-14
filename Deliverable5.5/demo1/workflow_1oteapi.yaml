@@ -1,4 +1,6 @@
 ---
+# A workflow that uses one OTEAPI pipeline to retrieve the input dataset and map the data to ontological concepts.
+
 steps:
 
   # Create a data pipeline reading the input dataset. 
@@ -9,10 +11,10 @@ steps:
       from_cuds:
         - lt_input 
     postprocess:
-    #   First oteapi pipeline creates the collection, this  should be saved to the ctx and passed to the
-    #   other oteapi pipelines
+    # The first oteapi pipeline creates the collection and parameter set,
+    # which are then passed to the ctx.
       - "{{ ctx.current.outputs['collection_id']|to_ctx('collection_uuid') }}"
-      - "{{ ctx.current.outputs['results']['lt_input']|to_ctx('master_lt') }}"
+      - "{{ ctx.current.outputs.results['lt_input']|to_ctx('master_lt') }}"
 
   - workflow: execflow.exec_wrapper
     inputs:
@@ -41,9 +43,8 @@ steps:
           filename: "input.pdb"
           template: "/tmp/ExecFlowDemo/demo_pm/multiscale/02_water_bm.pdb"
         in_lt:
-          filename: "water_aa.lt" # ideally, this should be linked to "run: water_aa".
+          filename: "water_aa.lt"
           node: "{{ ctx.master_lt }}"
-      # Do we need to hard-code the outputs? The root name is deternimed by in_lt.filename.
       outputs:
         - water_aa.in
         - water_aa.data
@@ -59,16 +60,7 @@ steps:
       - "{{ ctx.current.outputs['water_aa_in_run']|to_ctx('lammps_run') }}"
       - "{{ ctx.current.outputs['water_aa_in_init']|to_ctx('lammps_init') }}"
 
-# Example of a conversion function that replaces a data pipeline.
-#
-# - calcfunction: conversions.angstrom2bohr
-#   inputs:
-#     angstrom: "{{ ctx.output_in_angstrom}}"
-#   postprocess:
-#     - "{{ctx.current.outputs['bohr']|to_ctx('ctx.input_in_bohr')}}"
-
   - workflow: execflow.exec_wrapper
-#    node: 6963
     inputs:
       command: "lmp_23Jun22"
       arguments:
@@ -104,3 +96,4 @@ steps:
     postprocess: 
       - "{{ ctx.current.outputs['density'] | to_results('density') }}"
 
+...
