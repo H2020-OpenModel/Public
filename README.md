@@ -11,25 +11,13 @@ The demonstration uses OntoFlow to represent each individual component and to re
 
 ![Possible workflows leading to the density of a fluid.](./images/ontoflow_demo2.png)
 
-The output of OntoFlow is a high-level description of the executable worfklows leading to one or more solutions for an user-specified query. The conversion between the ontological representation of a workflow and its serialisation in the YAML format (i.e. the declarative workflow syntax used in ExecFlow) is out of the scope of this demonstration and will be addressed in a future deliverable. Machine-executable scripts describing the three solutions identified by OntoFlow are provided for execution in AiiDA, thus demonstrating the use of ExecFlow for the execution of a physics-based simulation.
+The output of OntoFlow is a high-level description of the executable worfklows leading to one or more solutions for an user-specified query. The conversion between the ontological representation of a workflow and its serialisation in the YAML format (i.e. the declarative workflow syntax used in ExecFlow) is out of the scope of this demonstration and will be addressed in a future deliverable. Machine-executable scripts describing the three solutions identified by OntoFlow are provided for execution in AiiDA, thus demonstrating the use of ExecFlow and OTEAPI pipelines for the execution of a physics-based simulation.
 
 ### Installing the OpenModel software stack
 
 The local execution of this demonstration requires the following software components, which are the core OpenModel software stack.
 
-* Clone the [OpenModel Public](https://github.com/H2020-OpenModel/Public) repository and install the python modules including `ontoflow`, `execflow`, and `oteapi-dlite`. Open a terminal and execute:
-
-  ```bash
-  git clone https://github.com/H2020-OpenModel/Public.git
-  cd Public/Deliverable5.5
-  pip install .
-  ```
-
-> TODO: 
->
-> * Replace the dependencies in `pyproject.toml` once those components will be released publicly.
-
-* Setting up a working AiiDA environment: [link](https://aiida.readthedocs.io/projects/aiida-core/en/latest/intro/get_started.html). Recommended: system-wide installation without CONDA. Begin by installing the following packages:
+* The original instructions to set up a working AiiDA environment can be found at the following [link](https://aiida.readthedocs.io/projects/aiida-core/en/latest/intro/get_started.html). Please refer to the official AiiDA documentation for troubleshooting. Here we report  the steps to perform a system-wide installation on a Debian/Ubuntu OS. Open a terminal and execute:
 
   ```bash
   sudo apt install git python3-dev python3-pip postgresql postgresql-server-dev-all postgresql-client rabbitmq-server
@@ -66,13 +54,31 @@ The local execution of this demonstration requires the following software compon
   The easiest option is to download a [static linux binary](https://download.lammps.org/static/). Alternatively, it can be compiled from the source code using `make` or `cmake` following the instructions [here](https://docs.lammps.org/Install.html). Note that the LAMMPS binary in the YAML scripts is called `lmp_23Jun22`. You can either create a symbolic link with that name to any other valid LAMMPS binary file, or replace the string `command: "lmp_23Jun22"` in the files [`workflow_nopipes.yaml`](Deliverable5.5/demo1/workflow_nopipes.yaml), [`workflow_1oteapi.yaml`](Deliverable5.5/demo1/workflow_1oteapi.yaml), and [`workflow_2oteapi.yaml`](Deliverable5.5/demo1/workflow_2oteapi.yaml) with the name of your local LAMMPS binary.
 
 
+* Clone the [OpenModel Public](https://github.com/H2020-OpenModel/Public) repository and install the python modules including `ontoflow`, `execflow`, and `oteapi-dlite`. Open a terminal and execute:
+  ```bash
+  git clone https://github.com/H2020-OpenModel/Public.git
+  cd Public/Deliverable5.5
+  pip install .
+  ```
+  To avoid changing the names of local files stored in the repository, absolute paths with root `/tmp/Deliverable5.5` have been used. Independently from where your repository is stored, create the following link from a terminal:
+  
+  ```bash
+  cd /tmp
+  ln -s /path/to/Public/Deliverable5.5
+  ```
+
+> TODO: 
+>
+> * Replace the dependencies in `pyproject.toml` once those components will be released publicly.
+
+
 ### The OpenModel domain ontology
 
 The semantic representation of materials modelling workflows, data, and computational methods is based on a domain ontology developed using [EMMO v1.0.0-beta5](https://github.com/emmo-repo/EMMO/tree/1.0.0-beta5) as top reference. A graphical representation of the knowledge base displaying some of the tasks forming the demo workflow 1 is shown below:
 
 ![Graphical representation of the Knowledge Base.](images/knowledgebase1.png)
 
-A simple query to the OntoKB is presented in the file [`applcation.py`](Public/Deliverable5.5/ontoKB/application.py). Basically, the user asks for any route leading to the computation of the density of a fluid, expressed by the ontological class with IRI `http://emmo.info/emmo#FluidDensity`. From a terminal, execute:
+A simple query to the OntoKB is presented in the file [`application.py`](Public/Deliverable5.5/ontoKB/application.py). Basically, the user asks for any route leading to the computation of the density of a fluid, expressed by the ontological class with IRI `http://emmo.info/emmo#FluidDensity`. From a terminal, execute:
 
 ```bash
 cd Public/Deliverable5.5/ontoKB 
@@ -93,14 +99,7 @@ source ~/envs/aiida/bin/activate
 verdi daemon start
 ```
 
-To avoid changing the names of local files stored in the repository, absolute paths with root `/tmp/Deliverable5.5` have been used. Independently from where your repository is stored, create the following link from a terminal:
-
-```bash
-cd /tmp
-ln -s /path/to/Public/Deliverable5.5
-```
-
-The workflow is executed from the AiiDA shell with `verdi` running:
+The three workflows are executed from the AiiDA prompt with `verdi` running in the background:
 
 ```bash
 cd /path/to/Public/Deliverable5.5/demo1
