@@ -12,8 +12,7 @@ University of Bologna (IT)
 email: emanuele.ghedini@unibo.it"""@en ,
                                                                                                                      """Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
-email: gerhard@goldbeck-consulting.com"""@en ,
-                                                                                                                     "emmo"@emmc.eu ;
+email: gerhard@goldbeck-consulting.com"""@en;
                                                    <http://purl.org/dc/terms/abstract> ""@en ,
                                                                                        """Defines physical quantities in the International System of Quantities (ISQ). ISQ was made an official ISO standard in 2009 and is defined in the ISO/IEC 80000 standard.
 
