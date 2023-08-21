@@ -19,7 +19,7 @@ The local execution of this demonstration requires the following software compon
   sudo apt install git python3-dev python3-pip postgresql postgresql-server-dev-all postgresql-client rabbitmq-server
   ```
 
-  Set up a virtual environment and install needed Python libraries
+  Set up a virtual environment
 
   ```bash
   python -m venv ~/envs/aiida
