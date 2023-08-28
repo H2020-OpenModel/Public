@@ -7,7 +7,7 @@ steps:
   - workflow: execflow.oteapipipeline
     inputs:
       pipeline:
-        $ref: file:pipeline_waterdensity.yml
+        $ref: file:pipeline_waterdensity.yaml
       from_cuds:
         - parameters_input
         - lt_input 
@@ -23,7 +23,7 @@ steps:
   - workflow: execflow.oteapipipeline
     inputs:
       pipeline:
-        $ref: file:pipeline_dependencies.yml
+        $ref: file:pipeline_dependencies.yaml
       from_cuds:
         - moltemplate_input 
     postprocess:

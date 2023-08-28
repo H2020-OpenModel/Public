@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+"""Script to run AiiDA declarative chain"""
 import aiida
 
 aiida.load_profile()

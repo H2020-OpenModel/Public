@@ -50,12 +50,14 @@ The local execution of this demonstration requires the following software compon
   The easiest option is to download a [static linux binary](https://download.lammps.org/static/). Alternatively, it can be compiled from the source code using `make` or `cmake` following the instructions [here](https://docs.lammps.org/Install.html). Note that the LAMMPS binary in the YAML scripts is called `lmp_23Jun22`. You can either create a symbolic link with that name to any other valid LAMMPS binary file, or replace the string `command: "lmp_23Jun22"` in the files [`workflow_nopipes.yaml`](./demo1/workflow_nopipes.yaml), [`workflow_1oteapi.yaml`](./demo1/workflow_1oteapi.yaml), and [`workflow_2oteapi.yaml`](./demo1/workflow_2oteapi.yaml) with the name of your local LAMMPS binary.
 
 
-* Clone the [OpenModel Public](https://github.com/H2020-OpenModel/Public) repository and install the python modules including `ontoflow`, `execflow`, and `oteapi-dlite`. Open a terminal and execute:
+* Clone the [OpenModel Public](https://github.com/H2020-OpenModel/Public) repository and install the python modules including `ontoflow` and `execflow`. Open a terminal and execute:
   ```bash
   git clone https://github.com/H2020-OpenModel/Public.git
   cd Public/Deliverable5.5
   pip install .
   ```
+NB! Until ExecFlow and OntoFlow have been made public it might be easier to just clone and pip install execflow and ontoflow separately before the step above.
+
   To avoid changing the names of local files stored in the repository, absolute paths with root `/tmp/Deliverable5.5` have been used. Independently from where your repository is stored, create the following link from a terminal:
   
   ```bash

@@ -7,7 +7,7 @@ steps:
   - workflow: execflow.oteapipipeline
     inputs:
       pipeline:
-        $ref: file:pipeline_waterdensity.yml
+        $ref: file:pipeline_waterdensity.yaml
       from_cuds:
         - lt_input 
     postprocess:
