@@ -7,6 +7,7 @@ from ontoflow.mco_strategies.minimumCostStrategy import MinimumCostStrategy
 ONTOLOGY_FOLDER = __file__
 ONTOLOGY_FILENAME = "openmodel-inferred.ttl"
 INDIVIDUALS_FILENAME = "individuals.ttl"
+COST_FILENAME = "cost_definitions.yaml"
 
 
 if __name__ == "__main__":
@@ -23,7 +24,7 @@ if __name__ == "__main__":
     ts.parse(os.path.join(ONTOLOGY_FOLDER, "..", INDIVIDUALS_FILENAME), format="turtle")
 
 
-    engine = OntoFlowDMEngine(triplestore = ts, cost_file = r"/tmp/Deliverable5.5/ontoKB/datamodel_generation/cost_definitions.yaml", mco_interface = mco_strategy)
+    engine = OntoFlowDMEngine(triplestore = ts, cost_file = os.path.join(ONTOLOGY_FOLDER, "..", COST_FILENAME), mco_interface = mco_strategy)
 
     target_IRI = "http://emmo.info/emmo#FluidDensity"
     sources_IRIs = {}

@@ -1,0 +1,2 @@
+ontoflow @ git+https://github.com/H2020-OpenModel/OntoFlow@9c76d78
+PyYAML==6.0.1
