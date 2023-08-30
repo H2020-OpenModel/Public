@@ -25,10 +25,10 @@ steps:
       pipeline:
         $ref: file:pipeline_dependencies.yaml
       from_cuds:
-        - moltemplate_input 
+        - moltemplate_includes
     postprocess:
       - "{{ ctx.current.outputs['collection_id']|to_ctx('collection_uuid') }}"
-      - "{{ ctx.current.outputs.results['moltemplate_input']|to_ctx('includes') }}"
+      - "{{ ctx.current.outputs.results['moltemplate_includes']|to_ctx('includes') }}"
 
   - workflow: execflow.exec_wrapper
     inputs:

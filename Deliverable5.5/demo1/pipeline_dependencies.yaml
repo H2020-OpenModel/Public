@@ -6,7 +6,7 @@ strategies:
     mediaType: application/vnd.dlite-parse
     configuration:
       driver: yaml
-      label: moltemplate_input
+      label: moltemplate_includes
 
   - mapping: mappings
     mappingType: triples
