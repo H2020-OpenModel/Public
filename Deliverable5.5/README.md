@@ -58,11 +58,11 @@ The local execution of this demonstration requires the following software compon
   ```
 NB! Until ExecFlow and OntoFlow have been made public it might be easier to just clone and pip install execflow and ontoflow separately before the step above.
 
-  To avoid changing the names of local files stored in the repository, absolute paths with root `/tmp/Deliverable5.5` have been used. Independently from where your repository is stored, create the following link from a terminal:
+  To avoid changing the names of local files stored in the repository, absolute paths with root `/tmp/Public` have been used. Independently from where your repository is stored, create the following link from a terminal:
   
   ```bash
   cd /tmp
-  ln -s /path/to/Public/Deliverable5.5
+  ln -s /path/to/Public
   ```
 
 > TODO: 
