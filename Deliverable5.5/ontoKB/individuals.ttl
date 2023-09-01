@@ -8,10 +8,10 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://emmo.info/emmo/domain/openmodel-individuals> .
+@base <http://emmo.info/emmo#> .
 
 <http://emmo.info/emmo/domain/openmodel-individuals> rdf:type owl:Ontology ;
-                                                      owl:imports <http://emmo.info/emmo/domain/openmodel> ;
+                                                      owl:imports <http://emmo.info/emmo/domain/openmodel-inferred#> ; 
                                                       dcterms:abstract ""@en ;
                                                       dcterms:bibliographicCitation "Work under review - not available yet" ;
                                                       dcterms:contributor "Goldbeck Consulting Ltd (UK)" ;
@@ -66,7 +66,7 @@
                          :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
                          om:LAMMPSLogParsingDensity ;
                 :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 :FluidDensity ;
-                <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> :LAMMPSLog .
+                :EMMO_36e69413_8c59_4799_946c_10b05d266e22 :LAMMPSLog .
 
 
 ###  http://emmo.info/emmo#LAMMPSArguments
@@ -123,12 +123,12 @@
                          :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a :softwareLAMMPS ;
                          :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 :LAMMPSDCD ,
                                                                     :LAMMPSLog ;
-                         <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> :LAMMPSArguments ,
+                         :EMMO_36e69413_8c59_4799_946c_10b05d266e22 :LAMMPSArguments ,
                                                                                                                       :LAMMPSDataSetInput .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :LAMMPSMDFluidSimulation ;
-   owl:annotatedProperty <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
+   owl:annotatedProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
    owl:annotatedTarget :LAMMPSDataSetInput ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "We should use the class restrictions to say that this individual has exactly 1 LAMMPSDataSetInput."@en
  ] .
@@ -166,10 +166,10 @@
 ###  http://emmo.info/emmo#LTFluidDensityMaster
 :LTFluidDensityMaster rdf:type owl:NamedIndividual ,
                                om:WaterDensityLT ;
+                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "LT master file that generates the input deck for LAMMPS. It contains references to other files (includes) to access macros and force fields."@en ;
                       :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe :waterDensityDataSetInputMaster ;
                       om:hasCTX "ctx.master_lt" ;
-                      om:hasTempURIValue "/tmp/{{run}}.lt" ;
-                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "LT master file that generates the input deck for LAMMPS. It contains references to other files (includes) to access macros and force fields."@en .
+                      om:hasTempURIValue "/tmp/{{run}}.lt" .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :LTFluidDensityMaster ;
@@ -224,8 +224,8 @@
                               om:WaterDensityMoltemplateDP ;
                      :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a :softwareMoltemplate ;
                      :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 :LAMMPSDataSetInput ;
-                     <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> :waterDensityDataSetInput2 ;
-                     :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This individual refers to workflow2.yaml." .
+                     :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This individual refers to workflow2.yaml." ;
+                     :EMMO_36e69413_8c59_4799_946c_10b05d266e22 :waterDensityDataSetInput2 .
 
 
 ###  http://emmo.info/emmo#MoltemplateProcess3
@@ -234,7 +234,7 @@
                               om:WaterDensityMoltemplateDP ;
                      :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a :softwareMoltemplate ;
                      :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 :LAMMPSDataSetInput ;
-                     <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> :LTFluidDensityMaster ,
+                     :EMMO_36e69413_8c59_4799_946c_10b05d266e22 :LTFluidDensityMaster ,
                                                                                                                   :waterDensityDataSetInput3 .
 
 
@@ -244,9 +244,9 @@
                               om:WaterDensityMoltemplateDP ;
                      :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a :softwareMoltemplate ;
                      :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 :LAMMPSDataSetInput ;
-                     <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> :CTX.dependency ,
-                                                                                                                  :LTFluidDensityMaster ;
-                     :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This individual refers to workflow5.yaml and/or workflow6.yaml, which are not yet working (July 2023)."@en .
+                     :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This individual refers to workflow5.yaml and/or workflow6.yaml, which are not yet working (July 2023)."@en ;
+                     :EMMO_36e69413_8c59_4799_946c_10b05d266e22 :CTX.dependency ,
+                                                                                                                  :LTFluidDensityMaster .
 
 
 ###  http://emmo.info/emmo#WDCorrelationLength
@@ -313,18 +313,18 @@
 :pipelineMoltemplateDependency rdf:type owl:NamedIndividual ,
                                         :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
                                         om:OTEAPIpipeline ;
+                               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "OTEAPI pipeline that is part of workflow5.yaml"@en ;
                                :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 :CTX.dependency ;
-                               <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> :waterDensityDataSetInputDependency ;
-                               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "OTEAPI pipeline that is part of workflow5.yaml"@en .
+                               :EMMO_36e69413_8c59_4799_946c_10b05d266e22 :waterDensityDataSetInputDependency .
 
 
 ###  http://emmo.info/emmo#pipelineMoltemplateMaster
 :pipelineMoltemplateMaster rdf:type owl:NamedIndividual ,
                                     :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
                                     om:OTEAPIpipeline ;
+                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "OTEAPI pipeline that is part of workflow3.yaml and workflow5.yaml"@en ;
                            :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 :LTFluidDensityMaster ;
-                           <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> :waterDensityDataSetInputMaster ;
-                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "OTEAPI pipeline that is part of workflow3.yaml and workflow5.yaml"@en .
+                           :EMMO_36e69413_8c59_4799_946c_10b05d266e22 :waterDensityDataSetInputMaster .
 
 
 ###  http://emmo.info/emmo#softwareLAMMPS
@@ -357,11 +357,7 @@
 ###  http://emmo.info/emmo#userQuery
 :userQuery rdf:type owl:NamedIndividual ,
                     :EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ,
-                    [ rdf:type owl:Restriction ;
-                      owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
-                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                      owl:onDataRange xsd:float
-                    ] ;
+                    <http://org.semanticweb.owlapi/error#Error1> ;
            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This individual triggers a promt asking the user to input some value."@en ;
            :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 xsd:float .
 
@@ -391,6 +387,7 @@
                                     ] ;
                            :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f :LAMMPSArguments ,
                                                                       :MoltemplateArguments ;
+                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Input dataset for workflow2.yaml"@en ;
                            :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe :LTAAMDTask ,
                                                                       :LTFluidDensityTemplate ,
                                                                       :LTGROMOSSettings ,
@@ -406,8 +403,7 @@
                                                                       :WDSamplingInterval ,
                                                                       :WDTemperature ,
                                                                       :WDTimestep ,
-                                                                      :waterPDBInput ;
-                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Input dataset for workflow2.yaml"@en .
+                                                                      :waterPDBInput .
 
 
 ###  http://emmo.info/emmo#waterDensityDataSetInput3
@@ -442,25 +438,22 @@
                                                               ] ;
                                                owl:someValuesFrom :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8
                                              ] ;
+                                    :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Input dataset for workflow5.yaml"@en ;
                                     :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe :LTAAMDTask ,
                                                                                :LTGROMOSSettings ,
                                                                                :LTRandomGenerator ,
                                                                                :LTwaterTIP3P ,
-                                                                               :waterPDBInput ;
-                                    :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Input dataset for workflow5.yaml"@en .
+                                                                               :waterPDBInput .
 
 
 ###  http://emmo.info/emmo#waterDensityDataSetInputMaster
 :waterDensityDataSetInputMaster rdf:type owl:NamedIndividual ,
                                          om:waterDensityDataSetMaster ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty [ owl:inverseOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b
-                                                          ] ;
-                                           owl:someValuesFrom :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8
-                                         ] ;
+                                         _:genid31 ;
                                 :EMMO_67339084_e659_42be_9e76_7e22fca63c48 :LTAAMDTask ,
                                                                            :LTGROMOSSettings ,
                                                                            :LTwaterTIP3P ;
+                                :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Input dataset that is part of workflow3.yaml and workflow5.yaml"@en ;
                                 :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe :LTFluidDensityTemplate ,
                                                                            :WDCorrelationLength ,
                                                                            :WDCutoffRadius ,
@@ -471,17 +464,17 @@
                                                                            :WDRoot ,
                                                                            :WDSamplingInterval ,
                                                                            :WDTemperature ,
-                                                                           :WDTimestep ;
-                                :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Input dataset that is part of workflow3.yaml and workflow5.yaml"@en .
+                                                                           :WDTimestep .
+
+_:genid31 rdf:type owl:Restriction ;
+           owl:onProperty [ owl:inverseOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b
+                          ] ;
+           owl:someValuesFrom :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :waterDensityDataSetInputMaster ;
    owl:annotatedProperty rdf:type ;
-   owl:annotatedTarget [ rdf:type owl:Restriction ;
-                         owl:onProperty [ owl:inverseOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b
-                                        ] ;
-                         owl:someValuesFrom :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8
-                       ] ;
+   owl:annotatedTarget _:genid31 ;
    :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Emanuele suggested creating very specific classes with restrictions. It is not clear if DLite (or Tripper) can navigate the restrictions and the taxonomy tree from the individuals. At the time of writing this comment, explicit multiple inheritances are explicitly set."@en
  ] .
 
@@ -489,9 +482,9 @@
 ###  http://emmo.info/emmo#waterPDBInput
 :waterPDBInput rdf:type owl:NamedIndividual ,
                         om:PDBFile ;
+               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initial structure of a box of 64 water molecules."@en ;
                :EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c8e6925 "/tmp/ExecFlowDemo/demo_pm/multiscale/02_water_bm.pdb" ;
-               om:hasCTX "ctx.input_structure_pdb" ;
-               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initial structure of a box of 64 water molecules."@en .
+               om:hasCTX "ctx.input_structure_pdb" .
 
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
@@ -524,4 +517,7 @@
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
