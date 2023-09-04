@@ -1,0 +1,66 @@
+Step:
+  steptype: FUNCTION
+  output_iri: http://emmo.info/emmo#FluidDensity
+  output_unit: None
+  cost: 10.0
+  routes:
+    - arg1:
+        steptype: FUNCTION
+        output_iri: http://emmo.info/emmo#LAMMPSLog
+        output_unit: None
+        cost: 10.0
+        routes:
+          - arg1:
+              steptype: UNSPECIFIED
+              output_iri: http://emmo.info/emmo#LAMMPSArguments
+              output_unit: None
+              cost: 1.0
+              routes:
+            arg2:
+              steptype: FUNCTION
+              output_iri: http://emmo.info/emmo#LAMMPSDataSetInput
+              output_unit: None
+              cost: 10.0
+              routes:
+                - arg1:
+                    steptype: UNSPECIFIED
+                    output_iri: http://emmo.info/emmo#waterDensityDataSetInput2
+                    output_unit: None
+                    cost: 1.0
+                    routes:
+                - arg1:
+                    steptype: FUNCTION
+                    output_iri: http://emmo.info/emmo#LTFluidDensityMaster
+                    output_unit: None
+                    cost: 10.0
+                    routes:
+                      - arg1:
+                          steptype: UNSPECIFIED
+                          output_iri: http://emmo.info/emmo#waterDensityDataSetInputMaster
+                          output_unit: None
+                          cost: 1.0
+                          routes:
+                  arg2:
+                    steptype: UNSPECIFIED
+                    output_iri: http://emmo.info/emmo#waterDensityDataSetInput3
+                    output_unit: None
+                    cost: 1.0
+                    routes:
+                - arg1:
+                    steptype: FUNCTION
+                    output_iri: http://emmo.info/emmo#CTX.dependency
+                    output_unit: None
+                    cost: 10.0
+                    routes:
+                      - arg1:
+                          steptype: UNSPECIFIED
+                          output_iri: http://emmo.info/emmo#waterDensityDataSetInputDependency
+                          output_unit: None
+                          cost: 1.0
+                          routes:
+                  arg2:
+                    steptype: UNSPECIFIED
+                    output_iri: http://emmo.info/emmo#LTFluidDensityMaster
+                    output_unit: None
+                    cost: 1.0
+                    routes:
