@@ -11,15 +11,14 @@ def parse_density(log: "orm.SinglefileData") -> "Dict[str, orm.Float]":
     filename_stdout = log
     stdout = log.get_content()
 
-    nconv = 0
-    sum_density = 0.0
-
     data_lines = stdout.split('\n')
     istep, idensity = -1, -1
     for line in data_lines:
         if "Loop time of" in line:
-            break
+            istep, idensity = -1, -1
         if "Step" in line:
+            nconv = 0
+            sum_density = 0.0
             header = line.split()
             istep = header.index("Step")
             idensity = header.index("Density")

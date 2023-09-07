@@ -19,7 +19,7 @@ classifiers = [
 requires-python = '>=3.8'
 
 dependencies = [
-    'ontoflow@git+https://github.com/H2020-OpenModel/OntoFlow@9c76d78',
+    'ontoflow@git+https://github.com/H2020-OpenModel/OntoFlow',
     'execflow@git+https://github.com/H2020-OpenModel/ExecFlow',
 ]
 
