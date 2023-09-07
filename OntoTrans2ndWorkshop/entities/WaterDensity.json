@@ -1,0 +1,11 @@
+{
+    "uri": "http://openmodel.eu/meta/0.1/WaterDensity",
+    "description": "Entity describing water density",
+    "dimensions": [],
+    "properties": {
+        "density": {
+            "type": "float64",
+            "description": "Water density"
+        }
+    }
+}

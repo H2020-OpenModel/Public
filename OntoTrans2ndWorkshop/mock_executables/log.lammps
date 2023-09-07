@@ -1,0 +1,18 @@
+LAMMPS (2 Jun 2022)
+
+
+# ----------------- Init Section -----------------
+
+include "output.in.init"
+# Input variables.
+variable run string output
+variable temp  equal 298.15
+variable ts    equal 10      # timestep
+variable p     equal 1000.0    # correlation length
+variable s     equal 5       # sample interval
+variable steps equal 50      # Steps for equilibration.
+variable equi  equal 100    # Equilibration steps
+variable prod  equal 50000  # Production steps
+echo  log
+log   ${run}.log
+log   output.log

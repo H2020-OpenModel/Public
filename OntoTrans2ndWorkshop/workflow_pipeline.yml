@@ -1,0 +1,14 @@
+---
+steps:
+
+  - workflow: execflow.oteapipipeline
+    inputs:
+      pipeline:
+        $ref: file:pipeline_input.yml
+      run_pipeline: pipe
+      from_cuds:
+        - moltemplate_input_1
+
+
+    #postprocess:
+    #  - "{{ ctx.current.outputs['collection_id']|to_results('collection_uuid') }}"

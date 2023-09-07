@@ -1,0 +1,29 @@
+version: 1
+
+strategies:
+  - dataresource: load_data
+    downloadUrl: "file:///OntoTrans2ndWorkshop/data/multidata_moltemplateinput.xlsx"
+    mediaType: application/vnd.dlite-xlsx
+    configuration:
+      metadata: http://openmodel.eu/meta/0.1/MoltemplateInputPhysicalProperties
+      excel_config:
+        worksheet: "PhysicalParameters"
+        header_row: "1"
+        row_from: "2"
+        row_to: "2"
+      label: moltemplate_input_1
+
+  - mapping: mappings
+    mappingType: mappings
+    prefixes:
+      emmo: http://emmo.info/emmo#
+      map: http://emmo.info/domain-mappings#
+      prop: http://openmodel.eu/meta/0.1/MoltemplateInputPhysicalProperties#
+      demonto: http://openmodel.eu/0.1/domainonto#
+    triples:
+      - ["prop:temperature", "map:mapsTo", "demonto:Temperature"]
+      - ["prop:pressure", "map:mapsTo", "demonto:Pressure"]
+
+
+pipelines:
+  pipe: load_data | mappings

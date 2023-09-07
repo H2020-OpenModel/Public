@@ -1,0 +1,44 @@
+{
+    "uri": "http://openmodel.eu/meta/0.1/MoltemplateInputSimulationParameters",
+    "description": "Entity describing input variables for the simulation",
+    "dimensions": {
+        "nrows": "Number of elements (i.e. number or rows)."
+    },
+    "properties": {
+        "number_of_steps": {
+            "type": "int",
+            "description": "Number of steps for something.",
+	    "shape": ["nrows"]
+        },
+        "equilibration_steps": {
+            "type": "int",
+            "description": "Number of steps during equilibration.",
+	    "shape": ["nrows"]
+        },
+        "s_": {
+            "type": "int",
+            "description": "Not sure.",
+	    "shape": ["nrows"]
+        },
+        "production_steps": {
+            "type": "int",
+            "description": "Production steps.",
+	    "shape": ["nrows"]
+        },
+        "timestep": {
+            "type": "int",
+            "description": "Time step in fs.",
+	    "shape": ["nrows"]
+        },
+        "gridsize": {
+            "type": "int",
+            "description": "Grid size.",
+	    "shape": ["nrows"]
+        },
+       "gridspacing": {
+            "type": "float",
+            "description": "Grid spacing.",
+	    "shape": ["nrows"]
+        }
+    }
+}
