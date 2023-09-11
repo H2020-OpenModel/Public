@@ -20,6 +20,14 @@ and a simlified lammpsparser.
 
 This can all be installed by running `pip install .` in the current folder
 
+Note that in order to run the example AiiDA needs to be setup, please follow the 
+installation instructions by [AiiDA](https://aiida.readthedocs.io/projects/aiida-core/en/latest/intro/install_system.html#intro-get-started-system-wide-install).
+
+We recommmend using a dedicated python environment which can be created with 
+`pythonX.XX -m vevn environment_name` and activated with `source path/to/environment_name/bin/activate`.	
+This needs to be done _before_ installing ExecFlow (pip install .).
+After installing ExecFlow, the aiida profile needs to be setup with `verdi quicksetup`, the rabbitmq-server and postgresql must be started, and finally the aiida daemon started with `verdi daemon start`.
+
 # Step 1: Documentation of data
 
 The first step is to document the input needed for your simulation.
