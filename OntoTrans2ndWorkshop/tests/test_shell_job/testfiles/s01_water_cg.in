@@ -1,0 +1,19 @@
+
+
+# ----------------- Init Section -----------------
+
+include "s01_water_cg.in.init"
+
+
+# ----------------- Atom Definition Section -----------------
+
+read_data "s01_water_cg.data"
+
+# ----------------- Settings Section -----------------
+
+include "s01_water_cg.in.settings"
+
+
+# ----------------- Run Section -----------------
+
+include "s01_water_cg.in.run"

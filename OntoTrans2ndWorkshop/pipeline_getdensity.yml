@@ -1,0 +1,35 @@
+version: 1
+
+strategies:
+  - function: datanode2cuds
+    functionType: aiidacuds/datanode2cuds
+    configuration:
+      names: to_cuds
+
+  # TODO: Need to map the instance to a different datamodel
+  # Mapping datamodel to new datamodel is not possible
+  # as there are many different instances of same datamodel there.
+  # Could a solution be to add a triple with a tag or label specified
+  # in the workflow?
+  - mapping: mappings
+    mappingType: mappings
+    prefixes:
+      float: onto-ns.com/meta/1.0/core.float#
+      demonto: http://openmodel.eu/meta/0.1/WaterDensity#
+      emmo: http://emmo.info/emmo#
+      map: http://emmo.info/domain-mappings#
+    triples:
+      - ["float:value", "map:mapsTo", "emmo:WaterDensity"]
+      - ["demonto:density", "map:mapsTo", "emmo:WaterDensity"]
+
+
+  - function: dump_output
+    functionType: application/vnd.dlite-generate
+    configuration:
+      datamodel: http://openmodel.eu/meta/0.1/WaterDensity
+      driver: yaml
+      location: /tmp/OntoTrans2ndWorkshop/output/test.yaml 
+      options: "mode=w"
+
+pipelines:
+  pipe: datanode2cuds | mappings | dump_output

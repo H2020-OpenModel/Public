@@ -1,0 +1,93 @@
+---
+# New version based on execflow.exec_wrapper.
+steps:
+
+  - workflow: execflow.oteapipipeline
+    inputs:
+      pipeline:
+        $ref: file:pipeline_input.yml
+      run_pipeline: pipe
+      from_cuds:
+        - step01_input_file
+
+    postprocess:
+      - "{{ ctx.current.outputs['collection_id']|to_results('collection_uuid') }}"
+      - "{{ ctx.current.outputs.results['step01_input_file']|to_ctx('step01_input_file') }}" # This gives the PK number
+
+  - workflow: execflow.exec_wrapper
+    inputs:
+      command: "/tmp/OntoTrans2ndWorkshop/mock_executables/mockmoltemplate.sh"
+      arguments:
+        - "{infile1}"
+        - "{infile2}"
+        - "{infile3}"
+      files:
+        infile1:
+          filename: "01_input_variables.txt"
+          node: "{{ ctx.step01_input_file }}"
+        infile2:
+          filename: "tip4p2005_cg_01.lt"
+          template: "/tmp/OntoTrans2ndWorkshop/data/tip4p2005_cg_01.lt"
+        infile3:
+          filename: "solvent_cg_creation.lt"
+          template: "/tmp/OntoTrans2ndWorkshop/data/solvent_cg_creation.lt"
+      outputs:
+        - output.in
+        - output.data
+        - output.in.settings
+        - output.in.run
+        - output.in.init
+    postprocess:
+      - "{{ ctx.current.outputs['output_in']|to_ctx('output_in') }}"
+      - "{{ ctx.current.outputs['output_data']|to_ctx('output_data') }}"
+      - "{{ ctx.current.outputs['output_in_settings']|to_ctx('output_in_settings') }}"
+      - "{{ ctx.current.outputs['output_in_run']|to_ctx('output_in_run') }}"
+      - "{{ ctx.current.outputs['output_in_init']|to_ctx('output_in_init') }}"
+
+  - workflow: execflow.exec_wrapper
+    inputs:
+      command: "/tmp/OntoTrans2ndWorkshop/mock_executables/mocklammps.sh"
+      arguments:
+        - "-in"
+        - "{in}"
+      files:
+        in:
+          filename: "output.in"
+          node: "{{ ctx.output_in }}"
+        data:
+          filename: "output.data"
+          node: "{{ ctx.output_data }}"
+        settings:
+          filename: "output.in.settings"
+          node: "{{ ctx.output_in_settings }}"
+        run:
+          filename: "output.in.run"
+          node: "{{ ctx.output_in_run }}"
+        init:
+          filename: "output.in.init"
+          node: "{{ ctx.output_in_init }}"
+      outputs:
+        - output.log
+        - output.dump
+    postprocess:
+      - "{{ ctx.current.outputs['output_log']|to_ctx('output_log') }}"
+      - "{{ ctx.current.outputs['output_dump']|to_ctx('output_dump') }}"
+
+  - calcjob: execflowdemo.lammps.density
+    inputs:
+      log: "{{ ctx.output_log }}"
+    postprocess:
+      - "{{ ctx.current.outputs['density'] | to_results('density') }}"
+      - "{{ ctx.current.outputs['density'] | to_ctx('density') }}"
+
+  - workflow: execflow.oteapipipeline
+    inputs:
+      pipeline:
+        $ref: file:pipeline_getdensity.yml
+      run_pipeline: pipe
+      to_cuds:
+        - density
+      density:
+        "{{ ctx.density }}"
+    postprocess:
+      - "{{ ctx.current.outputs['collection_id']|to_ctx('collection_uuid') }}"

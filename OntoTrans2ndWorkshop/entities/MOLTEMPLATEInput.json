@@ -1,0 +1,54 @@
+{
+    "uri": "http://openmodel.eu/meta/0.1/MoltemplateInputArray",
+    "description": "Entity describing input variables for the simulation",
+    "dimensions": {
+        "nvalues": "Number of elements (i.e. number or rows)."
+    },
+    "properties": {
+        "steps": {
+            "type": "int",
+            "shape": ["nvalues"],
+            "description": "Number of steps for something."
+        },
+        "equi": {
+            "type": "int",
+            "shape": ["nvalues"],
+	    "description": "Number of steps during equilibration."
+        },
+        "s": {
+            "type": "int",
+            "shape": ["nvalues"],
+            "description": "Not sure."
+        },
+        "prod": {
+            "type": "int",
+            "shape": ["nvalues"],
+            "description": "Production steps."
+        },
+        "temp": {
+            "type": "float",
+            "shape": ["nvalues"],
+            "description": "Temperature"
+        },
+        "p": {
+            "type": "float",
+            "shape": ["nvalues"],
+            "description": "Pressure."
+        },
+        "ts": {
+            "type": "int",
+            "shape": ["nvalues"],
+            "description": "Time step in fs."
+        },
+        "grid_size": {
+            "type": "int",
+            "shape": ["nvalues"],
+            "description": "Grid size."
+        },
+       "grid_spacing": {
+            "type": "float",
+            "shape": ["nvalues"],
+            "description": "Grid spacing."
+        }
+    }
+}
