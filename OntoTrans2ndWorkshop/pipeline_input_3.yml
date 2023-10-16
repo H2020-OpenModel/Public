@@ -1,0 +1,32 @@
+version: 1
+
+strategies:
+  - mapping: mappings
+    mappingType: mappings
+    prefixes:
+      emmo: http://emmo.info/emmo#
+      map: http://emmo.info/domain-mappings#
+      input: http://openmodel.eu/meta/0.1/MoltemplateInputArray#
+      demonto: http://openmodel.eu/0.1/domainonto#
+    triples:
+      - ["input:temp", "map:mapsTo", "demonto:Temperature"]
+      - ["input:p", "map:mapsTo", "demonto:Pressure"]
+      - ["input:steps", "map:mapsTo", "demonto:Steps"]
+      - ["input:equi", "map:mapsTo", "demonto:StepsToEquilibration"]
+      - ["input:s", "map:mapsTo", "demonto:Sss"]
+      - ["input:ts", "map:mapsTo", "demonto:TimeStep"]
+      - ["input:prod", "map:mapsTo", "demonto:StepsInProduction"]
+      - ["input:grid_size", "map:mapsTo", "demonto:GridSize"]
+      - ["input:grid_spacing", "map:mapsTo", "demonto:GridSpacing"]
+
+  - function: generate_moltemplate_input
+    functionType: application/vnd.dlite-generate
+    configuration:
+      datamodel: http://openmodel.eu/meta/0.1/MoltemplateInputArray
+      driver: moltemplate_input
+      location: /tmp/OntoTrans2ndWorkshop/output/step01_input.lt # This location needs clarification with AiiDA
+      options: "mode=w"
+
+
+pipelines:
+  pipe: mappings | generate_moltemplate_input

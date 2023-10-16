@@ -1,0 +1,94 @@
+version: 1
+
+strategies:
+  - dataresource: load_data
+    downloadUrl: "file:///tmp/OntoTrans2ndWorkshop/data/multidata_moltemplateinput.xlsx"
+    mediaType: application/vnd.dlite-xlsx
+    configuration:
+      metadata: http://openmodel.eu/meta/0.1/MoltemplateInputPhysicalProperties
+      excel_config:
+        worksheet: "PhysicalParameters"
+        header_row: "1"
+        row_from: "2"
+        row_to: "2"
+      label: moltemplate_input_1
+
+  - mapping: mappings
+    mappingType: mappings
+    prefixes:
+      emmo: http://emmo.info/emmo#
+      map: http://emmo.info/domain-mappings#
+      prop: http://openmodel.eu/meta/0.1/MoltemplateInputPhysicalProperties#
+      demonto: http://openmodel.eu/0.1/domainonto#
+    triples:
+      - ["prop:temperature", "map:mapsTo", "demonto:Temperature"]
+      - ["prop:pressure", "map:mapsTo", "demonto:Pressure"]
+
+  - dataresource: load_data_1
+    downloadUrl: "file:///tmp/OntoTrans2ndWorkshop/data/multidata_moltemplateinput.xlsx"
+    mediaType: application/vnd.dlite-xlsx
+    configuration:
+      metadata: http://openmodel.eu/meta/0.1/MoltemplateInputSimulationParameters
+      excel_config:
+        worksheet: "SimulationParameters"
+        header_row: "1"
+        row_from: "2"
+        row_to: "2"
+      label: moltemplate_input_2
+
+  - mapping: mappings_1
+    mappingType: mappings
+    prefixes:
+      emmo: http://emmo.info/emmo#
+      map: http://emmo.info/domain-mappings#
+      param: http://openmodel.eu/meta/0.1/MoltemplateInputSimulationParameters#
+      demonto: http://openmodel.eu/0.1/domainonto#
+    triples:
+      - ["param:number_of_steps", "map:mapsTo", "demonto:Steps"]
+      - ["param:equilibration_steps", "map:mapsTo", "demonto:StepsToEquilibration"]
+      - ["param:s_", "map:mapsTo", "demonto:S"]
+      - ["param:timestep", "map:mapsTo", "demonto:TimeStep"]
+      - ["param:production_steps", "map:mapsTo", "demonto:StepsInProduction"]
+      - ["param:gridsize", "map:mapsTo", "demonto:GridSize"]
+      - ["param:gridspacing", "map:mapsTo", "demonto:GridSpacing"]
+
+  - mapping: mappings_3
+    mappingType: mappings
+    prefixes:
+      emmo: http://emmo.info/emmo#
+      map: http://emmo.info/domain-mappings#
+      input: http://openmodel.eu/meta/0.1/MoltemplateInputArray#
+      demonto: http://openmodel.eu/0.1/domainonto#
+    triples:
+      - ["input:temp", "map:mapsTo", "demonto:Temperature"]
+      - ["input:p", "map:mapsTo", "demonto:Pressure"]
+      - ["input:steps", "map:mapsTo", "demonto:Steps"]
+      - ["input:equi", "map:mapsTo", "demonto:StepsToEquilibration"]
+      - ["input:s", "map:mapsTo", "demonto:S"]
+      - ["input:ts", "map:mapsTo", "demonto:TimeStep"]
+      - ["input:prod", "map:mapsTo", "demonto:StepsInProduction"]
+      - ["input:grid_size", "map:mapsTo", "demonto:GridSize"]
+      - ["input:grid_spacing", "map:mapsTo", "demonto:GridSpacing"]
+
+  - function: generate_moltemplate_input
+    functionType: application/vnd.dlite-generate
+    configuration:
+      datamodel: http://openmodel.eu/meta/0.1/MoltemplateInputArray
+      driver: moltemplate_input
+      location: /tmp/OntoTrans2ndWorkshop/output/step01_input.lt # This location needs clarification with AiiDA
+      options: "mode=w"
+
+  - function: file2collection
+    functionType: aiidacuds/file2collection
+    configuration:
+      path: /tmp/OntoTrans2ndWorkshop/output/step01_input.lt
+      label: step01_input_file
+
+  - function: cuds2datanode
+    functionType: aiidacuds/cuds2datanode
+    configuration:
+      names: from_cuds
+
+
+pipelines:
+  pipe: load_data | mappings | load_data_1 | mappings_1 | mappings_3 | generate_moltemplate_input | file2collection | cuds2datanode
