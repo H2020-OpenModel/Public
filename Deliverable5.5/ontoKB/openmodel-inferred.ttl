@@ -4,137 +4,137 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://emmo.info/emmo/domain/openmodel-inferred#> .
+@base <http://emmo.info/emmo/domain/openmodel-inferred> .
 
-<http://emmo.info/emmo/domain/openmodel-inferred#> rdf:type owl:Ontology ;
-                                                    <http://emmo.info/emmo#EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17> """Emanuele Ghedini
+<http://emmo.info/emmo/domain/openmodel-inferred> rdf:type owl:Ontology ;
+                                                   <http://emmo.info/emmo#EMMO_1246b120_abbe_4840_b0f8_3e4348b24a17> """Emanuele Ghedini
 University of Bologna (IT)
 email: emanuele.ghedini@unibo.it"""@en ,
-                                                                                                                      """Gerhard Goldbeck
+                                                                                                                     """Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
 email: gerhard@goldbeck-consulting.com"""@en ,
-                                                                                                                      "emmo@emmc.eu" ;
-                                                    <http://purl.org/dc/terms/abstract> ""@en ,
-                                                                                        """Defines physical quantities in the International System of Quantities (ISQ). ISQ was made an official ISO standard in 2009 and is defined in the ISO/IEC 80000 standard.
+                                                                                                                     "emmo@emmc.eu" ;
+                                                   <http://purl.org/dc/terms/abstract> ""@en ,
+                                                                                       """Defines physical quantities in the International System of Quantities (ISQ). ISQ was made an official ISO standard in 2009 and is defined in the ISO/IEC 80000 standard.
 
 ISQ underlines the SI system and defines physical quanties that are measured with SI units.
 
 ISQ has 7 base quantities and many derived quantities defined in terms of the 7 base quantities.
 
 The number of derived quantities not closed and may increase based on the need by domain ontologies."""@en ,
-                                                                                        """Defines properties as the result of an observation process. Observation is a semiotic process that stimulate an interpretant within the interpreter who communicates the perception result to other interpreters through a sign, which is the property.
+                                                                                       """Defines properties as the result of an observation process. Observation is a semiotic process that stimulate an interpretant within the interpreter who communicates the perception result to other interpreters through a sign, which is the property.
 
 Hence, properties creates a link between the holistic and the perceptual perspectives.
 
 Subclasses of property are subclasses that spesialise the type of observation process."""@en ,
-                                                                                        """Defines the formal language of metrology, including theoretical and practical aspects of measurements.
+                                                                                       """Defines the formal language of metrology, including theoretical and practical aspects of measurements.
 
 This module is based on the International vocabulary of metrology (VIM) as well as the ISO/IEC 80000 standard."""@en ,
-                                                                                        """Defines the holistic perspective which include process and the role of its participants.
+                                                                                       """Defines the holistic perspective which include process and the role of its participants.
 
 Processes are 4D object's that unfolds in time in a way that has a meaning to the ontologist with participants who's role is assigned by the ontologist."""@en ,
-                                                                                        """Defines the perceptual perspective, which categorises real world objects according to how they are percieved by an user as a recognisable pattern in space or time. 
+                                                                                       """Defines the perceptual perspective, which categorises real world objects according to how they are percieved by an user as a recognisable pattern in space or time. 
 
 The perceptual module includes formal languages, pictures, geometry, mathematics and sounds. Phenomenic objects can be used in a semiotic process as signs."""@en ,
-                                                                                        """Defines the perceptual perspective, which which categorises real world objects according to how they are percieved by an user as a recognisable pattern in space or time. 
+                                                                                       """Defines the perceptual perspective, which which categorises real world objects according to how they are percieved by an user as a recognisable pattern in space or time. 
 
 The perceptual module includes formal languages, pictures, geometry, mathematics and sounds. Phenomenic objects can be used in a semiotic process as signs."""@en ,
-                                                                                        """Defines the reductionistic perspective, which uses the fundamental non-transitive parthood relation, called direct parthood, to provide a powerful granularity description of multiscale real world objects.  EMMO can in principle represents the Universe with direct parthood relations as a direct rooted tree up to its elementary constituents.
+                                                                                       """Defines the reductionistic perspective, which uses the fundamental non-transitive parthood relation, called direct parthood, to provide a powerful granularity description of multiscale real world objects.  EMMO can in principle represents the Universe with direct parthood relations as a direct rooted tree up to its elementary constituents.
 
 In addition to direct parthood, the reductionistic module defines 'State' as a tesselation of spatial direct parts with no change of granularity or cardinality and 'Existent' as a tesselation of temporal direct parts."""@en ,
-                                                                                        "Defines the root of the physicalistic perspective that introduces the concept of real world objects that have a meaning for the ontologist under an applied physics perspective."@en ,
-                                                                                        """Introduces the fundamental mereocausal (and mereotopological) concepts of EMMO and their relations with the real world entities that they represent. EMMO uses mereocausality as the ground for all the subsequent ontology modules.
+                                                                                       "Defines the root of the physicalistic perspective that introduces the concept of real world objects that have a meaning for the ontologist under an applied physics perspective."@en ,
+                                                                                       """Introduces the fundamental mereocausal (and mereotopological) concepts of EMMO and their relations with the real world entities that they represent. EMMO uses mereocausality as the ground for all the subsequent ontology modules.
 The concept of causal connection is used to define the first distinction between ontology entities namely the item and collections. Items are causally self-connected objects, while collections are causally disconnected.
 Quantum mereology is based on the concept of quantum entity. This module introduces also the fundamental mereotopological relations used to distinguish between space and time dimensions, making spacetime emerge from underlying network of causal relations between quantum entities."""@en ,
-                                                                                        "Ontological foundations for a Knowledge Base covering the methods outlined in the Review of Materials Modelling (RoMM), workflows definition, and data documentation."@en ,
-                                                                                        "The chemistry module populates the physicalistic perspective with materials subclasses categorised according to modern applied chemistry."@en ,
-                                                                                        "The domain module is a container that imports some common domain extensions of EMMO perspectives. The intension is to provide examples for developers of EMMO-based domain ontologies."@en ,
-                                                                                        "The materials module populates the physicalistic perspective with materials subclasses categorised according to modern applied physical sciences."@en ,
-                                                                                        "The math module defines the formal language of mathematics. Mathematical objects represents graphical objects based on graphical symbols arranged according the rules of math."@en ,
-                                                                                        "The models module defines models as semiotic signs that stands for an object by resembling or imitating it, in shape or by sharing a similar logical structure."@en ,
-                                                                                        """The module 'sidimensionalunits' defines SI dimensional unit classes.  These classes provide a categorisation of all units according to their SI physical dimensions.
+                                                                                       "Ontological foundations for a Knowledge Base covering the methods outlined in the Review of Materials Modelling (RoMM), workflows definition, and data documentation."@en ,
+                                                                                       "The chemistry module populates the physicalistic perspective with materials subclasses categorised according to modern applied chemistry."@en ,
+                                                                                       "The domain module is a container that imports some common domain extensions of EMMO perspectives. The intension is to provide examples for developers of EMMO-based domain ontologies."@en ,
+                                                                                       "The materials module populates the physicalistic perspective with materials subclasses categorised according to modern applied physical sciences."@en ,
+                                                                                       "The math module defines the formal language of mathematics. Mathematical objects represents graphical objects based on graphical symbols arranged according the rules of math."@en ,
+                                                                                       "The models module defines models as semiotic signs that stands for an object by resembling or imitating it, in shape or by sharing a similar logical structure."@en ,
+                                                                                       """The module 'sidimensionalunits' defines SI dimensional unit classes.  These classes provide a categorisation of all units according to their SI physical dimensions.
 
 This module provides a connection between physical quantities defined in the 'isq' modules and the units defined in the 'siunits' and 'unitsextension' modules."""@en ,
-                                                                                        """The perspective module provides the practical implementation of the EMMO pluralistic approach for which the only objective categorization is provided by the Universe individual and all the Quantum individuals.
+                                                                                       """The perspective module provides the practical implementation of the EMMO pluralistic approach for which the only objective categorization is provided by the Universe individual and all the Quantum individuals.
 
 Between these two extremes, there are several subjective ways to categorize real world objects, each one provide under a 'Perspective' subclass."""@en ,
-                                                                                        """The semiotics module is based on the semiotic theory by Charles S. Peirce. It introduces the triadic semiotic process, called semiosis, with its participants an 'object' that is represented by a 'sign' producing another sign, the 'interpretant' and finally the 'interpreter' who connects the 'object', 'sign' and 'interpretant'.
+                                                                                       """The semiotics module is based on the semiotic theory by Charles S. Peirce. It introduces the triadic semiotic process, called semiosis, with its participants an 'object' that is represented by a 'sign' producing another sign, the 'interpretant' and finally the 'interpreter' who connects the 'object', 'sign' and 'interpretant'.
 
 The role of abstract objects are in EMMO fulfilled by semiotic objects, i.e. real world objects (e.g. symbol or sign) that stand for other real world objects that are to be interpreted by an agent. These symbols appear in actions (semiotic processes) meant to communicate meaning by establishing relationships between symbols (signs)."""@en ;
-                                                    <http://purl.org/dc/terms/contributor> "Access, DE" ,
-                                                                                           "Adham Hashibon, Fraunhofer IWM, DE" ,
-                                                                                           "Adham Hashibon, University College of London, UK"@en ,
-                                                                                           "Anne de Baas, Goldbeck Consulting Ltd, UK"@en ,
-                                                                                           "Frabcesca L. Bleken, SINTEF (NO)" ,
-                                                                                           "Francesca Lønstad Bleken, SINTEF, NO"@en ,
-                                                                                           "Francesco A. Zaccarini, University of Bologna (IT)" ,
-                                                                                           "Francesco Zaccarini, University of Bologna, IT"@en ,
-                                                                                           "Fraunhofer IWM, DE" ,
-                                                                                           "Georg Schmitz, Access, DE" ,
-                                                                                           "Georg Schmitz, Access, DE"@en ,
-                                                                                           "Gerhard Goldbeck, Boldbeck Consulting Ltd (UK)" ,
-                                                                                           "Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)" ,
-                                                                                           "Gerhard Goldbeck, Goldbeck Consulting Ltd, UK"@en ,
-                                                                                           "Goldbeck Consulting Ltd (UK)" ,
-                                                                                           "Ilaria Maria Paponetti, University of Bologna (IT)" ,
-                                                                                           "Jesper Friis, SINTEF, NO" ,
-                                                                                           "Jesper Friis, SINTEF, NO"@en ,
-                                                                                           "Michael Noeske, FRAUNHOFER IFAM, DE"@en ,
-                                                                                           "SINTEF, NO" ,
-                                                                                           "Sebastiano Moruzzi, University of Bologna, IT"@en ,
-                                                                                           "Simon Clark, SINTEF (NO)" ,
-                                                                                           "University of Bologna, IT" ;
-                                                    <http://purl.org/dc/terms/created> "2023-05-26" ;
-                                                    <http://purl.org/dc/terms/creator> "Adham Hashibon" ,
-                                                                                       "Emanuele Ghedini" ,
-                                                                                       "Emanuele Ghedini, University of Bologna (IT)" ,
-                                                                                       "Emanuele Ghedini, University of Bologna, IT" ,
-                                                                                       "Emanuele Ghedini, University of Bologna, IT"@en ,
-                                                                                       "Georg Schmitz" ,
-                                                                                       "Gerhard Goldbeck" ,
-                                                                                       "Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)" ,
-                                                                                       "Jesper Friis" ,
-                                                                                       "Jesper Friis, SINTEF (NO)" ,
-                                                                                       "The OpenModel Consortium" ;
-                                                    <http://purl.org/dc/terms/description> "Domain ontology describing materials modelling and workflows." ;
-                                                    <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                                                    <http://purl.org/dc/terms/publisher> "EMMC ASBL" ,
-                                                                                         """EMMC ASBL
+                                                   <http://purl.org/dc/terms/contributor> "Adham Hashibon, University College of London, UK"@en ,
+                                                                                          "Anne de Baas, Goldbeck Consulting Ltd, UK"@en ,
+                                                                                          "Francesca Lønstad Bleken, SINTEF, NO"@en ,
+                                                                                          "Francesco Zaccarini, University of Bologna, IT"@en ,
+                                                                                          "Georg Schmitz, Access, DE"@en ,
+                                                                                          "Gerhard Goldbeck, Goldbeck Consulting Ltd, UK"@en ,
+                                                                                          "Jesper Friis, SINTEF, NO"@en ,
+                                                                                          "Michael Noeske, FRAUNHOFER IFAM, DE"@en ,
+                                                                                          "Sebastiano Moruzzi, University of Bologna, IT"@en ,
+                                                                                          "Access, DE" ,
+                                                                                          "Adham Hashibon, Fraunhofer IWM, DE" ,
+                                                                                          "Frabcesca L. Bleken, SINTEF (NO)" ,
+                                                                                          "Francesco A. Zaccarini, University of Bologna (IT)" ,
+                                                                                          "Fraunhofer IWM, DE" ,
+                                                                                          "Georg Schmitz, Access, DE" ,
+                                                                                          "Gerhard Goldbeck, Boldbeck Consulting Ltd (UK)" ,
+                                                                                          "Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)" ,
+                                                                                          "Goldbeck Consulting Ltd (UK)" ,
+                                                                                          "Ilaria Maria Paponetti, University of Bologna (IT)" ,
+                                                                                          "Jesper Friis, SINTEF, NO" ,
+                                                                                          "SINTEF, NO" ,
+                                                                                          "Simon Clark, SINTEF (NO)" ,
+                                                                                          "University of Bologna, IT" ;
+                                                   <http://purl.org/dc/terms/created> "2023-05-26" ;
+                                                   <http://purl.org/dc/terms/creator> "Emanuele Ghedini, University of Bologna, IT"@en ,
+                                                                                      "Adham Hashibon" ,
+                                                                                      "Emanuele Ghedini" ,
+                                                                                      "Emanuele Ghedini, University of Bologna (IT)" ,
+                                                                                      "Emanuele Ghedini, University of Bologna, IT" ,
+                                                                                      "Georg Schmitz" ,
+                                                                                      "Gerhard Goldbeck" ,
+                                                                                      "Gerhard Goldbeck, Goldbeck Consulting Ltd (UK)" ,
+                                                                                      "Jesper Friis" ,
+                                                                                      "Jesper Friis, SINTEF (NO)" ,
+                                                                                      "The OpenModel Consortium" ;
+                                                   <http://purl.org/dc/terms/description> "Domain ontology describing materials modelling and workflows." ;
+                                                   <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                                   <http://purl.org/dc/terms/publisher> """EMMC ASBL
 European Materials Modelling Council
 Silversquare Stéphanie
 Avenue Louise 54
 1050 Brussels
 CBE no: 0731 621 312
 contact@emmc.eu"""@en ,
-                                                                                         "OpenModel Consortium" ;
-                                                    <http://purl.org/dc/terms/title> "Chemistry"@en ,
-                                                                                     "Distinctional"@en ,
-                                                                                     "Domain"@en ,
-                                                                                     "Elementary Multiperspective Material Ontology"@en ,
-                                                                                     "Holistic"@en ,
-                                                                                     "International System of Quantities (ISQ)"@en ,
-                                                                                     "Materials"@en ,
-                                                                                     "Math"@en ,
-                                                                                     "Mereocausality"@en ,
-                                                                                     "Metrology"@en ,
-                                                                                     "Models"@en ,
-                                                                                     "OpenModel Ontology"@en ,
-                                                                                     "Perceptual"@en ,
-                                                                                     "Persholistic"@en ,
-                                                                                     "Persistence"@en ,
-                                                                                     "Perspective"@en ,
-                                                                                     "Physicalistic"@en ,
-                                                                                     "Properties"@en ,
-                                                                                     "Reductionistic"@en ,
-                                                                                     "SI dimensional units"@en ,
-                                                                                     "Semiotics"@en ,
-                                                                                     "Symbolic"@en ;
-                                                    <http://purl.org/vocab/vann/preferredNamespacePrefix> "openmodel"@en ;
-                                                    rdfs:comment """Contacts:
+                                                                                        "EMMC ASBL" ,
+                                                                                        "OpenModel Consortium" ;
+                                                   <http://purl.org/dc/terms/title> "Chemistry"@en ,
+                                                                                    "Distinctional"@en ,
+                                                                                    "Domain"@en ,
+                                                                                    "Elementary Multiperspective Material Ontology"@en ,
+                                                                                    "Holistic"@en ,
+                                                                                    "International System of Quantities (ISQ)"@en ,
+                                                                                    "Materials"@en ,
+                                                                                    "Math"@en ,
+                                                                                    "Mereocausality"@en ,
+                                                                                    "Metrology"@en ,
+                                                                                    "Models"@en ,
+                                                                                    "OpenModel Ontology"@en ,
+                                                                                    "Perceptual"@en ,
+                                                                                    "Persholistic"@en ,
+                                                                                    "Persistence"@en ,
+                                                                                    "Perspective"@en ,
+                                                                                    "Physicalistic"@en ,
+                                                                                    "Properties"@en ,
+                                                                                    "Reductionistic"@en ,
+                                                                                    "SI dimensional units"@en ,
+                                                                                    "Semiotics"@en ,
+                                                                                    "Symbolic"@en ;
+                                                   <http://purl.org/vocab/vann/preferredNamespacePrefix> "openmodel"@en ;
+                                                   rdfs:comment """Contacts:
         Otello M Roscioni
         Goldbeck Consulting Ltd (UK)
         email: otello@goldbeck-consulting.com"""@en ,
-                                                                 """Contacts:
+                                                                """Contacts:
 Gerhard Goldbeck
 Goldbeck Consulting Ltd (UK)
 email: gerhard@goldbeck-consulting.com
@@ -142,13 +142,13 @@ email: gerhard@goldbeck-consulting.com
 Emanuele Ghedini
 University of Bologna (IT)
 email: emanuele.ghedini@unibo.it"""@en ,
-                                                                 """Note: this file has automatically been populated with dimensional units from QUDT.
+                                                                """Note: this file has automatically been populated with dimensional units from QUDT.
 
 We kindly acknowledge NIST for reusing their content, including the physical dimensionality of units."""@en ,
-                                                                 "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ,
-                                                                 "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
-                                                    owl:versionInfo "1.0.0-beta5" ,
-                                                                    1.0 .
+                                                                "The EMMO requires HermiT reasoner plugin in order to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ,
+                                                                "The EMMO should be reasoned with HermiT to visualize all inferences and class hierarchy (ctrl+R hotkey in Protege)."@en ;
+                                                   owl:versionInfo 1.0 ,
+                                                                   "1.0.0-beta5" .
 
 #################################################################
 #    Annotation properties
@@ -891,8 +891,8 @@ A proper part is then the disjoint union of: spatial part, temporal part and spa
 The criteria are implemented in specialised versions of the direct parthood relation (e.g., metrological direct part, XML format direct part).
 The direct parts (tiles) and the tessellated entity (tessellation) are causally self connected (i.e., items), coherently with the concept behind the definition of the reductionistic perspective.""" ;
                                                                   <http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> "The relation grouping all direct parthood relations used in the reductionistic perspective."@en ;
-                                                                  <http://emmo.info/emmo#EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f> "This relation is a simple collector of all relations inverse functional direct parthoods that can be defined in specialised theories using reductionism." ,
-                                                                                                                                    "This relation is not antitransitive, to enable partitioning of a causal structure with more than one tiling scheme (e.g. time and space partitioning)."@en ;
+                                                                  <http://emmo.info/emmo#EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f> "This relation is not antitransitive, to enable partitioning of a causal structure with more than one tiling scheme (e.g. time and space partitioning)."@en ,
+                                                                                                                                    "This relation is a simple collector of all relations inverse functional direct parthoods that can be defined in specialised theories using reductionism." ;
                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "hasDirectPart"@en .
 
 
@@ -1551,10 +1551,6 @@ While the EMMO FOL introduces the quantum causality relation C(x,y) as primitive
                                                              <http://www.w3.org/2004/02/skos/core#prefLabel> "hasNonMaximalPart"@en .
 
 
-###  http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22
-<http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> rdf:type owl:ObjectProperty .
-
-
 ###  http://www.w3.org/2002/07/owl#topObjectProperty
 owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                       rdf:type owl:SymmetricProperty ,
@@ -2111,9 +2107,9 @@ For example, text is made of words, spaces and punctuations. Words are made of c
                                                                                     owl:allValuesFrom <http://emmo.info/emmo#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1>
                                                                                   ] ;
                                                                   <http://emmo.info/emmo#EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Density" ;
-                                                                  <http://emmo.info/emmo#EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578> "4-2" ,
-                                                                                                                                    "9-10" ,
-                                                                                                                                    "Mass per volume."@en ;
+                                                                  <http://emmo.info/emmo#EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578> "Mass per volume."@en ,
+                                                                                                                                    "4-2" ,
+                                                                                                                                    "9-10" ;
                                                                   <http://emmo.info/emmo#EMMO_fe015383_afb3_44a6_ae86_043628697aa2> "https://doi.org/10.1351/goldbook.D01590" ;
                                                                   rdfs:comment "Quantity representing the spatial distribution of mass in a continuous material."@en ;
                                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "MassConcentration"@en ,
@@ -2441,7 +2437,7 @@ A quantity in EMMO is a property and therefore only addresses the first part of 
 
 ###  http://emmo.info/emmo#EMMO_0afc19b0_2d43_4b3d_8da0_9ffb63bc1492
 <http://emmo.info/emmo#EMMO_0afc19b0_2d43_4b3d_8da0_9ffb63bc1492> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> ;
+                                                                  rdfs:subClassOf <http://emmo.info/emmo#39348191_08fd_4bb6_9b1e_012d5b2f1ff6> ;
                                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "NonCrystallineMaterial"@en ;
                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "AmorphousMaterial"@en .
 
@@ -3250,8 +3246,8 @@ It defines the base unit mole in the SI system."""@en ;
                                                                   <http://emmo.info/emmo#EMMO_1f1b164d_ec6a_4faa_8d5e_88bda62316cc> "http://qudt.org/vocab/quantitykind/Voltage"@en ;
                                                                   <http://emmo.info/emmo#EMMO_8de5d5bf_db1c_40ac_b698_095ba3b18578> "6-11.3" ;
                                                                   <http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> "The difference in electric potential between two points."@en ;
-                                                                  <http://emmo.info/emmo#EMMO_fe015383_afb3_44a6_ae86_043628697aa2> "https://doi.org/10.1351/goldbook.A00424" ,
-                                                                                                                                    "https://doi.org/10.1351/goldbook.V06635"@en ;
+                                                                  <http://emmo.info/emmo#EMMO_fe015383_afb3_44a6_ae86_043628697aa2> "https://doi.org/10.1351/goldbook.V06635"@en ,
+                                                                                                                                    "https://doi.org/10.1351/goldbook.A00424" ;
                                                                   rdfs:comment "Correspond to the work needed per unit of charge to move a test charge between two points in a static electric field."@en ;
                                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "ElectricPotentialDifference"@en ,
                                                                                                                  "ElectricTension"@en ;
@@ -3902,10 +3898,10 @@ spin 2: O15 in ground state."""@en ;
                                                                                   <http://emmo.info/emmo#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1> ,
                                                                                   <http://emmo.info/emmo#EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3> ;
                                                                   <http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity that can undergo a chemical reaction."@en ;
-                                                                  <http://emmo.info/emmo#EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a> "Hydrogen molecule is an adequate definition of a certain molecular entity for some purposes, whereas for others it is necessary to distinguish the electronic state and/or vibrational state and/or nuclear spin, etc. of the hydrogen molecule." ,
-                                                                                                                                    "Hydrogen molecule is an adequate definition of a certain molecular entity for some purposes, whereas for others it is necessary to distinguish the electronic state and/or vibrational state and/or nuclear spin, etc. of the hydrogen molecule."@en ,
-                                                                                                                                    "Methane, may mean a single molecule of CH4 (molecular entity) or a molar amount, specified or not (chemical species), participating in a reaction. The degree of precision necessary to describe a molecular entity depends on the context." ,
-                                                                                                                                    "Methane, may mean a single molecule of CH4 (molecular entity) or a molar amount, specified or not (chemical species), participating in a reaction. The degree of precision necessary to describe a molecular entity depends on the context."@en ;
+                                                                  <http://emmo.info/emmo#EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a> "Hydrogen molecule is an adequate definition of a certain molecular entity for some purposes, whereas for others it is necessary to distinguish the electronic state and/or vibrational state and/or nuclear spin, etc. of the hydrogen molecule."@en ,
+                                                                                                                                    "Methane, may mean a single molecule of CH4 (molecular entity) or a molar amount, specified or not (chemical species), participating in a reaction. The degree of precision necessary to describe a molecular entity depends on the context."@en ,
+                                                                                                                                    "Hydrogen molecule is an adequate definition of a certain molecular entity for some purposes, whereas for others it is necessary to distinguish the electronic state and/or vibrational state and/or nuclear spin, etc. of the hydrogen molecule." ,
+                                                                                                                                    "Methane, may mean a single molecule of CH4 (molecular entity) or a molar amount, specified or not (chemical species), participating in a reaction. The degree of precision necessary to describe a molecular entity depends on the context." ;
                                                                   <http://emmo.info/emmo#EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f> """Molecular entity is used as a general term for singular entities, irrespective of their nature, while chemical species stands for sets or ensembles of molecular entities.
 Note that the name of a compound may refer to the respective molecular entity or to the chemical species,"""@en ,
                                                                                                                                     "This concept is strictly related to chemistry. For this reason an atom can be considered the smallest entity that can be considered \"molecular\", including nucleus when they are seen as ions (e.g. H⁺, He⁺⁺)."@en ;
@@ -5864,23 +5860,8 @@ However, the quantum mereotopology approach is not restricted only to physics. F
 
 ###  http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94
 <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> rdf:type owl:Class ;
-                                                                  owl:equivalentClass [ rdf:type owl:Class ;
-                                                                                        owl:unionOf ( <http://emmo.info/emmo#EMMO_0afc19b0_2d43_4b3d_8da0_9ffb63bc1492>
-                                                                                                      <http://emmo.info/emmo#EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655>
-                                                                                                    )
-                                                                                      ] ,
-                                                                                      [ rdf:type owl:Class ;
-                                                                                        owl:unionOf ( <http://emmo.info/emmo#EMMO_4c1f58cd_6e2c_48fb_8098_1cbb762abb05>
-                                                                                                      <http://emmo.info/emmo#EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438>
-                                                                                                      <http://emmo.info/emmo#EMMO_f678173d_f036_4df1_a86b_2894560be617>
-                                                                                                      <http://emmo.info/emmo#EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860>
-                                                                                                    )
-                                                                                      ] ;
                                                                   rdfs:subClassOf <http://emmo.info/emmo#EMMO_6e9cb807_fc68_4bcf_b3ba_5fccc887c644> ,
                                                                                   <http://emmo.info/emmo#bc37743c_37c4_4ec7_9d58_d1aae5567352> ;
-                                                                  owl:disjointUnionOf ( <http://emmo.info/emmo#EMMO_660a4964_0333_4663_bc66_e93ef59b0679>
-                                                                                        <http://emmo.info/emmo#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2>
-                                                                                      ) ;
                                                                   <http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> "The class of individuals standing for an amount of ordinary matter substance (or mixture of substances) in different states of matter or phases."@en ;
                                                                   <http://emmo.info/emmo#EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f> "A instance of a material (e.g. nitrogen) can represent different states of matter. The fact that the individual also belongs to other classes (e.g. Gas) would reveal the actual form in which the material is found."@en ,
                                                                                                                                     "Material usually means some definite kind, quality, or quantity of matter, especially as intended for use."@en ;
@@ -6544,7 +6525,7 @@ If the waveform is travelling through a cable as electronic signal (analog or di
 
 ###  http://emmo.info/emmo#EMMO_4c1f58cd_6e2c_48fb_8098_1cbb762abb05
 <http://emmo.info/emmo#EMMO_4c1f58cd_6e2c_48fb_8098_1cbb762abb05> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> ;
+                                                                  rdfs:subClassOf <http://emmo.info/emmo#39348191_08fd_4bb6_9b1e_012d5b2f1ff6> ;
                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "MetallicMaterial"@en .
 
 
@@ -7782,7 +7763,7 @@ Antimatter is a subclass of matter."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_5d659e25_a508_43ed_903c_3707c7c7cd4b
 <http://emmo.info/emmo#EMMO_5d659e25_a508_43ed_903c_3707c7c7cd4b> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> ;
+                                                                  rdfs:subClassOf <http://emmo.info/emmo#e4e80813_f379_4091_b017_ee059811f806> ;
                                                                   <http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> "Nanomaterials are Materials possessing, at minimum, one external dimension measuring 1-100nm"@en ;
                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "NanoMaterial"@en .
 
@@ -8246,8 +8227,8 @@ A 'Perceptual' becomes an 'Object', when it is part of a 'Semiotic' process desc
 
 ###  http://emmo.info/emmo#EMMO_660a4964_0333_4663_bc66_e93ef59b0679
 <http://emmo.info/emmo#EMMO_660a4964_0333_4663_bc66_e93ef59b0679> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> ;
-                                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "MesoscopicMaterial"@en .
+                                                                  rdfs:subClassOf <http://emmo.info/emmo#bc37743c_37c4_4ec7_9d58_d1aae5567352> ;
+                                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "MesoscopicSubstance"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_668fbd5b_6f1b_405c_9c6b_d6067bd0595a
@@ -8383,7 +8364,7 @@ Temperature is a relative quantity that can be used to express temperature diffe
 
 ###  http://emmo.info/emmo#EMMO_68390bfb_e307_479d_8f78_d66d8773cb1d
 <http://emmo.info/emmo#EMMO_68390bfb_e307_479d_8f78_d66d8773cb1d> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> ;
+                                                                  rdfs:subClassOf <http://emmo.info/emmo#a96e2152_40e7_409c_a53a_fdb9f141eb6a> ;
                                                                   <http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> "A material that takes active part in a chemical reaction."@en ;
                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "ReactiveMaterial"@en .
 
@@ -9448,8 +9429,8 @@ This can be used in material characterization, to define exactly the type of mea
 
 ###  http://emmo.info/emmo#EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf
 <http://emmo.info/emmo#EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf _:genid633 ,
-                                                                                  _:genid635 ;
+                                                                  rdfs:subClassOf _:genid623 ,
+                                                                                  _:genid625 ;
                                                                   owl:disjointUnionOf ( <http://emmo.info/emmo#EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31>
                                                                                         <http://emmo.info/emmo#EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de>
                                                                                       ) ;
@@ -9465,11 +9446,11 @@ The EMMO conceptualisation does not allow the existence of space without a tempo
 For this reason, the EMMO entities that are not quantum or elementaries, may be considered to be always spatiotemporal. The EMMO poses no constraints to the number of spatial dimensions for a causal system (except being higher than one)."""@en ;
                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "EMMO"@en .
 
-_:genid633 rdf:type owl:Restriction ;
+_:genid623 rdf:type owl:Restriction ;
             owl:onProperty <http://emmo.info/emmo#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f> ;
             owl:someValuesFrom <http://emmo.info/emmo#EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68> .
 
-_:genid635 rdf:type owl:Restriction ;
+_:genid625 rdf:type owl:Restriction ;
             owl:onProperty [ owl:inverseOf <http://emmo.info/emmo#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f>
                            ] ;
             owl:hasValue <http://emmo.info/emmo#EMMO_08cb807c_e626_447b_863f_e2835540e918> .
@@ -9477,14 +9458,14 @@ _:genid635 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource <http://emmo.info/emmo#EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf> ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid633 ;
+   owl:annotatedTarget _:genid623 ;
    <http://emmo.info/emmo#EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f> "Every entity is made of quantum parts. This axiomatisation is the expression of the radical reductionistic approach of the EMMO."@en
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource <http://emmo.info/emmo#EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf> ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid635 ;
+   owl:annotatedTarget _:genid625 ;
    <http://emmo.info/emmo#EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f> "All EMMO individuals are part of the most comprehensive entity which is the universe."@en
  ] .
 
@@ -10257,7 +10238,7 @@ Here we explicitly include in the definition also all the data (e.g. source code
 
 ###  http://emmo.info/emmo#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
 <http://emmo.info/emmo#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> ;
+                                                                  rdfs:subClassOf <http://emmo.info/emmo#bc37743c_37c4_4ec7_9d58_d1aae5567352> ;
                                                                   <http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> """A state that is a collection of sufficiently large number of other parts such that:
 - it is the bearer of qualities that can exists only by the fact that it is a sum of parts
 - the smallest partition dV of the state volume in which we are interested in, contains enough parts to be statistically consistent: n [#/m3] x dV [m3] >> 1"""@en ;
@@ -10266,7 +10247,7 @@ Here we explicitly include in the definition also all the data (e.g. source code
 
 A single continuum individual can be the whole fluid in a pipe."""@en ,
                                                                                                                                     "A continuum is the bearer of properties that are generated by the interactions of parts such as viscosity and thermal or electrical conductivity."@en ;
-                                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "ContinuumMaterial"@en .
+                                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "ContinuumSubstance"@en .
 
 
 ###  http://emmo.info/emmo#EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3
@@ -11204,14 +11185,6 @@ Examples of correspondance between dimensional units and their dimensional units
                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "SIDimensionalUnit"@en .
 
 
-###  http://emmo.info/emmo#EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152
-<http://emmo.info/emmo#EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf <http://emmo.info/emmo#EMMO_49267eba_5548_4163_8f36_518d65b583f9> ;
-                                                                  <http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> "The perspective for which physical objects are categorized only by concepts coming from applied physical sciences."@en ;
-                                                                  rdfs:comment "This perspective specify elementary objects as from the Standard Model of Particles."@en ;
-                                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "Physicalistic"@en .
-
-
 ###  http://emmo.info/emmo#EMMO_98d65021_4574_4890_b2fb_46430841077f
 <http://emmo.info/emmo#EMMO_98d65021_4574_4890_b2fb_46430841077f> rdf:type owl:Class ;
                                                                   rdfs:subClassOf <http://emmo.info/emmo#EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6> ,
@@ -11689,7 +11662,7 @@ Symbols of a formal language must be capable of being specified without any refe
 
 ###  http://emmo.info/emmo#EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb
 <http://emmo.info/emmo#EMMO_a15cea10_9946_4d2b_95c5_cfc333fd2abb> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf <http://emmo.info/emmo#EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152> ;
+                                                                  rdfs:subClassOf <http://emmo.info/emmo#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d> ;
                                                                   owl:disjointUnionOf ( <http://emmo.info/emmo#EMMO_7b79b2ac_3cf2_4d3b_8cdc_bcabb59d869e>
                                                                                         <http://emmo.info/emmo#EMMO_8b1367d6_0133_4b56_acc1_fa8b058169e3>
                                                                                       ) ;
@@ -13503,7 +13476,7 @@ The unity criterion beyond the definition of a causal structure (the most genera
 
 ###  http://emmo.info/emmo#EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438
 <http://emmo.info/emmo#EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> ;
+                                                                  rdfs:subClassOf <http://emmo.info/emmo#39348191_08fd_4bb6_9b1e_012d5b2f1ff6> ;
                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "CeramicMaterial"@en .
 
 
@@ -16125,7 +16098,7 @@ A computation machine that calculate the average value of a dataset."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655
 <http://emmo.info/emmo#EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> ;
+                                                                  rdfs:subClassOf <http://emmo.info/emmo#39348191_08fd_4bb6_9b1e_012d5b2f1ff6> ;
                                                                   rdfs:comment "Suggestion of Rickard Armiento" ;
                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "CrystallineMaterial"@en .
 
@@ -16398,7 +16371,7 @@ While the string \"1 kg\" is a 'QuantityValue'."""@en ;
 
 ###  http://emmo.info/emmo#EMMO_f678173d_f036_4df1_a86b_2894560be617
 <http://emmo.info/emmo#EMMO_f678173d_f036_4df1_a86b_2894560be617> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> ;
+                                                                  rdfs:subClassOf <http://emmo.info/emmo#39348191_08fd_4bb6_9b1e_012d5b2f1ff6> ;
                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "CompositeMaterial"@en .
 
 
@@ -16720,7 +16693,7 @@ Johansson, Ingvar (2010). \"Metrological thinking needs the notions of parametri
 
 ###  http://emmo.info/emmo#EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860
 <http://emmo.info/emmo#EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> ;
+                                                                  rdfs:subClassOf <http://emmo.info/emmo#39348191_08fd_4bb6_9b1e_012d5b2f1ff6> ;
                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "PolymericMaterial"@en .
 
 
@@ -17050,6 +17023,12 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "MathematicalConstruct"@en .
 
 
+###  http://emmo.info/emmo#a96e2152_40e7_409c_a53a_fdb9f141eb6a
+<http://emmo.info/emmo#a96e2152_40e7_409c_a53a_fdb9f141eb6a> rdf:type owl:Class ;
+                                                             rdfs:subClassOf <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> ;
+                                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "ChemicallyDefinedMaterial"@en .
+
+
 ###  http://emmo.info/emmo#af7b627d_6528_4fdb_97df_ba4579c4bb5d
 <http://emmo.info/emmo#af7b627d_6528_4fdb_97df_ba4579c4bb5d> rdf:type owl:Class ;
                                                              rdfs:subClassOf <http://emmo.info/emmo#b45fbdc6_2519_4885_aa49_c56b394c3910> ;
@@ -17081,8 +17060,17 @@ It defines the Kelvin unit in the SI system."""@en ;
 <http://emmo.info/emmo#bc37743c_37c4_4ec7_9d58_d1aae5567352> rdf:type owl:Class ;
                                                              rdfs:subClassOf <http://emmo.info/emmo#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1> ,
                                                                              <http://emmo.info/emmo#57d977ab_0036_4779_b59a_e47620afdb9c> ;
+                                                             owl:disjointUnionOf ( <http://emmo.info/emmo#EMMO_660a4964_0333_4663_bc66_e93ef59b0679>
+                                                                                   <http://emmo.info/emmo#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2>
+                                                                                 ) ;
                                                              <http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> "A composite physical object made of fermions (i.e. having mass and occupying space)." ;
                                                              <http://www.w3.org/2004/02/skos/core#prefLabel> "Substance"@en .
+
+
+###  http://emmo.info/emmo#e4e80813_f379_4091_b017_ee059811f806
+<http://emmo.info/emmo#e4e80813_f379_4091_b017_ee059811f806> rdf:type owl:Class ;
+                                                             rdfs:subClassOf <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> ;
+                                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "SizeDefinedMaterial"@en .
 
 
 ###  http://emmo.info/emmo#e94a9156_fb6c_4e16_88ee_829ac9933155
@@ -17122,15 +17110,15 @@ It defines the Kelvin unit in the SI system."""@en ;
 <http://emmo.info/emmo#1c7f2dfe_0db4_4bf6_a0f6_853054a34ead> rdf:type owl:Class ;
                                                              rdfs:subClassOf <http://emmo.info/emmo#EMMO_eff42cb3_208e_4768_9a39_f8b6b3c3d7a2> ,
                                                                              [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty <http://emmo.info/emmo#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
+                                                                               owl:someValuesFrom <http://emmo.info/emmo#EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926>
+                                                                             ] ,
+                                                                             [ rdf:type owl:Restriction ;
                                                                                owl:onProperty <http://emmo.info/emmo#EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a> ;
                                                                                owl:someValuesFrom <http://emmo.info/emmo#EMMO_cbf42aa6-9e11-4be8-932a-ae3c792ab17d>
                                                                              ] ,
                                                                              [ rdf:type owl:Restriction ;
                                                                                owl:onProperty <http://emmo.info/emmo#EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840> ;
-                                                                               owl:someValuesFrom <http://emmo.info/emmo#EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926>
-                                                                             ] ,
-                                                                             [ rdf:type owl:Restriction ;
-                                                                               owl:onProperty <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
                                                                                owl:someValuesFrom <http://emmo.info/emmo#EMMO_be8592a7_68d1_4a06_ad23_82f2b56ef926>
                                                                              ] ;
                                                              <http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> "A computation that provides a data output following the elaboration of some input data, using a data processing application."@en ;
@@ -17155,6 +17143,24 @@ It defines the Kelvin unit in the SI system."""@en ;
 <http://emmo.info/emmo#3eb993a1_61ae_4a20_b168_dda853f51c14> rdf:type owl:Class ;
                                                              rdfs:subClassOf <http://emmo.info/emmo#EMMO_b081b346_7279_46ef_9a3d_2c088fcd79f4> ;
                                                              <http://www.w3.org/2004/02/skos/core#prefLabel> "SystemUnit"@en .
+
+
+###  http://emmo.info/emmo#39348191_08fd_4bb6_9b1e_012d5b2f1ff6
+<http://emmo.info/emmo#39348191_08fd_4bb6_9b1e_012d5b2f1ff6> rdf:type owl:Class ;
+                                                             owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                   owl:unionOf ( <http://emmo.info/emmo#EMMO_0afc19b0_2d43_4b3d_8da0_9ffb63bc1492>
+                                                                                                 <http://emmo.info/emmo#EMMO_f1025834_0cd2_42a1_bfeb_13bec41c8655>
+                                                                                               )
+                                                                                 ] ,
+                                                                                 [ rdf:type owl:Class ;
+                                                                                   owl:unionOf ( <http://emmo.info/emmo#EMMO_4c1f58cd_6e2c_48fb_8098_1cbb762abb05>
+                                                                                                 <http://emmo.info/emmo#EMMO_c5e9e390_8836_4440_b4fd_c906fdd4f438>
+                                                                                                 <http://emmo.info/emmo#EMMO_f678173d_f036_4df1_a86b_2894560be617>
+                                                                                                 <http://emmo.info/emmo#EMMO_fb27e6d6_159e_48a6_9c29_76dc31d8a860>
+                                                                                               )
+                                                                                 ] ;
+                                                             rdfs:subClassOf <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> ;
+                                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "ClassicallyDefinedMaterial"@en .
 
 
 ###  http://emmo.info/emmo#4bb03d40_78d2_45a4_9cb0_4336c9fc3b70
@@ -17195,6 +17201,12 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                              <http://www.w3.org/2004/02/skos/core#prefLabel> "DataStructure"@en .
 
 
+###  http://emmo.info/emmo#8820f251_ad36_43f4_a693_c0e86a89cc1f
+<http://emmo.info/emmo#8820f251_ad36_43f4_a693_c0e86a89cc1f> rdf:type owl:Class ;
+                                                             rdfs:subClassOf <http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94> ;
+                                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "FunctionallyDefinedMaterial"@en .
+
+
 ###  http://emmo.info/emmo#941d2f61_5a76_4248_9fc2_d4e03a56489e
 <http://emmo.info/emmo#941d2f61_5a76_4248_9fc2_d4e03a56489e> rdf:type owl:Class ;
                                                              rdfs:subClassOf <http://emmo.info/emmo#EMMO_d7788d1a_020d_4c78_85a1_13563fcec168> ,
@@ -17205,8 +17217,13 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                                                owl:someValuesFrom <http://emmo.info/emmo#EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8>
                                                                              ] ,
                                                                              [ rdf:type owl:Restriction ;
-                                                                               owl:onProperty <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
+                                                                               owl:onProperty <http://emmo.info/emmo#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
                                                                                owl:allValuesFrom <http://emmo.info/emmo/domain/openmodel#waterDensityDataSetDependency>
+                                                                             ] ,
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty <http://emmo.info/emmo#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
+                                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                               owl:onClass <http://emmo.info/emmo/domain/openmodel#waterDensityDataSetDependency>
                                                                              ] ,
                                                                              [ rdf:type owl:Restriction ;
                                                                                owl:onProperty <http://emmo.info/emmo#EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840> ;
@@ -17220,11 +17237,6 @@ It defines the Kelvin unit in the SI system."""@en ;
                                                                                                                 ) ;
                                                                                              rdf:type owl:Class
                                                                                            ]
-                                                                             ] ,
-                                                                             [ rdf:type owl:Restriction ;
-                                                                               owl:onProperty <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
-                                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                               owl:onClass <http://emmo.info/emmo/domain/openmodel#waterDensityDataSetDependency>
                                                                              ] ;
                                                              <http://emmo.info/emmo#EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f> "Correct mereotopological representation of a workflow that computes the density of water (and only water)."@en ;
                                                              <http://www.w3.org/2004/02/skos/core#prefLabel> "FluidNPT2"@en .
@@ -17690,7 +17702,7 @@ _:genid1165 rdf:type owl:Restriction ;
 <http://emmo.info/emmo/domain/openmodel#LAMMPSLogParsing> rdf:type owl:Class ;
                                                           rdfs:subClassOf <http://emmo.info/emmo/domain/openmodel#LAMMPSDataProcessing> ,
                                                                           [ rdf:type owl:Restriction ;
-                                                                            owl:onProperty <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
+                                                                            owl:onProperty <http://emmo.info/emmo#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
                                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                                             owl:onClass [ rdf:type owl:Restriction ;
                                                                                           owl:onProperty [ owl:inverseOf <http://emmo.info/emmo#EMMO_67339084_e659_42be_9e76_7e22fca63c48>
@@ -17743,6 +17755,14 @@ _:genid1165 rdf:type owl:Restriction ;
                                                           rdfs:subClassOf <http://emmo.info/emmo#EMMO_4299e344_a321_4ef2_a744_bacfcce80afc> ,
                                                                           <http://emmo.info/emmo#EMMO_e97af6ec_4371_4bbc_8936_34b76e33302f> ,
                                                                           [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty <http://emmo.info/emmo#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
+                                                                            owl:someValuesFrom [ owl:intersectionOf ( <http://emmo.info/emmo/domain/openmodel#Argument>
+                                                                                                                      <http://emmo.info/emmo/domain/openmodel#Command>
+                                                                                                                    ) ;
+                                                                                                 rdf:type owl:Class
+                                                                                               ]
+                                                                          ] ,
+                                                                          [ rdf:type owl:Restriction ;
                                                                             owl:onProperty <http://emmo.info/emmo#EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840> ;
                                                                             owl:someValuesFrom <http://emmo.info/emmo/domain/openmodel#DCDFile>
                                                                           ] ,
@@ -17755,22 +17775,14 @@ _:genid1165 rdf:type owl:Restriction ;
                                                                             owl:someValuesFrom <http://emmo.info/emmo/domain/openmodel#LAMMPSLog>
                                                                           ] ,
                                                                           [ rdf:type owl:Restriction ;
-                                                                            owl:onProperty <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
-                                                                            owl:someValuesFrom [ owl:intersectionOf ( <http://emmo.info/emmo/domain/openmodel#Argument>
-                                                                                                                      <http://emmo.info/emmo/domain/openmodel#Command>
-                                                                                                                    ) ;
-                                                                                                 rdf:type owl:Class
-                                                                                               ]
+                                                                            owl:onProperty <http://emmo.info/emmo#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
+                                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                            owl:onClass <http://emmo.info/emmo/domain/openmodel#LAMMPSDataSet>
                                                                           ] ,
                                                                           [ rdf:type owl:Restriction ;
                                                                             owl:onProperty <http://emmo.info/emmo#EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a> ;
                                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                                             owl:onClass <http://emmo.info/emmo/domain/openmodel#LAMMPS>
-                                                                          ] ,
-                                                                          [ rdf:type owl:Restriction ;
-                                                                            owl:onProperty <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
-                                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                            owl:onClass <http://emmo.info/emmo/domain/openmodel#LAMMPSDataSet>
                                                                           ] ;
                                                           <http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> """A typical LAMMPS job is launched from the command line and requires to specify an input and output file names, eg
 $ lmp_23Jun22 -in sim.in -l sim.log
@@ -17907,11 +17919,11 @@ This class includes the three-dimensional arrangement of the atoms that constitu
                                                                    rdfs:subClassOf <http://emmo.info/emmo#EMMO_4299e344_a321_4ef2_a744_bacfcce80afc> ,
                                                                                    <http://emmo.info/emmo#1c7f2dfe_0db4_4bf6_a0f6_853054a34ead> ,
                                                                                    [ rdf:type owl:Restriction ;
-                                                                                     owl:onProperty <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
+                                                                                     owl:onProperty <http://emmo.info/emmo#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
                                                                                      owl:someValuesFrom <http://emmo.info/emmo/domain/openmodel#Argument>
                                                                                    ] ,
                                                                                    [ rdf:type owl:Restriction ;
-                                                                                     owl:onProperty <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
+                                                                                     owl:onProperty <http://emmo.info/emmo#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
                                                                                      owl:someValuesFrom <http://emmo.info/emmo/domain/openmodel#Command>
                                                                                    ] ,
                                                                                    [ rdf:type owl:Restriction ;
@@ -18209,7 +18221,7 @@ _:genid1211 rdf:type owl:Restriction ;
                                                                                                                 owl:someValuesFrom <http://emmo.info/emmo#EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8>
                                                                                                               ]
                                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                                owl:onProperty <http://emmo.info/emmo/perspectives/manufacturing#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
+                                                                                                                owl:onProperty <http://emmo.info/emmo#EMMO_36e69413_8c59_4799_946c_10b05d266e22> ;
                                                                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                                                                                 owl:onClass <http://emmo.info/emmo/domain/openmodel#waterDensityDataSetDependency>
                                                                                                               ]
@@ -18632,25 +18644,25 @@ _:genid1283 rdf:type owl:Restriction ;
                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "test"@en .
 
 
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
 
 [ owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:qualifiedCardinality "4"^^xsd:nonNegativeInteger
@@ -18692,6 +18704,9 @@ _:genid1283 rdf:type owl:Restriction ;
                                                                   rdfs:seeAlso "https://enterpriseintegrationlab.github.io/icity/OM/doc/index-en.html" ,
                                                                                "https://github.com/HajoRijgersberg/OM" ;
                                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "omReference"@en .
+
+
+<http://emmo.info/emmo#EMMO_98ada9d8_f1c8_4f13_99b5_d890f5354152> rdfs:comment "This perspective specify elementary objects as from the Standard Model of Particles."@en .
 
 
 <http://emmo.info/emmo#58e7c821_4af0_4394_89f7_a9649735f4d2> <http://www.w3.org/2004/02/skos/core#prefLabel> "metrologicalReference"@en .

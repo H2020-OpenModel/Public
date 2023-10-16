@@ -2,8 +2,8 @@ moltemplate_dependency:
   meta: http://ontotrans.eu/meta/0.1/FilesDependency
   dimensions: {}
   properties:
-    gromos_settings: "/tmp/ExecFlowDemo/demo_pm/molc/aa_atb.lt"
-    md_tasks: "/tmp/ExecFlowDemo/demo_pm/molc/aa_tasks.lt"
-    random_init: "/tmp/ExecFlowDemo/demo_pm/molc/random_init.lt"
-    force_field: "/tmp/ExecFlowDemo/demo_pm/molc/water_tip3p_01.lt"
-    input_structure_pdb: "/tmp/ExecFlowDemo/demo_pm/multiscale/02_water_bm.pdb"
+    gromos_settings: "/tmp/Public/Deliverable5.5/demo1/data/aa_atb.lt"
+    md_tasks: "/tmp/Public/Deliverable5.5/demo1/data/aa_tasks.lt"
+    random_init: "/tmp/Public/Deliverable5.5/demo1/data/random_init.lt"
+    force_field: "/tmp/Public/Deliverable5.5/demo1/data/water_tip3p_01.lt"
+    input_structure_pdb: "/tmp/Public/Deliverable5.5/demo1/data/02_water_bm.pdb"
