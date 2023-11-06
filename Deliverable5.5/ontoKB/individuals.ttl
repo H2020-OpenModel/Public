@@ -11,7 +11,7 @@
 @base <http://emmo.info/emmo#> .
 
 <http://emmo.info/emmo/domain/openmodel-individuals> rdf:type owl:Ontology ;
-                                                      owl:imports <http://emmo.info/emmo/domain/openmodel-inferred#> ; 
+                                                      owl:imports <http://emmo.info/emmo/domain/openmodel-inferred> ; 
                                                       dcterms:abstract ""@en ;
                                                       dcterms:bibliographicCitation "Work under review - not available yet" ;
                                                       dcterms:contributor "Goldbeck Consulting Ltd (UK)" ;

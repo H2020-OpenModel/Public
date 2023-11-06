@@ -19,18 +19,25 @@ The local execution of this demonstration requires the following software compon
   sudo apt install git python3-dev python3-pip postgresql postgresql-server-dev-all postgresql-client rabbitmq-server
   ```
 
+  Then (from AiiDA instructions):
+
+  ```bash
+  python -m venv ~/envs/aiida
+  source ~/envs/aiida/bin/activate
+  (aiida) verdi quicksetup
+  (aiida) verdi daemon start 2
+  ```
+
   To avoid clash with locally installed libraries (e.g. VMD), modify the file `$HOME/envs/aiida/bin/activate` by adding the following line:
 
   ```bash
   export LD_LIBRARY_PATH=""
   ```
 
-  Then (from AiiDA instructions):
+  To activate the AiiDA environment after the installation:
 
   ```bash
-  python -m venv ~/envs/aiida
-  (aiida) verdi quicksetup
-  (aiida) verdi daemon start 2
+  source ~/envs/aiida/bin/activate
   ```
 
 * Install [Moltemplate](http://www.moltemplate.org/download.html):
@@ -56,7 +63,7 @@ The local execution of this demonstration requires the following software compon
   cd Public/Deliverable5.5
   pip install .
   ```
-NB! Until ExecFlow and OntoFlow have been made public it might be easier to just clone and pip install execflow and ontoflow separately before the step above.
+  NB! Until ExecFlow and OntoFlow have been made public it might be easier to just clone and pip install execflow and ontoflow separately before the step above.
 
   To avoid changing the names of local files stored in the repository, absolute paths with root `/tmp/Deliverable5.5` have been used. Independently from where your repository is stored, create the following link from a terminal:
   
