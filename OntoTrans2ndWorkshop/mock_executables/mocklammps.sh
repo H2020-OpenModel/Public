@@ -31,8 +31,8 @@ if [ ! -f output.in.init ]; then
 fi
 
 # Create the output files
-cp /tmp/ExecFlowDemo/meso_multi_sim_demo/case_aiida_shell/mock_executables/output.log .
+cp /tmp/OntoTrans2ndWorkshop/mock_executables/output.log .
 touch log.lammps
 touch output.dump
 
-cat /tmp/ExecFlowDemo/meso_multi_sim_demo/case_aiida_shell/mock_executables/stdout_saved
+cat /tmp/OntoTrans2ndWorkshop/mock_executables/stdout_saved
