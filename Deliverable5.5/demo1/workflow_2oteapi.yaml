@@ -81,23 +81,23 @@ steps:
         - "-in"
         - "{in}"
         - "-l"
-        - "water_aa.log"
+        - "{{ ctx.parameters.run }}.log"
       files:
         in: 
-          filename: "water_aa.in"
+          filename: "{{ ctx.parameters.run }}.in" 
           node: "{{ ctx.lammps_in }}"
         data:
-          filename: "water_aa.data" 
+          filename: "{{ ctx.parameters.run }}.data"
           node: "{{ ctx.lammps_data }}"
         settings: 
+          filename: "{{ ctx.parameters.run }}.in.settings" 
           node: "{{ ctx.lammps_settings }}"
-          filename: "water_aa.in.settings"
         run: 
+          filename: "{{ ctx.parameters.run }}.in.run" 
           node: "{{ ctx.lammps_run }}"
-          filename: "water_aa.in.run"
         init: 
+          filename: "{{ ctx.parameters.run }}.in.init" 
           node: "{{ ctx.lammps_init }}"
-          filename: "water_aa.in.init" 
       outputs:
         - water_aa.log
         - water_aa.dcd

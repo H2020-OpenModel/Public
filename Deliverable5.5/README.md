@@ -34,7 +34,7 @@ The local execution of this demonstration requires the following software compon
   export LD_LIBRARY_PATH=""
   ```
 
-  To activate the AiiDA environment after the installation:
+  To activate the AiiDA environment after the first installation:
 
   ```bash
   source ~/envs/aiida/bin/activate
@@ -63,13 +63,29 @@ The local execution of this demonstration requires the following software compon
   cd Public/Deliverable5.5
   pip install .
   ```
-  NB! Until ExecFlow and OntoFlow have been made public it might be easier to just clone and pip install execflow and ontoflow separately before the step above.
-
   To avoid changing the names of local files stored in the repository, absolute paths with root `/tmp/Deliverable5.5` have been used. Independently from where your repository is stored, create the following link from a terminal:
-  
+
   ```bash
   cd /tmp
   ln -s /path/to/Public/Deliverable5.5
+  ```
+
+* Software version (November 2023)
+  ```bash
+  aiida-core              2.4.0
+  aiida-cuds              0.1.0
+  aiida-pseudo            1.1.0
+  aiida-quantumespresso   4.3.0
+  aiida-shell             0.3.0
+  DLite-Python            0.3.20
+  execflow                0.1.0
+  execflowdemo            0.1.0
+  ontoflow                0.0.1
+  oteapi-core             0.4.1
+  oteapi-dlite            0.1.4
+  otelib                  0.2.0
+  Pint                    0.16.1
+  tripper                 0.2.6
   ```
 
 > TODO: 
