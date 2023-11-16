@@ -73,24 +73,20 @@ The local execution of this demonstration requires the following software compon
 * Software version (November 2023)
   ```bash
   aiida-core              2.4.0
-  aiida-cuds              0.1.0
   aiida-pseudo            1.1.0
-  aiida-quantumespresso   4.3.0
-  aiida-shell             0.3.0
-  DLite-Python            0.3.20
+  aiida-quantumespresso   4.4.0
+  aiida-shell             0.6.0
+  DLite-Python            0.4.5
   execflow                0.1.0
   execflowdemo            0.1.0
+  ExecFlowDemoAiiDAShell  0.0.1
+  executing               1.2.0
   ontoflow                0.0.1
-  oteapi-core             0.4.1
-  oteapi-dlite            0.1.4
-  otelib                  0.2.0
+  oteapi-core             0.4.4
+  oteapi-dlite            0.1.6
   Pint                    0.16.1
-  tripper                 0.2.6
+  tripper                 0.2.12
   ```
-
-> TODO: 
->
-> * Replace the dependencies in `pyproject.toml` once those components will be released publicly.
 
 
 ### The OpenModel domain ontology
@@ -123,6 +119,8 @@ verdi daemon start
 The three workflows are executed from the AiiDA prompt with `verdi` running in the background:
 
 ```bash
+cd /tmp
+ln -s /path/to/Public
 cd /path/to/Public/Deliverable5.5/demo1
 python run_workflow.py workflow_nopipes.yaml
 python run_workflow_pipes.py workflow_1oteapi.yaml

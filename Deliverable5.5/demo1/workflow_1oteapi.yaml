@@ -18,6 +18,12 @@ steps:
 
   - workflow: execflow.exec_wrapper
     inputs:
+      shelljob:
+        metadata:
+          options:
+            resources:
+              num_machines: 1
+              num_mpiprocs_per_machine: 1
       command: "moltemplate.sh"
       arguments:
         - "-atomstyle"
@@ -62,7 +68,14 @@ steps:
 
   - workflow: execflow.exec_wrapper
     inputs:
-      command: "lmp_23Jun22"
+      shelljob:
+        metadata:
+          options:
+            withmpi: true
+            resources:
+              num_machines: 1
+              num_mpiprocs_per_machine: 4
+      command: "lmp_2Jun22"
       arguments:
         - "-in"
         - "{in}"
