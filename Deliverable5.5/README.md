@@ -19,6 +19,19 @@ The local execution of this demonstration requires the following software compon
   sudo apt install git python3-dev python3-pip postgresql postgresql-server-dev-all postgresql-client rabbitmq-server
   ```
 
+  Set up a virtual environment
+
+  ```bash
+  python -m venv ~/envs/aiida
+  source ~/envs/aiida/bin/activate
+  ```
+
+  and install needed Python packages
+
+  ```bash
+  (aiida) pip install -r requirements.txt
+  ```
+
   To avoid clash with locally installed libraries (e.g. VMD), modify the file `$HOME/envs/aiida/bin/activate` by adding the following line:
 
   ```bash
@@ -28,7 +41,6 @@ The local execution of this demonstration requires the following software compon
   Then (from AiiDA instructions):
 
   ```bash
-  python -m venv ~/envs/aiida
   (aiida) verdi quicksetup
   (aiida) verdi daemon start 2
   ```
@@ -59,13 +71,13 @@ The local execution of this demonstration requires the following software compon
 NB! Until ExecFlow and OntoFlow have been made public it might be easier to just clone and pip install execflow and ontoflow separately before the step above.
 
   To avoid changing the names of local files stored in the repository, absolute paths with root `/tmp/Deliverable5.5` have been used. Independently from where your repository is stored, create the following link from a terminal:
-  
+
   ```bash
   cd /tmp
   ln -s /path/to/Public/Deliverable5.5
   ```
 
-> TODO: 
+> TODO:
 >
 > * Replace the dependencies in `pyproject.toml` once those components will be released publicly.
 
@@ -79,11 +91,11 @@ The semantic representation of materials modelling workflows, data, and computat
 A simple query to the OntoKB is presented in the file [`application.py`](./ontoKB/application.py). Basically, the user asks for any route leading to the computation of the density of a fluid, expressed by the ontological class with IRI `http://emmo.info/emmo#FluidDensity`. From a terminal, execute:
 
 ```bash
-cd Public/Deliverable5.5/ontoKB 
+cd Public/Deliverable5.5/ontoKB
 python application.py
 ```
 
-> TODO: 
+> TODO:
 >
 > * describe the OpenModel ontology and OntoKB, i.e. how the workflow is described and stored in a triplestore. Is there a better way to create a KB other than using Protégé?
 > * Verify that a query can be made locally using a free version of StarDog.
@@ -120,4 +132,3 @@ verdi node attributes 5601
 * [entities/](./entities) Data models for the input datasets.
 * [execflowdemo/](./execflowdemo) Additional software used in this demonstration, e.g. a simple LAMMPS parser extracting the density.
 * [ontoKB/](./ontoKB) OpenModel domain ontology and knowledge base for demo number 1.
-
