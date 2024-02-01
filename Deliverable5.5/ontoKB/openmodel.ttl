@@ -14,6 +14,7 @@
                                           owl:versionIRI <http://emmo.info/emmo/domain/openmodel> ;
                                           owl:imports <http://emmo.info/emmo/1.0.0-beta5/disciplines/chemistry> ,
                                                       <http://emmo.info/emmo/1.0.0-beta5/disciplines/isq> ,
+                                                      <http://emmo.info/emmo/1.0.0-beta5/disciplines/manufacturing> ,
                                                       <http://emmo.info/emmo/1.0.0-beta5/disciplines/models> ,
                                                       <http://emmo.info/emmo/1.0.0-beta5/multiperspective/workflow> ,
                                                       <http://emmo.info/emmo/1.0.0-beta5/perspectives/perceptual> ;
@@ -119,43 +120,13 @@ om:hasTempURIValue rdf:type owl:DatatypeProperty ;
                                                            ] .
 
 
-###  http://emmo.info/emmo#941d2f61_5a76_4248_9fc2_d4e03a56489e
-<http://emmo.info/emmo#941d2f61_5a76_4248_9fc2_d4e03a56489e> rdf:type owl:Class ;
-                                                             rdfs:subClassOf :EMMO_e97af6ec_4371_4bbc_8936_34b76e33302f ,
-                                                                             [ rdf:type owl:Restriction ;
-                                                                               owl:onProperty [ owl:inverseOf :EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455
-                                                                                              ] ;
-                                                                               owl:someValuesFrom :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8
-                                                                             ] ,
-                                                                             [ rdf:type owl:Restriction ;
-                                                                               owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
-                                                                               owl:allValuesFrom om:waterDensityDataSetDependency
-                                                                             ] ,
-                                                                             [ rdf:type owl:Restriction ;
-                                                                               owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
-                                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                               owl:onClass om:waterDensityDataSetDependency
-                                                                             ] ,
-                                                                             [ rdf:type owl:Restriction ;
-                                                                               owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
-                                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                               owl:onClass [ owl:intersectionOf ( :EMMO_06448f64_8db6_4304_8b2c_e785dba82044
-                                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                                    owl:onProperty [ owl:inverseOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204
-                                                                                                                                   ] ;
-                                                                                                                    owl:someValuesFrom :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8
-                                                                                                                  ]
-                                                                                                                ) ;
-                                                                                             rdf:type owl:Class
-                                                                                           ]
-                                                                             ] ;
-                                                             :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Correct mereotopological representation of a workflow that computes the density of water (and only water)."@en ;
-                                                             skos:prefLabel "FluidNPT2"@en .
-
-
 ###  http://emmo.info/emmo/domain/openmodel#AAMDTaskLT
 om:AAMDTaskLT rdf:type owl:Class ;
               rdfs:subClassOf om:LTFile ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
+                                owl:someValuesFrom om:MolecularDynamicsOutput
+                              ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                 owl:someValuesFrom om:MolecularDynamicsTask
@@ -163,6 +134,25 @@ om:AAMDTaskLT rdf:type owl:Class ;
               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "File in LAMMPS Template (LT) format containing macros to perform different MD simulations (e.g. microcanonical, canonical) for a sample composed of atoms and/or molecules."@en ;
               :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "aa_tasks.lt" ;
               skos:prefLabel "AAMDTaskLT" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#AiiDA
+om:AiiDA rdf:type owl:Class ;
+         rdfs:subClassOf :EMMO_cbf42aa6-9e11-4be8-932a-ae3c792ab17d ;
+         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "AiiDA is an open-source Python infrastructure to help researchers with automating, managing, persisting, sharing and reproducing the complex workflows associated with modern computational science and all associated data."@en ;
+         rdfs:seeAlso "https://www.aiida.net/" ;
+         skos:prefLabel "AiiDA" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#AiiDADataNodes
+om:AiiDADataNodes rdf:type owl:Class ;
+                  rdfs:subClassOf :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
+                                    owl:someValuesFrom om:AiiDA
+                                  ] ;
+                  :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A dataset created during the execution of a workflow. Thedataset is composed of nodes that are created during one step and can be passed to another step using the context, a internal data container."@en ;
+                  skos:prefLabel "AiiDADataNodes" .
 
 
 ###  http://emmo.info/emmo/domain/openmodel#Argument
@@ -244,6 +234,16 @@ om:Command rdf:type owl:Class ;
            skos:prefLabel "Command" .
 
 
+###  http://emmo.info/emmo/domain/openmodel#CompressionMDT
+om:CompressionMDT rdf:type owl:Class ;
+                  rdfs:subClassOf om:MolecularDynamicsTask ;
+                  :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Initialise the run section of a MD simulation, its MolecularDynamicsOutput, and perform time integration in the canonical ensemble using a Langevin thermostat.
+
+In addition, compress an isotropic sample to a target volume at low temperature, followed by heating to a target temperature at the target volume. Use a /cut pair style to speed-up the calculations.
+NOTE: an isotropic shrinking of 0.95 per step is assumed when computing the compression steps."""@en ;
+                  skos:prefLabel "CompressionMDT" .
+
+
 ###  http://emmo.info/emmo/domain/openmodel#ComputationalFluidDynamics
 om:ComputationalFluidDynamics rdf:type owl:Class ;
                               rdfs:subClassOf :EMMO_4456a5d2_16a6_4ee1_9a8e_5c75956b28ea ;
@@ -298,14 +298,15 @@ om:DCDFile rdf:type owl:Class ;
 ###  http://emmo.info/emmo/domain/openmodel#DLite
 om:DLite rdf:type owl:Class ;
          rdfs:subClassOf :EMMO_cbf42aa6-9e11-4be8-932a-ae3c792ab17d ;
-         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A lightweight data-centric framework for semantic interoperability."@en ,
-                                                    "https://sintef.github.io/dlite/" ;
+         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A lightweight data-centric framework for semantic interoperability."@en ;
+         rdfs:seeAlso "https://sintef.github.io/dlite/" ;
          skos:prefLabel "DLite" .
 
 
 ###  http://emmo.info/emmo/domain/openmodel#DUMPFile
 om:DUMPFile rdf:type owl:Class ;
-            rdfs:subClassOf om:AtomicStructureFile ;
+            rdfs:subClassOf om:AtomicStructureFile ,
+                            om:InputFile ;
             skos:prefLabel "DUMPFile" .
 
 
@@ -328,12 +329,85 @@ om:DensityFunctionalTheory rdf:type owl:Class ;
                            skos:prefLabel "DensityFunctionalTheory" .
 
 
+###  http://emmo.info/emmo/domain/openmodel#DensityMoltemplateDP
+om:DensityMoltemplateDP rdf:type owl:Class ;
+                        rdfs:subClassOf om:MoltemplateDataProcessing ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
+                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass om:MoltemplateWaterDataSet
+                                        ] ;
+                        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This process takes a specific dataset as its input."@en ;
+                        skos:prefLabel "WaterDensityMoltemplateDP" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#DiffusionMoleculeMD
+om:DiffusionMoleculeMD rdf:type owl:Class ;
+                       rdfs:subClassOf om:MolecularDynamicsOutput ;
+                       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Compute standard thermodynamic quantities, plus:
+* the inter-molecular energy for systems with long-range electrostatics
+* the total mean-square displacement (MSD) computed on the centre of mass of individual molecules.
+* The diffusion coefficient for a system with 3D bounday conditions.
+
+The thermodynamics output is as follows:
+* Simulation step
+* Total Energy
+* van deer Walls Energy (short-range)
+* Coulomb Energy (real part of the potential)
+* Long-range Coulomb Energy (reciprocal part of the potential)
+* Bond Energy
+* Angle Energy
+* Dihedral Energy
+* Improper Energy
+* Kinetic Energy
+* Potential Energy
+* Temperature
+* Pressure
+* Volume
+* Density
+* Inter-molecular Energy
+* Averaged MSD
+* Diffusion Coefficient
+* Elapsed CPU time.
+
+Save a MD trajectory as a separate file (DCD or DUMP formats)."""@en ;
+                       skos:prefLabel "DiffusionMoleculeMD" .
+
+
 ###  http://emmo.info/emmo/domain/openmodel#EquilibrationSteps
 om:EquilibrationSteps rdf:type owl:Class ;
                       rdfs:subClassOf om:Steps ;
                       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Number of steps used for a system to reach thermodynamic equilibrium."@en ;
                       :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Number of steps used to integrate the equation of motions in a Molecular Dynamics simulation. The ProductionSteps*Timestep gives the actual time span of the simulation."@en ;
                       skos:prefLabel "EquilibrationSteps" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#ExecFlowWrapper
+om:ExecFlowWrapper rdf:type owl:Class ;
+                   rdfs:subClassOf :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
+                                     owl:someValuesFrom [ rdf:type owl:Class ;
+                                                          owl:unionOf ( om:AiiDADataNodes
+                                                                        om:OTEAPIDataSet
+                                                                      )
+                                                        ]
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+                                     owl:someValuesFrom :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+                                     owl:someValuesFrom om:AiiDADataNodes
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass om:AiiDA
+                                   ] ;
+                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A task which is executed in ExecFlow using a wrapper to an external software."@en ;
+                   skos:prefLabel "ExecFlowWrapper" .
 
 
 ###  http://emmo.info/emmo/domain/openmodel#Extension
@@ -368,16 +442,23 @@ om:ForceField rdf:type owl:Class ;
               skos:prefLabel "ForceField" .
 
 
+###  http://emmo.info/emmo/domain/openmodel#ForceFieldStyle
+om:ForceFieldStyle rdf:type owl:Class ;
+                   rdfs:subClassOf :EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a ,
+                                   om:ForceField ;
+                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Additional settings for the force field. For instance, the Coulomb potential can be evaluated only in real space using a cut-off radius, or can include a long-range solver evaluationg the electrostatic potential in the reciprocal space."@en ;
+                   :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "atb_long" ,
+                                                              "molc_cut" ,
+                                                              "molc_long_gamma" ;
+                   skos:prefLabel "ForceFieldStyle" .
+
+
 ###  http://emmo.info/emmo/domain/openmodel#GROMOS
 om:GROMOS rdf:type owl:Class ;
           rdfs:subClassOf om:ForceField ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :a8bd7094_6b40_47af_b1f4_a69d81a3afbd ;
                             owl:someValuesFrom :EMMO_84cadc45_6758_46f2_ba2a_5ead65c70213
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                            owl:cardinality "1"^^xsd:nonNegativeInteger
                           ] ;
           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "GROningen MOlecular Simulation (GROMOS) is the name of a force field for molecular dynamics simulation, and a related computer software package. Both are developed at the University of Groningen, and at the Computer-Aided Chemistry Group at the Laboratory for Physical Chemistry at the Swiss Federal Institute of Technology (ETH Zurich)."@en ;
           skos:prefLabel "GROMOS" .
@@ -399,8 +480,7 @@ om:GROMOSParameters rdf:type owl:Class ;
 om:GROMOSSettingsLT rdf:type owl:Class ;
                     rdfs:subClassOf om:LTFile ,
                                     [ rdf:type owl:Restriction ;
-                                      owl:onProperty [ owl:inverseOf :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe
-                                                     ] ;
+                                      owl:onProperty :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c ;
                                       owl:someValuesFrom om:GROMOS
                                     ] ;
                     :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "aa_atb.lt" ;
@@ -417,9 +497,9 @@ om:GULP rdf:type owl:Class ;
                           owl:onProperty :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c ;
                           owl:someValuesFrom :EMMO_84cadc45_6758_46f2_ba2a_5ead65c70213
                         ] ;
-        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "https://gulp.curtin.edu.au/" ;
         :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """GULP - a computer program for the symmetry adapted simulation of solids.
 GULP is a program for performing a variety of types of simulation on materials using boundary conditions of 0-D (molecules and clusters), 1-D (polymers), 2-D (surfaces, slabs and grain boundaries), or 3-D (periodic solids). The focus of the code is on analytical solutions, through the use of lattice dynamics, where possible, rather than on molecular dynamics."""@en ;
+        rdfs:seeAlso "https://gulp.curtin.edu.au/" ;
         skos:prefLabel "GULP" .
 
 
@@ -456,11 +536,13 @@ pressure=1""" ;
 ###  http://emmo.info/emmo/domain/openmodel#InputFile
 om:InputFile rdf:type owl:Class ;
              rdfs:subClassOf :EMMO_998dd3a0-c85f-4c8d-9fb8-816a93cc3bb8 ,
+                             om:InputFile ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                owl:onClass om:LAMMPS
                              ] ;
+             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Class of input and output files for the software LAMMPS."@en ;
              skos:prefLabel "LAMMPSFile" .
 
 
@@ -502,10 +584,10 @@ om:LAMMPS rdf:type owl:Class ;
                             owl:onProperty :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c ;
                             owl:someValuesFrom :EMMO_84cadc45_6758_46f2_ba2a_5ead65c70213
                           ] ;
-          :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "https://lammps.org" ;
           rdfs:comment """LAMMPS is a classical molecular dynamics code with a focus on materials modeling. It's an acronym for Large-scale Atomic/Molecular Massively Parallel Simulator.
 
 LAMMPS has potentials for solid-state materials (metals, semiconductors) and soft matter (biomolecules, polymers) and coarse-grained or mesoscopic systems. It can be used to model atoms or, more generically, as a parallel particle simulator at the atomic, meso, or continuum scale."""@en ;
+          rdfs:seeAlso "https://lammps.org" ;
           skos:prefLabel "LAMMPS"@en .
 
 
@@ -527,23 +609,40 @@ om:LAMMPSDataProcessing rdf:type owl:Class ;
 om:LAMMPSDataSet rdf:type owl:Class ;
                  rdfs:subClassOf :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a ,
                                  [ rdf:type owl:Restriction ;
-                                   owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                   owl:onProperty :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
+                                   owl:someValuesFrom om:LAMMPS
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                   owl:someValuesFrom om:Argument
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                   owl:someValuesFrom om:Command
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
                                    owl:someValuesFrom om:LAMMPSDataFile
                                  ] ,
                                  [ rdf:type owl:Restriction ;
-                                   owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                   owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
                                    owl:someValuesFrom om:LAMMPSInitFile
                                  ] ,
                                  [ rdf:type owl:Restriction ;
-                                   owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                   owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
                                    owl:someValuesFrom om:LAMMPSRunFile
                                  ] ,
                                  [ rdf:type owl:Restriction ;
-                                   owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                   owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
                                    owl:someValuesFrom om:LAMMPSSettingsFile
                                  ] ,
                                  [ rdf:type owl:Restriction ;
-                                   owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                   owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
+                                                  ] ;
+                                   owl:someValuesFrom :bc37743c_37c4_4ec7_9d58_d1aae5567352
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                    owl:onClass om:LAMMPSInputFile
                                  ] ;
@@ -581,12 +680,7 @@ om:LAMMPSLogParsing rdf:type owl:Class ;
                     rdfs:subClassOf om:LAMMPSDataProcessing ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
-                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass [ rdf:type owl:Restriction ;
-                                                    owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                   ] ;
-                                                    owl:someValuesFrom om:LAMMPSLog
-                                                  ]
+                                      owl:someValuesFrom om:LAMMPSLog
                                     ] .
 
 
@@ -595,21 +689,14 @@ om:LAMMPSLogParsingDensity rdf:type owl:Class ;
                            rdfs:subClassOf :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
                                            om:LAMMPSLogParsing ,
                                            [ rdf:type owl:Restriction ;
-                                             owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                             owl:someValuesFrom :EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a
+                                             owl:onProperty [ owl:inverseOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204
+                                                            ] ;
+                                             owl:someValuesFrom :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
                                            ] ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                             owl:onClass [ owl:intersectionOf ( :EMMO_06448f64_8db6_4304_8b2c_e785dba82044
-                                                                                [ rdf:type owl:Restriction ;
-                                                                                  owl:onProperty [ owl:inverseOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204
-                                                                                                 ] ;
-                                                                                  owl:someValuesFrom :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
-                                                                                ]
-                                                                              ) ;
-                                                           rdf:type owl:Class
-                                                         ]
+                                             owl:onClass :EMMO_06448f64_8db6_4304_8b2c_e785dba82044
                                            ] ;
                            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Specialised task that returns only the converged density of a fluid. It assumes that the LAMMPS log contains a column named Density."@en ;
                            skos:prefLabel "LAMMPSLogParsingDensity" .
@@ -631,14 +718,6 @@ om:LAMMPSSettingsFile rdf:type owl:Class ;
 om:LAMMPSSimulation rdf:type owl:Class ;
                     rdfs:subClassOf :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
                                     :EMMO_e97af6ec_4371_4bbc_8936_34b76e33302f ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
-                                      owl:someValuesFrom [ owl:intersectionOf ( om:Argument
-                                                                                om:Command
-                                                                              ) ;
-                                                           rdf:type owl:Class
-                                                         ]
-                                    ] ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
                                       owl:someValuesFrom om:DCDFile
@@ -673,7 +752,7 @@ However, additional files may be called by the input file sim.in""" ;
 ###  http://emmo.info/emmo/domain/openmodel#LAMMPSTemplate
 om:LAMMPSTemplate rdf:type owl:Class ;
                   rdfs:subClassOf <http://emmo.info/emmo#3c5b33a1_4f28_41f9_b725_1994df79bf55> ,
-                                  _:genid56 ;
+                                  _:genid49 ;
                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A moltemplate LT file containing molecule definitions to generate a valid input deck for LAMMPS." ;
                   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The LAMMPS-template (LT) format is used by moltemplate to create template files containing all the information required to create a particular molecule or input for LAMMPS (including coordinates, bond-topology, angles, force-field parameters, constraints, groups and fixes). LT files are text-based and are interpreted by the program Moltemplate. The format is agnostic to the LAMMPS syntax."@en ;
                   rdfs:seeAlso "https://www.moltemplate.org/"^^xsd:anyURI ;
@@ -681,16 +760,191 @@ om:LAMMPSTemplate rdf:type owl:Class ;
                                 "LTFile" ;
                   skos:prefLabel "MoltemplateScript" .
 
-_:genid56 rdf:type owl:Restriction ;
+_:genid49 rdf:type owl:Restriction ;
            owl:onProperty :EMMO_7fb7fe7e_bdf9_4eeb_adad_e384dd5285c6 ;
            owl:allValuesFrom om:Moltemplate .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource om:LAMMPSTemplate ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid56 ;
+   owl:annotatedTarget _:genid49 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Is this axiom correct to define a property of the scripting language? Or, should it be stated for Moltemplate Files?"@en
  ] .
+
+
+###  http://emmo.info/emmo/domain/openmodel#LAMMPSWaterDataSet
+om:LAMMPSWaterDataSet rdf:type owl:Class ;
+                      rdfs:subClassOf om:LAMMPSDataSet ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
+                                                       ] ;
+                                        owl:someValuesFrom om:water
+                                      ] ;
+                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A particular class of the LAMMPS dataset referring specifically to a sample of water molecules."@en ;
+                      skos:prefLabel "LAMMPSWaterDataSet" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#LTCondensedExternalDependencyDS
+om:LTCondensedExternalDependencyDS rdf:type owl:Class ;
+                                   rdfs:subClassOf om:OTEAPIDataSet ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                     owl:someValuesFrom om:AAMDTaskLT
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                     owl:someValuesFrom om:GROMOSSettingsLT
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                     owl:someValuesFrom om:PDBFile
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                     owl:someValuesFrom om:RandomGeneratorLT
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                     owl:someValuesFrom [ owl:intersectionOf ( om:ForceField
+                                                                                               om:LTFile
+                                                                                             ) ;
+                                                                          rdf:type owl:Class
+                                                                        ]
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
+                                                                    ] ;
+                                                     owl:someValuesFrom :bc37743c_37c4_4ec7_9d58_d1aae5567352
+                                                   ] ;
+                                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The set of files taken as input by Moltemplate to simulate the properties of a condensed system, whose initial structure is read from an external file."@en ;
+                                   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This dataset contains the include files and their URIs."@en ;
+                                   skos:prefLabel "LTCondensedExternalDependencyDS"@en .
+
+
+###  http://emmo.info/emmo/domain/openmodel#LTCondensedExternalMasterDS
+om:LTCondensedExternalMasterDS rdf:type owl:Class ;
+                               rdfs:subClassOf om:OTEAPIDataSet ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:someValuesFrom om:AAMDTaskLT
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:someValuesFrom om:ForceFieldStyle
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:someValuesFrom om:GROMOSSettingsLT
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:someValuesFrom om:LTCondensedTemplate
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:someValuesFrom om:MolecularDynamicsOutput
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:someValuesFrom om:MolecularDynamicsTask
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:someValuesFrom om:MolecularType
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:someValuesFrom [ owl:intersectionOf ( om:ForceField
+                                                                                           om:LTFile
+                                                                                         ) ;
+                                                                      rdf:type owl:Class
+                                                                    ]
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
+                                                                ] ;
+                                                 owl:someValuesFrom :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass :EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass :EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass om:CorrelationLength
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass om:CutoffRadius
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass om:NumberMolecules
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass om:ProductionSteps
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass om:Root
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass om:SamplingInterval
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass om:Timestep
+                                               ] ;
+                               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Input dataset for Moltemplate containing user-specified parameters that are substituted in a template file and serialised in the master LT file."@en ;
+                               :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Refine the restrictions:
+hasDatum some MolecularDynamicsTask
+hasDatum some MolecularDynamicsOutput
+
+The classes they refer to are PhysicsBasedSimulation, but the datum per se is a string (see the examples in the corresponding classes)."""@en ;
+                               skos:prefLabel "LTCondensedExternalMasterDS" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#LTCondensedTemplate
+om:LTCondensedTemplate rdf:type owl:Class ;
+                       rdfs:subClassOf om:Jinja2File ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
+                                                        ] ;
+                                         owl:someValuesFrom :bc37743c_37c4_4ec7_9d58_d1aae5567352
+                                       ] ;
+                       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A template file for writing a LT file for the computation of solid-state properties of a generic sample (i.e. any substance)."@en ;
+                       skos:prefLabel "LTCondensedTemplate" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#LTDependencyCTX
+om:LTDependencyCTX rdf:type owl:Class ;
+                   rdfs:subClassOf om:AiiDADataNodes ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                     owl:someValuesFrom om:MasterLT
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
+                                                    ] ;
+                                     owl:someValuesFrom :bc37743c_37c4_4ec7_9d58_d1aae5567352
+                                   ] ;
+                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This dataset contains the include files (in the LT format) that are needed for the execution of the program Moltemplate."@en ;
+                   skos:prefLabel "LTDependencyCTX" .
 
 
 ###  http://emmo.info/emmo/domain/openmodel#LTFile
@@ -706,6 +960,22 @@ om:LTFile rdf:type owl:Class ;
                             owl:onClass om:Moltemplate
                           ] ;
           skos:prefLabel "LTFile" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#LTMasterCTX
+om:LTMasterCTX rdf:type owl:Class ;
+               rdfs:subClassOf om:AiiDADataNodes ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                 owl:someValuesFrom om:MasterLT
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
+                                                ] ;
+                                 owl:someValuesFrom :bc37743c_37c4_4ec7_9d58_d1aae5567352
+                               ] ;
+               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This dataset contains the master file for the program Moltemplate. It is created as an AiiDA data node rather than being sourced from an existing file."@en ;
+               skos:prefLabel "LTMasterCTX" .
 
 
 ###  http://emmo.info/emmo/domain/openmodel#LennardJones612
@@ -738,11 +1008,55 @@ https://doi.org/10.1039/c9cp04120f"""@en ;
         skos:prefLabel "MOLC" .
 
 
+###  http://emmo.info/emmo/domain/openmodel#MSDmoleculeMD
+om:MSDmoleculeMD rdf:type owl:Class ;
+                 rdfs:subClassOf om:MolecularDynamicsOutput ;
+                 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Compute standard thermodynamic quantities, plus:
+* the inter-molecular energy for systems with long-range electrostatics
+* the total mean-square displacement (MSD) computed on the centre of mass of individual molecules.
+
+The thermodynamics output is as follows:
+* Simulation step
+* Total Energy
+* van deer Walls Energy (short-range)
+* Coulomb Energy (real part of the potential)
+* Long-range Coulomb Energy (reciprocal part of the potential)
+* Bond Energy
+* Angle Energy
+* Dihedral Energy
+* Improper Energy
+* Kinetic Energy
+* Potential Energy
+* Temperature
+* Pressure
+* Volume
+* Density
+* Inter-molecular Energy
+* Averaged MSD
+* Elapsed CPU time.
+
+Save a MD trajectory as a separate file (DCD or DUMP formats)."""@en ;
+                 skos:prefLabel "MSDmoleculeMD" .
+
+
 ###  http://emmo.info/emmo/domain/openmodel#Markdown
 om:Markdown rdf:type owl:Class ;
             rdfs:subClassOf :EMMO_af7b627d_6528_4fdb_97df_ba4579c4bb5d ;
             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Markdown is a lightweight markup language with plain text formatting syntax."@en ;
             skos:prefLabel "Markdown" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#MasterLT
+om:MasterLT rdf:type owl:Class ;
+            rdfs:subClassOf om:LTFile ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
+                                             ] ;
+                              owl:someValuesFrom :bc37743c_37c4_4ec7_9d58_d1aae5567352
+                            ] ;
+            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The master file containing the high-level description of the Molecular Dynamics Simulation being performed.
+It contains a logical sequence of includes and commands which are executed by Moltemplate and converted into an input deck for LAMMPS."""@en ;
+            skos:prefLabel "MasterLT" .
 
 
 ###  http://emmo.info/emmo/domain/openmodel#MeanSquareDisplacement
@@ -754,6 +1068,12 @@ om:MeanSquareDisplacement rdf:type owl:Class ;
                                           ] ;
                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The mean squared displacement (MSD) is a measure of the deviation of the position of a particle with respect to a reference position over time."@en ;
                           skos:prefLabel "MeanSquareDisplacement" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#MolecularDynamicsOutput
+om:MolecularDynamicsOutput rdf:type owl:Class ;
+                           rdfs:subClassOf :EMMO_e97af6ec_4371_4bbc_8936_34b76e33302f ;
+                           skos:prefLabel "MolecularDynamicsOutput" .
 
 
 ###  http://emmo.info/emmo/domain/openmodel#MolecularDynamicsTask
@@ -796,9 +1116,107 @@ om:MollerPlesset rdf:type owl:Class ;
 ###  http://emmo.info/emmo/domain/openmodel#Moltemplate
 om:Moltemplate rdf:type owl:Class ;
                rdfs:subClassOf :EMMO_cbf42aa6-9e11-4be8-932a-ae3c792ab17d ;
-               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Moltemplate is a general molecule builder and force-field database system for LAMMPS."@en ,
-                                                          "http://www.moltemplate.org/" ;
+               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Moltemplate is a general molecule builder and force-field database system for LAMMPS."@en ;
+               rdfs:seeAlso "http://www.moltemplate.org/" ;
                skos:prefLabel "Moltemplate"@en .
+
+
+###  http://emmo.info/emmo/domain/openmodel#MoltemplateCondensedDPWrapper
+om:MoltemplateCondensedDPWrapper rdf:type owl:Class ;
+                                 rdfs:subClassOf om:MoltemplateDataProcessingWrapper ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
+                                                   owl:someValuesFrom om:LTDependencyCTX
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
+                                                   owl:someValuesFrom om:LTMasterCTX
+                                                 ] ;
+                                 skos:prefLabel "MoltemplateCondensedDPWrapper" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#MoltemplateCondensedDataSet
+om:MoltemplateCondensedDataSet rdf:type owl:Class ;
+                               rdfs:subClassOf om:MoltemplateDataSet ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:someValuesFrom om:AAMDTaskLT
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:someValuesFrom om:GROMOSSettingsLT
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:someValuesFrom om:MasterLT
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:someValuesFrom om:RandomGeneratorLT
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                 owl:someValuesFrom [ owl:intersectionOf ( om:ForceField
+                                                                                           om:LTFile
+                                                                                         ) ;
+                                                                      rdf:type owl:Class
+                                                                    ]
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
+                                                                ] ;
+                                                 owl:someValuesFrom :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
+                                               ] ;
+                               :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Generic dataset for Moltemplate for computing solid-state properties such as density, temperature, pressure, and internal energy of a condensed system. The initial guess of the system is generated either with LAMMPS commands (create_atoms) or with the Moltemplate scripting language."@en ,
+                                                                          """The command to create a row of 10 water molecules, defined by the macro named TIP3P, equally spaced along the X direction is:
+mol = new TIP3P[10].move(3,0,0)"""@en ;
+                               skos:prefLabel "MoltemplateCondensedDataSet" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#MoltemplateCondensedExternalDataSet
+om:MoltemplateCondensedExternalDataSet rdf:type owl:Class ;
+                                       rdfs:subClassOf om:MoltemplateDataSet ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                         owl:someValuesFrom om:AAMDTaskLT
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                         owl:someValuesFrom om:GROMOSSettingsLT
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                         owl:someValuesFrom om:MasterLT
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                         owl:someValuesFrom om:RandomGeneratorLT
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                         owl:someValuesFrom [ owl:intersectionOf ( om:ForceField
+                                                                                                   om:LTFile
+                                                                                                 ) ;
+                                                                              rdf:type owl:Class
+                                                                            ]
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                                         owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                              owl:unionOf ( om:DUMPFile
+                                                                                            om:PDBFile
+                                                                                            om:XYZFile
+                                                                                          )
+                                                                            ]
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
+                                                                        ] ;
+                                                         owl:someValuesFrom :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
+                                                       ] ;
+                                       :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Generic dataset for Moltemplate for computing solid-state properties such as density, temperature, pressure, and internal energy of a condensed system. The initial guess of the system is taken from an (external) atomic structure file such as PDB or XYZ."@en ,
+                                                                                  "This dataset describes the input dataset which is passed to step 3 of workflow_2oteapi.yaml"@en ;
+                                       skos:prefLabel "MoltemplateCondensedExternalDataSet" .
 
 
 ###  http://emmo.info/emmo/domain/openmodel#MoltemplateDataProcessing
@@ -807,11 +1225,7 @@ om:MoltemplateDataProcessing rdf:type owl:Class ;
                                              <http://emmo.info/emmo#1c7f2dfe_0db4_4bf6_a0f6_853054a34ead> ,
                                              [ rdf:type owl:Restriction ;
                                                owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
-                                               owl:someValuesFrom om:Argument
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
-                                               owl:someValuesFrom om:Command
+                                               owl:someValuesFrom om:MoltemplateDataSet
                                              ] ,
                                              [ rdf:type owl:Restriction ;
                                                owl:onProperty :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
@@ -823,7 +1237,90 @@ om:MoltemplateDataProcessing rdf:type owl:Class ;
                                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                owl:onClass om:LAMMPSDataSet
                                              ] ;
+                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A task in which the software Moltemplate is executed and an input deck for LAMMPS is created. This task is a standalone execution."@en ;
+                             :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "moltemplate.sh -overlay-all -atomstyle full -pdb test.pdb myscript.lt" ;
                              skos:prefLabel "MoltemplateDataProcessing"@en .
+
+
+###  http://emmo.info/emmo/domain/openmodel#MoltemplateDataProcessingWrapper
+om:MoltemplateDataProcessingWrapper rdf:type owl:Class ;
+                                    rdfs:subClassOf om:ExecFlowWrapper ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                      owl:onClass om:Moltemplate
+                                                    ] ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                      owl:onClass om:LAMMPSDataSet
+                                                    ] ;
+                                    skos:prefLabel "MoltemplateDataProcessingWrapper" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#MoltemplateDataSet
+om:MoltemplateDataSet rdf:type owl:Class ;
+                      rdfs:subClassOf :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
+                                        owl:someValuesFrom om:Moltemplate
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                        owl:someValuesFrom om:Argument
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                        owl:someValuesFrom om:Command
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                        owl:someValuesFrom om:LTFile
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
+                                                       ] ;
+                                        owl:someValuesFrom :bc37743c_37c4_4ec7_9d58_d1aae5567352
+                                      ] ;
+                      :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A class covering any dataset that is passed to Moltemplate."@en .
+
+
+###  http://emmo.info/emmo/domain/openmodel#MoltemplateWaterDataSet
+om:MoltemplateWaterDataSet rdf:type owl:Class ;
+                           rdfs:subClassOf om:MoltemplateCondensedExternalDataSet ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                             owl:someValuesFrom om:WaterDensityLT
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
+                                                            ] ;
+                                             owl:someValuesFrom om:water
+                                           ] ;
+                           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A particular class of the Moltemplate dataset referring specifically to a sample of water molecules."@en ;
+                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This class inherits being a model for water from the master file class WaterDensityLT, which specifically describes a simulation of water molecules."@en ;
+                           skos:prefLabel "MoltemplateWaterDataSet" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#NPT
+om:NPT rdf:type owl:Class ;
+       rdfs:subClassOf om:MolecularDynamicsTask ;
+       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation, its MolecularDynamicsOutput, and perform time integration on Nose-Hoover style non-Hamiltonian equations of motion, keeping constant pressure and temperature."@en ;
+       skos:prefLabel "NPT" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#NVE
+om:NVE rdf:type owl:Class ;
+       rdfs:subClassOf om:MolecularDynamicsTask ;
+       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation, its MolecularDynamicsOutput, and perform time integration in the microcanonical ensemble."@en ;
+       skos:prefLabel "NVE" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#NVT
+om:NVT rdf:type owl:Class ;
+       rdfs:subClassOf om:MolecularDynamicsTask ;
+       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation, its MolecularDynamicsOutput, and perform time integration in the canonical ensemble using a Langevin thermostat."@en ;
+       skos:prefLabel "NVT" .
 
 
 ###  http://emmo.info/emmo/domain/openmodel#NumberMolecules
@@ -854,17 +1351,61 @@ https://doi.org/10.1021/ja00214a001."""@en ;
         skos:prefLabel "OPLS" .
 
 
+###  http://emmo.info/emmo/domain/openmodel#OTEAPIDataSet
+om:OTEAPIDataSet rdf:type owl:Class ;
+                 rdfs:subClassOf :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
+                                   owl:someValuesFrom om:DLite
+                                 ] ;
+                 :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A class covering any dataset that is passed to an OTEAPI pipeline for data documentation, mapping, and serialisation."@en .
+
+
 ###  http://emmo.info/emmo/domain/openmodel#OTEAPIpipeline
 om:OTEAPIpipeline rdf:type owl:Class ;
                   rdfs:subClassOf :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
                                   <http://emmo.info/emmo#1c7f2dfe_0db4_4bf6_a0f6_853054a34ead> ,
                                   [ rdf:type owl:Restriction ;
+                                    owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
+                                    owl:someValuesFrom om:OTEAPIDataSet
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
                                     owl:onProperty :EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
                                     owl:someValuesFrom om:DLite
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+                                    owl:someValuesFrom om:AiiDADataNodes
                                   ] ;
                   :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Open Translation Environment API"@en ;
                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "OTEAPI allows the access to a large range of data resources. Semantic interoperability is supported via mapping of data models describing the data to ontologies."@en ;
                   skos:prefLabel "OTEAPIpipeline" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#OTEAPIpipelineDependency
+om:OTEAPIpipelineDependency rdf:type owl:Class ;
+                            rdfs:subClassOf om:OTEAPIpipeline ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
+                                              owl:someValuesFrom om:LTCondensedExternalDependencyDS
+                                            ] ;
+                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A pipeline resolving the include files that contains macros, force fields, and commands for Moltemplate."@en ;
+                            skos:prefLabel "OTEAPIpipelineDependency" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#OTEAPIpipelineLTMaster
+om:OTEAPIpipelineLTMaster rdf:type owl:Class ;
+                          rdfs:subClassOf om:OTEAPIpipeline ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+                                            owl:someValuesFrom om:LTMasterCTX
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
+                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass om:LTCondensedExternalMasterDS
+                                          ] ;
+                          skos:prefLabel "OTEAPIpipelineLTMaster" .
 
 
 ###  http://emmo.info/emmo/domain/openmodel#PDBFile
@@ -927,8 +1468,8 @@ om:QuantumEspresso rdf:type owl:Class ;
                                      owl:onProperty :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c ;
                                      owl:someValuesFrom :EMMO_6eca09be_17e9_445e_abc9_000aa61b7a11
                                    ] ;
-                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Quantum ESPRESSO is an integrated suite of Open-Source computer codes for electronic-structure calculations and materials modeling at the nanoscale. It is based on density-functional theory, plane waves, and pseudopotentials."@en ,
-                                                              "https://www.quantum-espresso.org/" ;
+                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Quantum ESPRESSO is an integrated suite of Open-Source computer codes for electronic-structure calculations and materials modeling at the nanoscale. It is based on density-functional theory, plane waves, and pseudopotentials."@en ;
+                   rdfs:seeAlso "https://www.quantum-espresso.org/" ;
                    skos:prefLabel "QuantumEspresso" .
 
 
@@ -936,7 +1477,7 @@ om:QuantumEspresso rdf:type owl:Class ;
 om:RandomGeneratorLT rdf:type owl:Class ;
                      rdfs:subClassOf om:LTFile ,
                                      [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EMMO_d893d373_b579_4867_841e_1c2b31a8d2c6 ;
+                                       owl:onProperty :EMMO_3733bd38_ca2b_4264_a92a_3075a1715598 ;
                                        owl:someValuesFrom om:RandomNumber
                                      ] ;
                      skos:prefLabel "RandomGeneratorLT" .
@@ -1011,6 +1552,22 @@ om:TOML rdf:type owl:Class ;
         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Tom's Obvious, Minimal Language, a plain-text format easy to read and write by humans. The syntax resembles that of the INI format."@en .
 
 
+###  http://emmo.info/emmo/domain/openmodel#TemperatureMDT
+om:TemperatureMDT rdf:type owl:Class ;
+                  rdfs:subClassOf om:MolecularDynamicsTask ;
+                  :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Set the velocity of all atoms to the initial temperature."@en ;
+                  skos:prefLabel "TemperatureMDT" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#TemperatureScanMDT
+om:TemperatureScanMDT rdf:type owl:Class ;
+                      rdfs:subClassOf om:MolecularDynamicsTask ;
+                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Initialise the run section of a MD simulation, its MolecularDynamicsOutput, and perform a scan in temperature at constant pressure. The scan is defined by a ramp where the temperature is linearly increased, and equilibration phase, and a production phase. Each step is controlled with its own number of steps, and the sequence is repeated from T_start to T_stop with increments DT.
+
+The time integration is done in the isenthalpic (NPH) ensemble with a Nose-Hoover barostat, while the temperature control is done with a Langevin thermostat. The resulting ensemble is NPT."""@en ;
+                      skos:prefLabel "TemperatureScanMDT" .
+
+
 ###  http://emmo.info/emmo/domain/openmodel#Timestep
 om:Timestep rdf:type owl:Class ;
             rdfs:subClassOf :EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a ,
@@ -1039,95 +1596,26 @@ om:VolumeElement rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo/domain/openmodel#WaterDensityLT
 om:WaterDensityLT rdf:type owl:Class ;
-                  rdfs:subClassOf om:LTFile ,
+                  rdfs:subClassOf om:MasterLT ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty [ owl:inverseOf :EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455
-                                                   ] ;
-                                    owl:someValuesFrom om:water
+                                    owl:onProperty :EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
+                                    owl:someValuesFrom :EMMO_06448f64_8db6_4304_8b2c_e785dba82044
                                   ] ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass om:waterDensityDataSetMaster
+                                    owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
+                                                   ] ;
+                                    owl:someValuesFrom om:water
                                   ] ;
                   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The master file describing a MD simulation returning the density of water."@en ;
                   skos:prefLabel "WaterDensityLT" .
-
-
-###  http://emmo.info/emmo/domain/openmodel#WaterDensityLTTemplate
-om:WaterDensityLTTemplate rdf:type owl:Class ;
-                          rdfs:subClassOf om:Jinja2File ;
-                          skos:prefLabel "WaterDensityLTTemplate" .
-
-
-###  http://emmo.info/emmo/domain/openmodel#WaterDensityMD
-om:WaterDensityMD rdf:type owl:Class ;
-                  rdfs:subClassOf :EMMO_e97af6ec_4371_4bbc_8936_34b76e33302f ,
-                                  _:genid79 ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                    owl:someValuesFrom om:WaterDensityMoltemplateDP
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
-                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass om:LAMMPSLogParsing
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
-                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass om:LAMMPSSimulation
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
-                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass om:WaterDensityMoltemplateDP
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EMMO_70da982d_1810_4b01_9630_a28e216ecd9a ;
-                                    owl:maxQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc
-                                  ] ;
-                  :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "First attempt to describe a workflow. It contains errors and it is kept only to document the process of learning how to use the EMMO." ;
-                  dcterms:contributor "Otello M Roscioni" ;
-                  skos:prefLabel "FluidNPT"@en .
-
-_:genid79 rdf:type owl:Restriction ;
-           owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-           owl:someValuesFrom om:LAMMPSSimulation .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource om:WaterDensityMD ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid79 ;
-   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Not sure how to handle more complex workflow topologies!"
- ] .
-
-
-###  http://emmo.info/emmo/domain/openmodel#WaterDensityMoltemplateDP
-om:WaterDensityMoltemplateDP rdf:type owl:Class ;
-                             rdfs:subClassOf om:MoltemplateDataProcessing ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty [ owl:inverseOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204
-                                                              ] ;
-                                               owl:someValuesFrom :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass om:waterDensityDataSetDependency
-                                             ] ;
-                             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This is a computational task."@en ;
-                             :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This process takes a specific dataset as its input."@en ;
-                             skos:prefLabel "WaterDensityMoltemplateDP" .
 
 
 ###  http://emmo.info/emmo/domain/openmodel#WaterDensityPipelineMaster
 om:WaterDensityPipelineMaster rdf:type owl:Class ;
                               rdfs:subClassOf om:YAMLFile ,
                                               [ rdf:type owl:Restriction ;
-                                                owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
-                                                owl:someValuesFrom om:waterDensityDataSetMaster
+                                                owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                owl:someValuesFrom om:LTCondensedExternalMasterDS
                                               ] ;
                               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Input dataset for a MD simulation computing the density of water, including parameters that the user wants to specify (e.g. temperature and pressure, system size, etc.) and other settings (e.g. timestep, simulation length, sampling intervals).  It is serialised in YAML."@en ;
                               skos:prefLabel "WaterDensityPipelineMaster" .
@@ -1135,31 +1623,40 @@ om:WaterDensityPipelineMaster rdf:type owl:Class ;
 
 ###  http://emmo.info/emmo/domain/openmodel#WaterTIP3PLT
 om:WaterTIP3PLT rdf:type owl:Class ;
-                rdfs:subClassOf om:LTFile ,
+                rdfs:subClassOf om:ForceField ,
+                                om:LTFile ,
                                 [ rdf:type owl:Restriction ;
-                                  owl:onProperty [ owl:inverseOf :EMMO_39c3815d_8cae_4c8f_b2ff_eeba24bec455
+                                  owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
                                                  ] ;
                                   owl:someValuesFrom om:water
                                 ] ,
-                                _:genid92 ,
+                                _:genid162 ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                   owl:onClass om:MolecularType
                                 ] ;
-                :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "LT file containing the TIP3P water model to be used with the GROMOS force field."@en ;
+                :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "LT file containing the TIP3P water model to be used with the GROMOS force field."@en ,
+                                                           "Modify the restriction: hasModel only GROMOS. Use an object property that implies that this file is also a ForceField, as it contains the parameters that describe a water molecule and refer to a specific force field."@en ;
                 skos:prefLabel "WaterTIP3PLT" .
 
-_:genid92 rdf:type owl:Restriction ;
-           owl:onProperty :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c ;
-           owl:allValuesFrom om:GROMOS .
+_:genid162 rdf:type owl:Restriction ;
+            owl:onProperty :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c ;
+            owl:allValuesFrom om:GROMOS .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource om:WaterTIP3PLT ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid92 ;
+   owl:annotatedTarget _:genid162 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Here I want to say that the force field describing the TIP3P water model is part of the GROMOS force field."@en
  ] .
+
+
+###  http://emmo.info/emmo/domain/openmodel#Wrapper
+om:Wrapper rdf:type owl:Class ;
+           rdfs:subClassOf :EMMO_8681074a_e225_4e38_b586_e85b0f43ce38 ;
+           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A wrapper is a program or code that encapsulates and hides the underlying complexity of another program or code by means of a well-defined interface."@en ;
+           skos:prefLabel "Wrapper" .
 
 
 ###  http://emmo.info/emmo/domain/openmodel#XML
@@ -1192,6 +1689,101 @@ om:YAMLFile rdf:type owl:Class ;
             skos:prefLabel "YAMLFile" .
 
 
+###  http://emmo.info/emmo/domain/openmodel#benzene
+om:benzene rdf:type owl:Class ;
+           rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ,
+                           :EMMO_ec7464a9_d99d_45f8_965b_4e9230ea8356 ;
+           skos:prefLabel "benzene" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#defaultMD
+om:defaultMD rdf:type owl:Class ;
+             rdfs:subClassOf om:MolecularDynamicsOutput ;
+             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Compute standard thermodynamic quantities in this order:
+* Simulation step
+* Total Energy
+* van deer Walls Energy (short-range)
+* Coulomb Energy (real part of the potential)
+* Long-range Coulomb Energy (reciprocal part of the potential)
+* Bond Energy
+* Angle Energy
+* Dihedral Energy
+* Improper Energy
+* Kinetic Energy
+* Potential Energy
+* Temperature
+* Pressure
+* Volume
+* Density
+* Elapsed CPU time
+
+Save a MD trajectory as a separate file (DCD or DUMP formats)."""@en ;
+             skos:prefLabel "defaultMD" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#hexane
+om:hexane rdf:type owl:Class ;
+          rdfs:subClassOf :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2 ,
+                          :EMMO_ec7464a9_d99d_45f8_965b_4e9230ea8356 ;
+          skos:prefLabel "hexane" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#initialiseMDT
+om:initialiseMDT rdf:type owl:Class ;
+                 rdfs:subClassOf om:MolecularDynamicsTask ;
+                 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation and its MolecularDynamicsOutput, without defining any time integrator."@en ;
+                 skos:prefLabel "initialiseMDT" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#interLongMD
+om:interLongMD rdf:type owl:Class ;
+               rdfs:subClassOf om:MolecularDynamicsOutput ;
+               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Compute standard thermodynamic quantities, plus the inter-molecular energy for systems with long-range electrostatics.
+
+The thermodynamics output is as follows:
+* Simulation step
+* Total Energy
+* van deer Walls Energy (short-range)
+* Coulomb Energy (real part of the potential)
+* Long-range Coulomb Energy (reciprocal part of the potential)
+* Bond Energy
+* Angle Energy
+* Dihedral Energy
+* Improper Energy
+* Kinetic Energy
+* Potential Energy
+* Temperature
+* Pressure
+* Volume
+* Density
+* Inter-molecular Energy
+* Elapsed CPU time.
+
+Save a MD trajectory as a separate file (DCD or DUMP formats)."""@en ;
+               skos:prefLabel "interLongMD" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#minimizeMDT
+om:minimizeMDT rdf:type owl:Class ;
+               rdfs:subClassOf om:MolecularDynamicsTask ;
+               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Minimisation of the initial structure and resetting of all atom velocities to the initial temperature."@en ;
+               skos:prefLabel "minimizeMDT" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#rerunMDT
+om:rerunMDT rdf:type owl:Class ;
+            rdfs:subClassOf om:MolecularDynamicsTask ;
+            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation and compute the selected MolecularDynamicsOutput using the rerun command."@en ;
+            skos:prefLabel "rerunMDT" .
+
+
+###  http://emmo.info/emmo/domain/openmodel#saveMDT
+om:saveMDT rdf:type owl:Class ;
+           rdfs:subClassOf om:MolecularDynamicsTask ;
+           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Save the current status of a MD simulation by writing DATA and RESTART files."@en ;
+           skos:prefLabel "saveMDT" .
+
+
 ###  http://emmo.info/emmo/domain/openmodel#water
 om:water rdf:type owl:Class ;
          rdfs:subClassOf :EMMO_75fe4fd1_0f7e_429b_b91d_59d248561bae ,
@@ -1199,315 +1791,12 @@ om:water rdf:type owl:Class ;
          skos:prefLabel "water" .
 
 
-###  http://emmo.info/emmo/domain/openmodel#waterDensityDataSet2
-om:waterDensityDataSet2 rdf:type owl:Class ;
-                        rdfs:subClassOf :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
-                                          owl:someValuesFrom [ owl:intersectionOf ( om:Argument
-                                                                                    om:Command
-                                                                                  ) ;
-                                                               rdf:type owl:Class
-                                                             ]
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty [ owl:inverseOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b
-                                                         ] ;
-                                          owl:someValuesFrom :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass :EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass :EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass om:CorrelationLength
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass om:CutoffRadius
-                                        ] ,
-                                        _:genid106 ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass om:NumberMolecules
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass om:ProductionSteps
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass om:Root
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass om:SamplingInterval
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass om:Timestep
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass [ rdf:type owl:Restriction ;
-                                                        owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                       ] ;
-                                                        owl:someValuesFrom om:AAMDTaskLT
-                                                      ]
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass [ rdf:type owl:Restriction ;
-                                                        owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                       ] ;
-                                                        owl:someValuesFrom om:GROMOSSettingsLT
-                                                      ]
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass [ rdf:type owl:Restriction ;
-                                                        owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                       ] ;
-                                                        owl:someValuesFrom om:PDBFile
-                                                      ]
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass [ rdf:type owl:Restriction ;
-                                                        owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                       ] ;
-                                                        owl:someValuesFrom om:RandomGeneratorLT
-                                                      ]
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass [ rdf:type owl:Restriction ;
-                                                        owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                       ] ;
-                                                        owl:someValuesFrom om:WaterDensityLTTemplate
-                                                      ]
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass [ rdf:type owl:Restriction ;
-                                                        owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                       ] ;
-                                                        owl:someValuesFrom om:WaterTIP3PLT
-                                                      ]
-                                        ] ;
-                        :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Monolithic dataset containing all the input information needed to run workflow2.yaml"@en ;
-                        skos:prefLabel "waterDensityDataSet2" .
-
-_:genid106 rdf:type owl:Restriction ;
-            owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass om:MolecularType .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource om:waterDensityDataSet2 ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid106 ;
-   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "It would be nice to ensure that the MolecularType specified here is identical to the one specified inside WaterTIP3PLT"@en
- ] .
-
-
-###  http://emmo.info/emmo/domain/openmodel#waterDensityDataSetDependency
-om:waterDensityDataSetDependency rdf:type owl:Class ;
-                                 rdfs:subClassOf :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
-                                                   owl:someValuesFrom [ owl:intersectionOf ( om:Argument
-                                                                                             om:Command
-                                                                                           ) ;
-                                                                        rdf:type owl:Class
-                                                                      ]
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty [ owl:inverseOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b
-                                                                  ] ;
-                                                   owl:someValuesFrom :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                   owl:onClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                                ] ;
-                                                                 owl:someValuesFrom om:AAMDTaskLT
-                                                               ]
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                   owl:onClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                                ] ;
-                                                                 owl:someValuesFrom om:GROMOSSettingsLT
-                                                               ]
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                   owl:onClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                                ] ;
-                                                                 owl:someValuesFrom om:PDBFile
-                                                               ]
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                   owl:onClass [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                                ] ;
-                                                                 owl:someValuesFrom om:RandomGeneratorLT
-                                                               ]
-                                                 ] ,
-                                                 _:genid149 ;
-                                 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This class contains the URIs and/or CTX of external files included in the simulation."@en ;
-                                 :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The set of files and parameters taken as input by Moltemplate to simulate the density of water."@en ;
-                                 skos:prefLabel "waterDensityDataSetDependency"@en .
-
-_:genid149 rdf:type owl:Restriction ;
-            owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass [ rdf:type owl:Restriction ;
-                          owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                         ] ;
-                          owl:someValuesFrom om:WaterDensityLT
-                        ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource om:waterDensityDataSetDependency ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid149 ;
-   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The master file containing the high-level description of the Molecular Dynamics Simulation being performed."@en
- ] .
-
-
-###  http://emmo.info/emmo/domain/openmodel#waterDensityDataSetMaster
-om:waterDensityDataSetMaster rdf:type owl:Class ;
-                             rdfs:subClassOf :EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty [ owl:inverseOf :EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b
-                                                              ] ;
-                                               owl:someValuesFrom :EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass :EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass :EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass om:CorrelationLength
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass om:CutoffRadius
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass om:MolecularType
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass om:NumberMolecules
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass om:ProductionSteps
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass om:Root
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass om:SamplingInterval
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass om:Timestep
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                            ] ;
-                                                             owl:someValuesFrom om:AAMDTaskLT
-                                                           ]
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                            ] ;
-                                                             owl:someValuesFrom om:GROMOSSettingsLT
-                                                           ]
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                            ] ;
-                                                             owl:someValuesFrom om:WaterDensityLTTemplate
-                                                           ]
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass [ rdf:type owl:Restriction ;
-                                                             owl:onProperty [ owl:inverseOf :EMMO_a592c856_4103_43cf_8635_1982a1e5d5de
-                                                                            ] ;
-                                                             owl:someValuesFrom om:WaterTIP3PLT
-                                                           ]
-                                             ] ;
-                             :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Monolithic dataset containing all the input information needed to run workflow2.yaml"@en .
-
-
 ###  http://emmo.info/emmo/domain/openmodel#waterDensityPipelineDependencies
 om:waterDensityPipelineDependencies rdf:type owl:Class ;
                                     rdfs:subClassOf om:YAMLFile ,
                                                     [ rdf:type owl:Restriction ;
-                                                      owl:onProperty :EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
-                                                      owl:someValuesFrom om:waterDensityDataSetDependency
+                                                      owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
+                                                      owl:someValuesFrom om:LTCondensedExternalDependencyDS
                                                     ] ;
                                     :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Input dataset for a MD simulation computing the density of water, listing the file includes. It is serialised in YAML."@en ;
                                     skos:prefLabel "waterDensityPipelineDependencies" .
