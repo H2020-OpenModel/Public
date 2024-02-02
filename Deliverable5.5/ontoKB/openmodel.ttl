@@ -637,6 +637,10 @@ om:LAMMPSDataSet rdf:type owl:Class ;
                                    owl:someValuesFrom om:LAMMPSSettingsFile
                                  ] ,
                                  [ rdf:type owl:Restriction ;
+                                   owl:onProperty :EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
+                                   owl:someValuesFrom :EMMO_02c0621e_a527_4790_8a0f_2bb51973c819
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
                                    owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
                                                   ] ;
                                    owl:someValuesFrom :bc37743c_37c4_4ec7_9d58_d1aae5567352
@@ -681,18 +685,14 @@ om:LAMMPSLogParsing rdf:type owl:Class ;
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
                                       owl:someValuesFrom om:LAMMPSLog
-                                    ] .
+                                    ] ;
+                    skos:prefLabel "LAMMPSLogParsing" .
 
 
 ###  http://emmo.info/emmo/domain/openmodel#LAMMPSLogParsingDensity
 om:LAMMPSLogParsingDensity rdf:type owl:Class ;
                            rdfs:subClassOf :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
                                            om:LAMMPSLogParsing ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty [ owl:inverseOf :EMMO_e1097637_70d2_4895_973f_2396f04fa204
-                                                            ] ;
-                                             owl:someValuesFrom :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
-                                           ] ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -752,7 +752,7 @@ However, additional files may be called by the input file sim.in""" ;
 ###  http://emmo.info/emmo/domain/openmodel#LAMMPSTemplate
 om:LAMMPSTemplate rdf:type owl:Class ;
                   rdfs:subClassOf <http://emmo.info/emmo#3c5b33a1_4f28_41f9_b725_1994df79bf55> ,
-                                  _:genid49 ;
+                                  _:genid48 ;
                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A moltemplate LT file containing molecule definitions to generate a valid input deck for LAMMPS." ;
                   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The LAMMPS-template (LT) format is used by moltemplate to create template files containing all the information required to create a particular molecule or input for LAMMPS (including coordinates, bond-topology, angles, force-field parameters, constraints, groups and fixes). LT files are text-based and are interpreted by the program Moltemplate. The format is agnostic to the LAMMPS syntax."@en ;
                   rdfs:seeAlso "https://www.moltemplate.org/"^^xsd:anyURI ;
@@ -760,14 +760,14 @@ om:LAMMPSTemplate rdf:type owl:Class ;
                                 "LTFile" ;
                   skos:prefLabel "MoltemplateScript" .
 
-_:genid49 rdf:type owl:Restriction ;
+_:genid48 rdf:type owl:Restriction ;
            owl:onProperty :EMMO_7fb7fe7e_bdf9_4eeb_adad_e384dd5285c6 ;
            owl:allValuesFrom om:Moltemplate .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource om:LAMMPSTemplate ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid49 ;
+   owl:annotatedTarget _:genid48 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Is this axiom correct to define a property of the scripting language? Or, should it be stated for Moltemplate Files?"@en
  ] .
 
@@ -861,9 +861,13 @@ om:LTCondensedExternalMasterDS rdf:type owl:Class ;
                                                                     ]
                                                ] ,
                                                [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
+                                                 owl:someValuesFrom :EMMO_02c0621e_a527_4790_8a0f_2bb51973c819
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
                                                  owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
                                                                 ] ;
-                                                 owl:someValuesFrom :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
+                                                 owl:someValuesFrom :bc37743c_37c4_4ec7_9d58_d1aae5567352
                                                ] ,
                                                [ rdf:type owl:Restriction ;
                                                  owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
@@ -1050,6 +1054,10 @@ om:Markdown rdf:type owl:Class ;
 om:MasterLT rdf:type owl:Class ;
             rdfs:subClassOf om:LTFile ,
                             [ rdf:type owl:Restriction ;
+                              owl:onProperty :EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
+                              owl:someValuesFrom :EMMO_02c0621e_a527_4790_8a0f_2bb51973c819
+                            ] ,
+                            [ rdf:type owl:Restriction ;
                               owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
                                              ] ;
                               owl:someValuesFrom :bc37743c_37c4_4ec7_9d58_d1aae5567352
@@ -1130,8 +1138,10 @@ om:MoltemplateCondensedDPWrapper rdf:type owl:Class ;
                                                  ] ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
-                                                   owl:someValuesFrom om:LTMasterCTX
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass om:LTMasterCTX
                                                  ] ;
+                                 :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The hasInput some LTDependencyCTX should be optional. It should be triggered if the necessary input, LTMasterCTX, requires it."@en ;
                                  skos:prefLabel "MoltemplateCondensedDPWrapper" .
 
 
@@ -1630,7 +1640,7 @@ om:WaterTIP3PLT rdf:type owl:Class ;
                                                  ] ;
                                   owl:someValuesFrom om:water
                                 ] ,
-                                _:genid162 ,
+                                _:genid163 ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -1640,14 +1650,14 @@ om:WaterTIP3PLT rdf:type owl:Class ;
                                                            "Modify the restriction: hasModel only GROMOS. Use an object property that implies that this file is also a ForceField, as it contains the parameters that describe a water molecule and refer to a specific force field."@en ;
                 skos:prefLabel "WaterTIP3PLT" .
 
-_:genid162 rdf:type owl:Restriction ;
+_:genid163 rdf:type owl:Restriction ;
             owl:onProperty :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c ;
             owl:allValuesFrom om:GROMOS .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource om:WaterTIP3PLT ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid162 ;
+   owl:annotatedTarget _:genid163 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Here I want to say that the force field describing the TIP3P water model is part of the GROMOS force field."@en
  ] .
 
