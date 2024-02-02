@@ -1418,6 +1418,27 @@ om:OTEAPIpipelineLTMaster rdf:type owl:Class ;
                           skos:prefLabel "OTEAPIpipelineLTMaster" .
 
 
+###  http://emmo.info/emmo/domain/openmodel#OTEwaterDensityDS
+om:OTEwaterDensityDS rdf:type owl:Class ;
+                     rdfs:subClassOf om:LTCondensedExternalMasterDS ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :EMMO_e1097637_70d2_4895_973f_2396f04fa204 ;
+                                       owl:someValuesFrom :EMMO_06448f64_8db6_4304_8b2c_e785dba82044
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty [ owl:inverseOf :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c
+                                                      ] ;
+                                       owl:someValuesFrom om:water
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass om:WaterTIP3PLT
+                                     ] ;
+                     :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A subclass providing only the property density and being a model for a specific substance, water. It should be better to specify the hasModel and hasProperty restrictions in an instance of the parent class."@en ;
+                     skos:prefLabel "OTEwaterDensityDS" .
+
+
 ###  http://emmo.info/emmo/domain/openmodel#PDBFile
 om:PDBFile rdf:type owl:Class ;
            rdfs:subClassOf om:AtomicStructureFile ;
@@ -1640,7 +1661,7 @@ om:WaterTIP3PLT rdf:type owl:Class ;
                                                  ] ;
                                   owl:someValuesFrom om:water
                                 ] ,
-                                _:genid163 ,
+                                _:genid167 ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -1650,14 +1671,14 @@ om:WaterTIP3PLT rdf:type owl:Class ;
                                                            "Modify the restriction: hasModel only GROMOS. Use an object property that implies that this file is also a ForceField, as it contains the parameters that describe a water molecule and refer to a specific force field."@en ;
                 skos:prefLabel "WaterTIP3PLT" .
 
-_:genid163 rdf:type owl:Restriction ;
+_:genid167 rdf:type owl:Restriction ;
             owl:onProperty :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c ;
             owl:allValuesFrom om:GROMOS .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource om:WaterTIP3PLT ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid163 ;
+   owl:annotatedTarget _:genid167 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Here I want to say that the force field describing the TIP3P water model is part of the GROMOS force field."@en
  ] .
 
