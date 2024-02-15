@@ -2,7 +2,7 @@ version: 1
 
 strategies:
   - dataresource: load_data
-    downloadUrl: "file:///OntoTrans2ndWorkshop/data/multidata_moltemplateinput.xlsx"
+    downloadUrl: "file://data/multidata_moltemplateinput.xlsx"
     mediaType: application/vnd.dlite-xlsx
     configuration:
       metadata: http://openmodel.eu/meta/0.1/MoltemplateInputPhysicalProperties

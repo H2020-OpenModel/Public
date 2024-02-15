@@ -2,7 +2,7 @@ version: 1
 
 strategies:
   - dataresource: load_data
-    downloadUrl: "file:///tmp/OntoTrans2ndWorkshop/data/multidata_moltemplateinput.xlsx"
+    downloadUrl: "file://data/multidata_moltemplateinput.xlsx"
     mediaType: application/vnd.dlite-xlsx
     configuration:
       metadata: http://openmodel.eu/meta/0.1/MoltemplateInputPhysicalProperties
@@ -25,7 +25,7 @@ strategies:
       - ["prop:pressure", "map:mapsTo", "demonto:Pressure"]
 
   - dataresource: load_data_1
-    downloadUrl: "file:///tmp/OntoTrans2ndWorkshop/data/multidata_moltemplateinput.xlsx"
+    downloadUrl: "file://data/multidata_moltemplateinput.xlsx"
     mediaType: application/vnd.dlite-xlsx
     configuration:
       metadata: http://openmodel.eu/meta/0.1/MoltemplateInputSimulationParameters
@@ -75,13 +75,13 @@ strategies:
     configuration:
       datamodel: http://openmodel.eu/meta/0.1/MoltemplateInputArray
       driver: moltemplate_input
-      location: /tmp/OntoTrans2ndWorkshop/output/step01_input.lt # This location needs clarification with AiiDA
+      location: output/step01_input.lt # This location needs clarification with AiiDA
       options: "mode=w"
 
   - function: file2collection
     functionType: aiidacuds/file2collection
     configuration:
-      path: /tmp/OntoTrans2ndWorkshop/output/step01_input.lt
+      path: output/step01_input.lt
       label: step01_input_file
 
   - function: cuds2datanode

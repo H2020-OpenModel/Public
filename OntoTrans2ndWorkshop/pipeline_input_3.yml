@@ -24,7 +24,7 @@ strategies:
     configuration:
       datamodel: http://openmodel.eu/meta/0.1/MoltemplateInputArray
       driver: moltemplate_input
-      location: /tmp/OntoTrans2ndWorkshop/output/step01_input.lt # This location needs clarification with AiiDA
+      location: output/step01_input.lt # This location needs clarification with AiiDA
       options: "mode=w"
 
 

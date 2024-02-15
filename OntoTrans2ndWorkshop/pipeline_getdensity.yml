@@ -28,7 +28,7 @@ strategies:
     configuration:
       datamodel: http://openmodel.eu/meta/0.1/WaterDensity
       driver: yaml
-      location: /tmp/OntoTrans2ndWorkshop/output/test.yaml 
+      location: output/test.yaml 
       options: "mode=w"
 
 pipelines:

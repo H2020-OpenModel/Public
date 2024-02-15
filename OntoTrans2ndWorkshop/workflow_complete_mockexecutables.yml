@@ -16,7 +16,7 @@ steps:
 
   - workflow: execflow.exec_wrapper
     inputs:
-      command: "/tmp/OntoTrans2ndWorkshop/mock_executables/mockmoltemplate.sh"
+      command: "__DIR__/mock_executables/mockmoltemplate.sh"
       arguments:
         - "{infile1}"
         - "{infile2}"
@@ -27,10 +27,10 @@ steps:
           node: "{{ ctx.step01_input_file }}"
         infile2:
           filename: "tip4p2005_cg_01.lt"
-          template: "/tmp/OntoTrans2ndWorkshop/data/tip4p2005_cg_01.lt"
+          template: "__DIR__/data/tip4p2005_cg_01.lt"
         infile3:
           filename: "solvent_cg_creation.lt"
-          template: "/tmp/OntoTrans2ndWorkshop/data/solvent_cg_creation.lt"
+          template: "__DIR__/data/solvent_cg_creation.lt"
       outputs:
         - output.in
         - output.data
@@ -46,7 +46,7 @@ steps:
 
   - workflow: execflow.exec_wrapper
     inputs:
-      command: "/tmp/OntoTrans2ndWorkshop/mock_executables/mocklammps.sh"
+      command: "__DIR__/mock_executables/mocklammps.sh"
       arguments:
         - "-in"
         - "{in}"

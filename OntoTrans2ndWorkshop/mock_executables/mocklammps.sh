@@ -31,8 +31,8 @@ if [ ! -f output.in.init ]; then
 fi
 
 # Create the output files
-cp /tmp/OntoTrans2ndWorkshop/mock_executables/output.log .
+cp /home/OntoTrans2ndWorkshop/mock_executables/output.log .
 touch log.lammps
 touch output.dump
 
-cat /tmp/OntoTrans2ndWorkshop/mock_executables/stdout_saved
+cat /home/OntoTrans2ndWorkshop/mock_executables/stdout_saved
