@@ -4,6 +4,10 @@
 # output.in.run, output.in.init exist
 # The files log.lammps, output.log, output.dump are created
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+echo $SCRIPT_DIR
+
 # Check that the input files exist
 if [ ! -f output.in ]; then
     echo "output.in does not exist"
@@ -31,8 +35,10 @@ if [ ! -f output.in.init ]; then
 fi
 
 # Create the output files
-cp /tmp/OntoTrans2ndWorkshop/mock_executables/output.log .
+cp ${SCRIPT_DIR}/output.log .
 touch log.lammps
 touch output.dump
 
-cat /tmp/OntoTrans2ndWorkshop/mock_executables/stdout_saved
+cat ${SCRIPT_DIR}/stdout_saved
+
+

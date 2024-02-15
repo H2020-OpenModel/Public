@@ -19,7 +19,7 @@ classifiers = [
 requires-python = '>=3.8'
 
 dependencies = [
-    'execflow@git+https://github.com/H2020-OpenModel/ExecFlow',
+    #'execflow@git+https://github.com/H2020-OpenModel/ExecFlow',
 ]
 
 [project.urls]

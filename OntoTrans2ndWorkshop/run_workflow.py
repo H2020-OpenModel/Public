@@ -27,7 +27,7 @@ dlite.storage_path.append(entitydir)
 if __name__ == "__main__":
     workflow = sys.argv[1]  # pylint: disable=invalid-name
     all_spec = {
-        "workchain_specification": orm.SinglefileData(os.path.abspath(workflow))
+        "workchain_specification": orm.Str(os.path.abspath(workflow))
     }
 
     engine.run(DeclarativeChain, **all_spec)
