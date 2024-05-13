@@ -97,15 +97,15 @@ foaf:logo rdf:type owl:AnnotationProperty .
 om:hasCTX rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf :EMMO_02face50_43a1_40ce_a909_dfe54d5e186b ;
           rdfs:range xsd:string ;
-          :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A string naming an AiiDA data node"@en ;
-          skos:prefLabel "hasCTX" .
+          skos:prefLabel "hasCTX" ;
+          :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A string naming an AiiDA data node"@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#hasTempURIValue
 om:hasTempURIValue rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf :EMMO_b35e92d7_7fa0_4661_aa5a_5cea7c8e6925 ;
-                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The URI value of a temporary resource, which is created on the fly to exchange data between processes."@en ;
-                   skos:prefLabel "hasTempURIValue" .
+                   skos:prefLabel "hasTempURIValue" ;
+                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The URI value of a temporary resource, which is created on the fly to exchange data between processes."@en .
 
 
 #################################################################
@@ -131,17 +131,17 @@ om:AAMDTaskLT rdf:type owl:Class ;
                                 owl:onProperty :EMMO_9380ab64_0363_4804_b13f_3a8a94119a76 ;
                                 owl:someValuesFrom om:MolecularDynamicsTask
                               ] ;
+              skos:prefLabel "AAMDTaskLT" ;
               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "File in LAMMPS Template (LT) format containing macros to perform different MD simulations (e.g. microcanonical, canonical) for a sample composed of atoms and/or molecules."@en ;
-              :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "aa_tasks.lt" ;
-              skos:prefLabel "AAMDTaskLT" .
+              :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "aa_tasks.lt" .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#AiiDA
 om:AiiDA rdf:type owl:Class ;
          rdfs:subClassOf :EMMO_cbf42aa6_9e11_4be8_932a_ae3c792ab17d ;
-         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "AiiDA is an open-source Python infrastructure to help researchers with automating, managing, persisting, sharing and reproducing the complex workflows associated with modern computational science and all associated data."@en ;
          rdfs:seeAlso "https://www.aiida.net/" ;
-         skos:prefLabel "AiiDA" .
+         skos:prefLabel "AiiDA" ;
+         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "AiiDA is an open-source Python infrastructure to help researchers with automating, managing, persisting, sharing and reproducing the complex workflows associated with modern computational science and all associated data."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#AiiDADataNodes
@@ -151,22 +151,22 @@ om:AiiDADataNodes rdf:type owl:Class ;
                                     owl:onProperty :EMMO_4832e353_6a2d_4deb_9a5b_96989afaff2d ;
                                     owl:someValuesFrom om:AiiDA
                                   ] ;
-                  :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A dataset created during the execution of a workflow. Thedataset is composed of nodes that are created during one step and can be passed to another step using the context, a internal data container."@en ;
-                  skos:prefLabel "AiiDADataNodes" .
+                  skos:prefLabel "AiiDADataNodes" ;
+                  :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "A dataset created during the execution of a workflow. Thedataset is composed of nodes that are created during one step and can be passed to another step using the context, a internal data container."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#Argument
 om:Argument rdf:type owl:Class ;
             rdfs:subClassOf :EMMO_50ea1ec5_f157_41b0_b46b_a9032f17ca10 ;
-            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "An argument is a string of text that is parsed by a computer program and provides additional input to a command."@en ;
-            skos:prefLabel "Argument" .
+            skos:prefLabel "Argument" ;
+            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "An argument is a string of text that is parsed by a computer program and provides additional input to a command."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#AtomicStructureFile
 om:AtomicStructureFile rdf:type owl:Class ;
                        rdfs:subClassOf :EMMO_998dd3a0_c85f_4c8d_9fb8_816a93cc3bb8 ;
-                       :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A file containing the position and type of one or more atoms. Optionally, the file can include additional information such as periodic repeating unit, symmetry group, molecular topology or connectivity, molecular index, residue type, labels, etc." ;
-                       skos:prefLabel "AtomicStructureFile" .
+                       skos:prefLabel "AtomicStructureFile" ;
+                       :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A file containing the position and type of one or more atoms. Optionally, the file can include additional information such as periodic repeating unit, symmetry group, molecular topology or connectivity, molecular index, residue type, labels, etc." .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#AtomisticMolecularDynamics
@@ -188,15 +188,15 @@ om:BashScript rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#Bead
 om:Bead rdf:type owl:Class ;
         rdfs:subClassOf :EMMO_53935db0_af45_4426_b9e9_244a0d77db00 ;
-        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A bead is the constituent part of a mesoscopic model. Generally, it represents a group of atoms, for example a monomer in a polymer, or several water molecules in a cluster."@en ;
-        skos:prefLabel "Bead" .
+        skos:prefLabel "Bead" ;
+        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A bead is the constituent part of a mesoscopic model. Generally, it represents a group of atoms, for example a monomer in a polymer, or several water molecules in a cluster."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#Bulk
 om:Bulk rdf:type owl:Class ;
         rdfs:subClassOf om:PeriodicBoundaryConditions ;
-        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A bulk geometry in a molecular dynamics simulation is a type of boundary condition that is used to model systems that are infinite in all three dimensions. For example, a bulk geometry can be used to simulate a gas, liquid or solid phase without any external confinement or surface effects. A bulk geometry can be achieved by using periodic boundary conditions that replicate the system in all directions and eliminate any edge effects."@en ;
-        skos:prefLabel "Bulk" .
+        skos:prefLabel "Bulk" ;
+        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A bulk geometry in a molecular dynamics simulation is a type of boundary condition that is used to model systems that are infinite in all three dimensions. For example, a bulk geometry can be used to simulate a gas, liquid or solid phase without any external confinement or surface effects. A bulk geometry can be achieved by using periodic boundary conditions that replicate the system in all directions and eliminate any edge effects."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#CIFFile
@@ -208,8 +208,8 @@ om:CIFFile rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#CTX
 om:CTX rdf:type owl:Class ;
        rdfs:subClassOf om:ProgrammingVariable ;
-       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "In AiiDA workflow, the context (CTX) is a internal data container that can hold and pass information between steps. It is very usefull for complex workflows."@en ;
-       skos:prefLabel "CTX" .
+       skos:prefLabel "CTX" ;
+       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "In AiiDA workflow, the context (CTX) is a internal data container that can hold and pass information between steps. It is very usefull for complex workflows."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#CoarseGrainedMolecularDynamics
@@ -229,33 +229,33 @@ om:Command rdf:type owl:Class ;
                              owl:onProperty :EMMO_7fb7fe7e_bdf9_4eeb_adad_e384dd5285c6 ;
                              owl:someValuesFrom :EMMO_8681074a_e225_4e38_b586_e85b0f43ce38
                            ] ;
+           skos:prefLabel "Command" ;
            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A command is a means of interacting with a computer program with commands from a user or client in the form of lines of text. Certain commands can take additional arguments as input."@en ;
-           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "ls -l"@en ;
-           skos:prefLabel "Command" .
+           :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "ls -l"@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#CompressionMDT
 om:CompressionMDT rdf:type owl:Class ;
                   rdfs:subClassOf om:MolecularDynamicsTask ;
+                  skos:prefLabel "CompressionMDT" ;
                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Initialise the run section of a MD simulation, its MolecularDynamicsOutput, and perform time integration in the canonical ensemble using a Langevin thermostat.
 
 In addition, compress an isotropic sample to a target volume at low temperature, followed by heating to a target temperature at the target volume. Use a /cut pair style to speed-up the calculations.
-NOTE: an isotropic shrinking of 0.95 per step is assumed when computing the compression steps."""@en ;
-                  skos:prefLabel "CompressionMDT" .
+NOTE: an isotropic shrinking of 0.95 per step is assumed when computing the compression steps."""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#ComputationalFluidDynamics
 om:ComputationalFluidDynamics rdf:type owl:Class ;
                               rdfs:subClassOf :EMMO_4456a5d2_16a6_4ee1_9a8e_5c75956b28ea ;
-                              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Computational fluid dynamics is a branch of fluid mechanics that uses numerical analysis and data structures to analyze and solve problems that involve fluid flows. Computers are used to perform the calculations required to simulate the free-stream flow of the fluid, and the interaction of the fluid with surfaces defined by boundary conditions."@en ;
-                              skos:prefLabel "ComputationalFluidDynamics" .
+                              skos:prefLabel "ComputationalFluidDynamics" ;
+                              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Computational fluid dynamics is a branch of fluid mechanics that uses numerical analysis and data structures to analyze and solve problems that involve fluid flows. Computers are used to perform the calculations required to simulate the free-stream flow of the fluid, and the interaction of the fluid with surfaces defined by boundary conditions."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#ConfigurationInteraction
 om:ConfigurationInteraction rdf:type owl:Class ;
                             rdfs:subClassOf om:PostHartreeFock ;
-                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Configuration interaction (CI) is a post-Hartree–Fock linear variational method for solving the nonrelativistic Schrödinger equation within the Born–Oppenheimer approximation for a quantum chemical multi-electron system." ;
-                            skos:prefLabel "ConfigurationInteraction" .
+                            skos:prefLabel "ConfigurationInteraction" ;
+                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Configuration interaction (CI) is a post-Hartree–Fock linear variational method for solving the nonrelativistic Schrödinger equation within the Born–Oppenheimer approximation for a quantum chemical multi-electron system." .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#CorrelationLength
@@ -265,28 +265,28 @@ om:CorrelationLength rdf:type owl:Class ;
                                        owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
                                        owl:allValuesFrom xsd:int
                                      ] ;
+                     skos:prefLabel "CorrelationLength" ;
                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """In LAMMPS, the thermodynamic output is averaged and returned with *fixes* whose general syntax is:
 fix ID group-ID ave/time Nevery Nrepeat Nfreq value1 value2 ... keyword args
 
 The correlation length corresponds to Nrepeat and is the number of times to use input values for calculating averages."""@en ;
                      :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "fix BOX all ave/time $s ${cl} $d v_dx mode scalar ave running" ;
-                     :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Correlation length, used to sample the thermodynamic output."@en ;
-                     skos:prefLabel "CorrelationLength" .
+                     :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Correlation length, used to sample the thermodynamic output."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#CoupledCluster
 om:CoupledCluster rdf:type owl:Class ;
                   rdfs:subClassOf om:PostHartreeFock ;
-                  :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Coupled cluster (CC) is a numerical technique used for describing many-body systems. Its most common use is as one of several post-Hartree–Fock ab initio quantum chemistry method. Coupled cluster essentially takes the basic Hartree–Fock molecular orbital method and constructs multi-electron wavefunctions using the exponential cluster operator to account for electron correlation."@en ;
-                  skos:prefLabel "CoupledCluster" .
+                  skos:prefLabel "CoupledCluster" ;
+                  :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Coupled cluster (CC) is a numerical technique used for describing many-body systems. Its most common use is as one of several post-Hartree–Fock ab initio quantum chemistry method. Coupled cluster essentially takes the basic Hartree–Fock molecular orbital method and constructs multi-electron wavefunctions using the exponential cluster operator to account for electron correlation."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#CutoffRadius
 om:CutoffRadius rdf:type owl:Class ;
                 rdfs:subClassOf :EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a ;
+                skos:prefLabel "CutoffRadius" ;
                 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The pairwise interactions are computed only if the distance between a pair of particles is smaller than the cut-off radius."@en ;
-                :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The distance (in length units) at which pairwise interactions are cut-off."@en ;
-                skos:prefLabel "CutoffRadius" .
+                :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The distance (in length units) at which pairwise interactions are cut-off."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#DCDFile
@@ -298,17 +298,17 @@ om:DCDFile rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#DLite
 om:DLite rdf:type owl:Class ;
          rdfs:subClassOf :EMMO_cbf42aa6_9e11_4be8_932a_ae3c792ab17d ;
-         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A lightweight data-centric framework for semantic interoperability."@en ;
          rdfs:seeAlso "https://sintef.github.io/dlite/" ;
-         skos:prefLabel "DLite" .
+         skos:prefLabel "DLite" ;
+         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A lightweight data-centric framework for semantic interoperability."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#DUMPFile
 om:DUMPFile rdf:type owl:Class ;
             rdfs:subClassOf om:AtomicStructureFile ,
                             om:LAMMPSFile ;
-            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Output file containing the trajectory of a Molecular Dynamics simulation, i.e. a series of snapshots storing the state of a system at different time. A typical snapshot of a system comprises position and velocity of particles, but it may also include orientation and angular velocity of finite-size particles." ;
-            skos:prefLabel "DUMPFile" .
+            skos:prefLabel "DUMPFile" ;
+            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Output file containing the trajectory of a Molecular Dynamics simulation, i.e. a series of snapshots storing the state of a system at different time. A typical snapshot of a system comprises position and velocity of particles, but it may also include orientation and angular velocity of finite-size particles." .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#DataBasedModel
@@ -320,8 +320,8 @@ om:DataBasedModel rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#DataParsing
 om:DataParsing rdf:type owl:Class ;
                rdfs:subClassOf :EMMO_cbf42aa6_9e11_4be8_932a_ae3c792ab17d ;
-               :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A software or script that parses a data file and returns data in the form of scalars, arrays, or matrices."@en ;
-               skos:prefLabel "DataParsing" .
+               skos:prefLabel "DataParsing" ;
+               :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A software or script that parses a data file and returns data in the form of scalars, arrays, or matrices."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#DensityFunctionalTheory
@@ -338,13 +338,14 @@ om:DensityMoltemplateDP rdf:type owl:Class ;
                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                           owl:onClass om:MoltemplateWaterDataSet
                                         ] ;
-                        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This process takes a specific dataset as its input."@en ;
-                        skos:prefLabel "WaterDensityMoltemplateDP" .
+                        skos:prefLabel "WaterDensityMoltemplateDP" ;
+                        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This process takes a specific dataset as its input."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#DiffusionMoleculeMD
 om:DiffusionMoleculeMD rdf:type owl:Class ;
                        rdfs:subClassOf om:MolecularDynamicsOutput ;
+                       skos:prefLabel "DiffusionMoleculeMD" ;
                        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Compute standard thermodynamic quantities, plus:
 * the inter-molecular energy for systems with long-range electrostatics
 * the total mean-square displacement (MSD) computed on the centre of mass of individual molecules.
@@ -371,16 +372,15 @@ The thermodynamics output is as follows:
 * Diffusion Coefficient
 * Elapsed CPU time.
 
-Save a MD trajectory as a separate file (DCD or DUMP formats)."""@en ;
-                       skos:prefLabel "DiffusionMoleculeMD" .
+Save a MD trajectory as a separate file (DCD or DUMP formats)."""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#EquilibrationSteps
 om:EquilibrationSteps rdf:type owl:Class ;
                       rdfs:subClassOf om:Steps ;
+                      skos:prefLabel "EquilibrationSteps" ;
                       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Number of steps used for a system to reach thermodynamic equilibrium."@en ;
-                      :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Number of steps used to integrate the equation of motions in a Molecular Dynamics simulation. The ProductionSteps*Timestep gives the actual time span of the simulation."@en ;
-                      skos:prefLabel "EquilibrationSteps" .
+                      :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Number of steps used to integrate the equation of motions in a Molecular Dynamics simulation. The ProductionSteps*Timestep gives the actual time span of the simulation."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#ExecFlowWrapper
@@ -388,11 +388,7 @@ om:ExecFlowWrapper rdf:type owl:Class ;
                    rdfs:subClassOf :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
-                                     owl:someValuesFrom [ rdf:type owl:Class ;
-                                                          owl:unionOf ( om:AiiDADataNodes
-                                                                        om:OTEAPIDataSet
-                                                                      )
-                                                        ]
+                                     owl:someValuesFrom om:AiiDADataNodes
                                    ] ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
@@ -407,15 +403,15 @@ om:ExecFlowWrapper rdf:type owl:Class ;
                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                      owl:onClass om:AiiDA
                                    ] ;
-                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A task which is executed in ExecFlow using a wrapper to an external software."@en ;
-                   skos:prefLabel "ExecFlowWrapper" .
+                   skos:prefLabel "ExecFlowWrapper" ;
+                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A task which is executed in ExecFlow using a wrapper to an external software."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#Extension
 om:Extension rdf:type owl:Class ;
              rdfs:subClassOf om:FileName ;
-             :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "\"txt\" is the extension of the file name \"notes.txt\""@en ;
-             skos:prefLabel "Extension" .
+             skos:prefLabel "Extension" ;
+             :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "\"txt\" is the extension of the file name \"notes.txt\""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#FileName
@@ -426,8 +422,8 @@ om:FileName rdf:type owl:Class ;
                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                               owl:onDataRange xsd:anyURI
                             ] ;
-            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "String of text used to uniquely identify a computer file." ;
-            skos:prefLabel "FileName" .
+            skos:prefLabel "FileName" ;
+            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "String of text used to uniquely identify a computer file." .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#FiniteElements
@@ -439,19 +435,19 @@ om:FiniteElements rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#ForceField
 om:ForceField rdf:type owl:Class ;
               rdfs:subClassOf :EMMO_e5438930_04e7_4d42_ade5_3700d4a52ab7 ;
-              :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "a set of parameters and equations for use in molecular mechanics simulations" ;
-              skos:prefLabel "ForceField" .
+              skos:prefLabel "ForceField" ;
+              :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "a set of parameters and equations for use in molecular mechanics simulations" .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#ForceFieldStyle
 om:ForceFieldStyle rdf:type owl:Class ;
                    rdfs:subClassOf :EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a ,
                                    om:ForceField ;
+                   skos:prefLabel "ForceFieldStyle" ;
                    :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Additional settings for the force field. For instance, the Coulomb potential can be evaluated only in real space using a cut-off radius, or can include a long-range solver evaluationg the electrostatic potential in the reciprocal space."@en ;
                    :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "atb_long" ,
                                                               "molc_cut" ,
-                                                              "molc_long_gamma" ;
-                   skos:prefLabel "ForceFieldStyle" .
+                                                              "molc_long_gamma" .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#GROMOS
@@ -461,8 +457,8 @@ om:GROMOS rdf:type owl:Class ;
                             owl:onProperty :EMMO_a8bd7094_6b40_47af_b1f4_a69d81a3afbd ;
                             owl:someValuesFrom :EMMO_84cadc45_6758_46f2_ba2a_5ead65c70213
                           ] ;
-          :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "GROningen MOlecular Simulation (GROMOS) is the name of a force field for molecular dynamics simulation, and a related computer software package. Both are developed at the University of Groningen, and at the Computer-Aided Chemistry Group at the Laboratory for Physical Chemistry at the Swiss Federal Institute of Technology (ETH Zurich)."@en ;
-          skos:prefLabel "GROMOS" .
+          skos:prefLabel "GROMOS" ;
+          :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "GROningen MOlecular Simulation (GROMOS) is the name of a force field for molecular dynamics simulation, and a related computer software package. Both are developed at the University of Groningen, and at the Computer-Aided Chemistry Group at the Laboratory for Physical Chemistry at the Swiss Federal Institute of Technology (ETH Zurich)."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#GROMOSParameters
@@ -473,8 +469,8 @@ om:GROMOSParameters rdf:type owl:Class ;
                                                      ] ;
                                       owl:someValuesFrom om:GROMOS
                                     ] ;
-                    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The parameters describing a molecule or class of molecules in the GROMOS force field."@en ;
-                    skos:prefLabel "GROMOSParameters" .
+                    skos:prefLabel "GROMOSParameters" ;
+                    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The parameters describing a molecule or class of molecules in the GROMOS force field."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#GROMOSSettingsLT
@@ -484,11 +480,11 @@ om:GROMOSSettingsLT rdf:type owl:Class ;
                                       owl:onProperty :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c ;
                                       owl:someValuesFrom om:GROMOS
                                     ] ;
+                    skos:prefLabel "GROMOSSettingsLT" ;
                     :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "aa_atb.lt" ;
                     :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Set of macros defining the potential functions for the GROMOS force field in the LAMMPS Template (LT) syntax. Two macros are available:
 * atb_cut : use a cut-off radius for all pairwise interactions.
-* atb_long : use a long-range solver (PPPM) for electrostatic interactions."""@en ;
-                    skos:prefLabel "GROMOSSettingsLT" .
+* atb_long : use a long-range solver (PPPM) for electrostatic interactions."""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#GULP
@@ -498,10 +494,10 @@ om:GULP rdf:type owl:Class ;
                           owl:onProperty :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c ;
                           owl:someValuesFrom :EMMO_84cadc45_6758_46f2_ba2a_5ead65c70213
                         ] ;
-        :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """GULP - a computer program for the symmetry adapted simulation of solids.
-GULP is a program for performing a variety of types of simulation on materials using boundary conditions of 0-D (molecules and clusters), 1-D (polymers), 2-D (surfaces, slabs and grain boundaries), or 3-D (periodic solids). The focus of the code is on analytical solutions, through the use of lattice dynamics, where possible, rather than on molecular dynamics."""@en ;
         rdfs:seeAlso "https://gulp.curtin.edu.au/" ;
-        skos:prefLabel "GULP" .
+        skos:prefLabel "GULP" ;
+        :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """GULP - a computer program for the symmetry adapted simulation of solids.
+GULP is a program for performing a variety of types of simulation on materials using boundary conditions of 0-D (molecules and clusters), 1-D (polymers), 2-D (surfaces, slabs and grain boundaries), or 3-D (periodic solids). The focus of the code is on analytical solutions, through the use of lattice dynamics, where possible, rather than on molecular dynamics."""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#GayBerne
@@ -525,13 +521,13 @@ om:HartreeFock rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#INI
 om:INI rdf:type owl:Class ;
        rdfs:subClassOf :EMMO_3997e1f5_f478_4572_a030_4b8e7e5cc63a ;
+       skos:prefLabel "INI" ;
        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "An INI file is an initialization file that stores settings for a program."@en ;
        :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """[Options]
 timestep=1.
 recursive=0
 temperature=300
-pressure=1""" ;
-       skos:prefLabel "INI" .
+pressure=1""" .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#JSON
@@ -543,8 +539,8 @@ om:JSON rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#Jinja2
 om:Jinja2 rdf:type owl:Class ;
           rdfs:subClassOf :EMMO_af7b627d_6528_4fdb_97df_ba4579c4bb5d ;
-          :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Jinja is a web template engine for the Python programming language. Jinja is similar to the Django template engine but provides Python-like expressions while ensuring that the templates are evaluated in a sandbox."@en ;
-          skos:prefLabel "Jinja2" .
+          skos:prefLabel "Jinja2" ;
+          :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Jinja is a web template engine for the Python programming language. Jinja is similar to the Django template engine but provides Python-like expressions while ensuring that the templates are evaluated in a sandbox."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#Jinja2File
@@ -582,14 +578,14 @@ LAMMPS has potentials for solid-state materials (metals, semiconductors) and sof
 ###  https://w3id.org/emmo/domain/openmodel#LAMMPSDataFile
 om:LAMMPSDataFile rdf:type owl:Class ;
                   rdfs:subClassOf om:LAMMPSInputFile ;
-                  :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A file containing structural information LAMMPS needs to run a simulation. The file can be ASCII text or a gzipped text file (detected by a .gz suffix)."@en ;
-                  skos:prefLabel "LAMMPSDataFile" .
+                  skos:prefLabel "LAMMPSDataFile" ;
+                  :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A file containing structural information LAMMPS needs to run a simulation. The file can be ASCII text or a gzipped text file (detected by a .gz suffix)."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#LAMMPSDataProcessing
 om:LAMMPSDataProcessing rdf:type owl:Class ;
-                        rdfs:subClassOf :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
-                                        :EMMO_1c7f2dfe_0db4_4bf6_a0f6_853054a34ead ;
+                        rdfs:subClassOf :EMMO_1c7f2dfe_0db4_4bf6_a0f6_853054a34ead ,
+                                        :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ;
                         skos:prefLabel "LAMMPSDataProcessing" .
 
 
@@ -638,8 +634,8 @@ om:LAMMPSDataSet rdf:type owl:Class ;
                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                    owl:onClass om:LAMMPSMasterFile
                                  ] ;
-                 :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The set of files taken as input by LAMMPS to run a simulation."@en ;
-                 skos:prefLabel "LAMMPSDataSet" .
+                 skos:prefLabel "LAMMPSDataSet" ;
+                 :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The set of files taken as input by LAMMPS to run a simulation."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#LAMMPSFile
@@ -650,8 +646,8 @@ om:LAMMPSFile rdf:type owl:Class ;
                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                 owl:onClass om:LAMMPS
                               ] ;
-              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Class of input and output files for the software LAMMPS."@en ;
-              skos:prefLabel "LAMMPSFile" .
+              skos:prefLabel "LAMMPSFile" ;
+              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Class of input and output files for the software LAMMPS."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#LAMMPSInitFile
@@ -673,8 +669,8 @@ om:LAMMPSLog rdf:type owl:Class ;
                                               ] ;
                                owl:someValuesFrom om:LAMMPSSimulation
                              ] ;
-             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The textual output of a molecular dynamics simulation performed with the software LAMMPS."@en ;
-             skos:prefLabel "LAMMPSLog" .
+             skos:prefLabel "LAMMPSLog" ;
+             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The textual output of a molecular dynamics simulation performed with the software LAMMPS."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#LAMMPSLogParsing
@@ -696,16 +692,16 @@ om:LAMMPSLogParsingDensity rdf:type owl:Class ;
                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                              owl:onClass :EMMO_06448f64_8db6_4304_8b2c_e785dba82044
                                            ] ;
-                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Specialised task that returns only the converged density of a fluid. It assumes that the LAMMPS log contains a column named Density."@en ;
-                           skos:prefLabel "LAMMPSLogParsingDensity" .
+                           skos:prefLabel "LAMMPSLogParsingDensity" ;
+                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Specialised task that returns only the converged density of a fluid. It assumes that the LAMMPS log contains a column named Density."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#LAMMPSMasterFile
 om:LAMMPSMasterFile rdf:type owl:Class ;
                     rdfs:subClassOf om:LAMMPSInputFile ;
+                    skos:prefLabel "LAMMPSMasterFile" ;
                     :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Master file containing the set of instructions LAMMPS needs to run a simulation. Typically, it has a .in extension and is passed to LAMMPS as argument in e.g.:
-lmp -in mysimulation.in"""@en ;
-                    skos:prefLabel "LAMMPSMasterFile" .
+lmp -in mysimulation.in"""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#LAMMPSRunFile
@@ -746,34 +742,34 @@ om:LAMMPSSimulation rdf:type owl:Class ;
                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                       owl:onClass om:LAMMPS
                                     ] ;
+                    skos:prefLabel "LAMMPSSimulation"@en ;
                     :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """A typical LAMMPS job is launched from the command line and requires to specify an input and output file names, eg
 $ lmp_23Jun22 -in sim.in -l sim.log
 or
 $ mpirun -np 32 lmp_23Jun22 -in sim.in -l sim.log
 
-However, additional files may be called by the input file sim.in""" ;
-                    skos:prefLabel "LAMMPSSimulation"@en .
+However, additional files may be called by the input file sim.in""" .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#LAMMPSTemplate
 om:LAMMPSTemplate rdf:type owl:Class ;
                   rdfs:subClassOf :EMMO_3c5b33a1_4f28_41f9_b725_1994df79bf55 ,
-                                  _:genid48 ;
-                  :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A moltemplate LT file containing molecule definitions to generate a valid input deck for LAMMPS." ;
-                  :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The LAMMPS-template (LT) format is used by moltemplate to create template files containing all the information required to create a particular molecule or input for LAMMPS (including coordinates, bond-topology, angles, force-field parameters, constraints, groups and fixes). LT files are text-based and are interpreted by the program Moltemplate. The format is agnostic to the LAMMPS syntax."@en ;
+                                  _:genid45 ;
                   rdfs:seeAlso "https://www.moltemplate.org/"^^xsd:anyURI ;
                   skos:altLabel "LAMMPSTemplate" ,
                                 "LTFile" ;
-                  skos:prefLabel "MoltemplateScript" .
+                  skos:prefLabel "MoltemplateScript" ;
+                  :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A moltemplate LT file containing molecule definitions to generate a valid input deck for LAMMPS." ;
+                  :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The LAMMPS-template (LT) format is used by moltemplate to create template files containing all the information required to create a particular molecule or input for LAMMPS (including coordinates, bond-topology, angles, force-field parameters, constraints, groups and fixes). LT files are text-based and are interpreted by the program Moltemplate. The format is agnostic to the LAMMPS syntax."@en .
 
-_:genid48 rdf:type owl:Restriction ;
+_:genid45 rdf:type owl:Restriction ;
            owl:onProperty :EMMO_7fb7fe7e_bdf9_4eeb_adad_e384dd5285c6 ;
            owl:allValuesFrom om:Moltemplate .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource om:LAMMPSTemplate ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid48 ;
+   owl:annotatedTarget _:genid45 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Is this axiom correct to define a property of the scripting language? Or, should it be stated for Moltemplate Files?"@en
  ] .
 
@@ -786,8 +782,8 @@ om:LAMMPSWaterDataSet rdf:type owl:Class ;
                                                        ] ;
                                         owl:someValuesFrom om:water
                                       ] ;
-                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A particular class of the LAMMPS dataset referring specifically to a sample of water molecules."@en ;
-                      skos:prefLabel "LAMMPSWaterDataSet" .
+                      skos:prefLabel "LAMMPSWaterDataSet" ;
+                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A particular class of the LAMMPS dataset referring specifically to a sample of water molecules."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#LTCondensedExternalDependencyDS
@@ -822,9 +818,9 @@ om:LTCondensedExternalDependencyDS rdf:type owl:Class ;
                                                                     ] ;
                                                      owl:someValuesFrom :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352
                                                    ] ;
+                                   skos:prefLabel "LTCondensedExternalDependencyDS"@en ;
                                    :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The set of files taken as input by Moltemplate to simulate the properties of a condensed system, whose initial structure is read from an external file."@en ;
-                                   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This dataset contains the include files and their URIs."@en ;
-                                   skos:prefLabel "LTCondensedExternalDependencyDS"@en .
+                                   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This dataset contains the include files and their URIs."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#LTCondensedExternalMasterDS
@@ -920,13 +916,13 @@ om:LTCondensedExternalMasterDS rdf:type owl:Class ;
                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                  owl:onClass om:Timestep
                                                ] ;
+                               skos:prefLabel "LTCondensedExternalMasterDS" ;
                                :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Input dataset for Moltemplate containing user-specified parameters that are substituted in a template file and serialised in the master LT file."@en ;
                                :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f """Refine the restrictions:
 hasDatum some MolecularDynamicsTask
 hasDatum some MolecularDynamicsOutput
 
-The classes they refer to are PhysicsBasedSimulation, but the datum per se is a string (see the examples in the corresponding classes)."""@en ;
-                               skos:prefLabel "LTCondensedExternalMasterDS" .
+The classes they refer to are PhysicsBasedSimulation, but the datum per se is a string (see the examples in the corresponding classes)."""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#LTCondensedTemplate
@@ -937,8 +933,8 @@ om:LTCondensedTemplate rdf:type owl:Class ;
                                                         ] ;
                                          owl:someValuesFrom :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352
                                        ] ;
-                       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A template file for writing a LT file for the computation of solid-state properties of a generic sample (i.e. any substance)."@en ;
-                       skos:prefLabel "LTCondensedTemplate" .
+                       skos:prefLabel "LTCondensedTemplate" ;
+                       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A template file for writing a LT file for the computation of solid-state properties of a generic sample (i.e. any substance)."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#LTDependencyCTX
@@ -953,8 +949,8 @@ om:LTDependencyCTX rdf:type owl:Class ;
                                                     ] ;
                                      owl:someValuesFrom :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352
                                    ] ;
-                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This dataset contains the include files (in the LT format) that are needed for the execution of the program Moltemplate."@en ;
-                   skos:prefLabel "LTDependencyCTX" .
+                   skos:prefLabel "LTDependencyCTX" ;
+                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This dataset contains the include files (in the LT format) that are needed for the execution of the program Moltemplate."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#LTFile
@@ -984,8 +980,8 @@ om:LTMasterCTX rdf:type owl:Class ;
                                                 ] ;
                                  owl:someValuesFrom :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352
                                ] ;
-               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This dataset contains the master file for the program Moltemplate. It is created as an AiiDA data node rather than being sourced from an existing file."@en ;
-               skos:prefLabel "LTMasterCTX" .
+               skos:prefLabel "LTMasterCTX" ;
+               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This dataset contains the master file for the program Moltemplate. It is created as an AiiDA data node rather than being sourced from an existing file."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#LennardJones612
@@ -997,8 +993,8 @@ om:LennardJones612 rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#MCSCF
 om:MCSCF rdf:type owl:Class ;
          rdfs:subClassOf om:PostHartreeFock ;
-         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Multi-configurational self-consistent field (MCSCF) is a method in quantum chemistry used to generate qualitatively correct reference states of molecules in cases where Hartree–Fock and density functional theory are not adequate. It uses a linear combination of configuration state functions (CSF), or configuration determinants, to approximate the exact electronic wavefunction of an atom or molecule."@en ;
-         skos:prefLabel "MCSCF" .
+         skos:prefLabel "MCSCF" ;
+         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Multi-configurational self-consistent field (MCSCF) is a method in quantum chemistry used to generate qualitatively correct reference states of molecules in cases where Hartree–Fock and density functional theory are not adequate. It uses a linear combination of configuration state functions (CSF), or configuration determinants, to approximate the exact electronic wavefunction of an atom or molecule."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#MOLC
@@ -1012,15 +1008,16 @@ om:MOLC rdf:type owl:Class ;
                           owl:onProperty :EMMO_a8bd7094_6b40_47af_b1f4_a69d81a3afbd ;
                           owl:someValuesFrom :EMMO_53935db0_af45_4426_b9e9_244a0d77db00
                         ] ;
+        skos:prefLabel "MOLC" ;
         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """MOLC. A reversible coarse grained approach using anisotropic beads for the modelling of organic functional materials.
 Phys. Chem. Chem. Phys., 21, 26195 (2019).
-https://doi.org/10.1039/c9cp04120f"""@en ;
-        skos:prefLabel "MOLC" .
+https://doi.org/10.1039/c9cp04120f"""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#MSDmoleculeMD
 om:MSDmoleculeMD rdf:type owl:Class ;
                  rdfs:subClassOf om:MolecularDynamicsOutput ;
+                 skos:prefLabel "MSDmoleculeMD" ;
                  :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Compute standard thermodynamic quantities, plus:
 * the inter-molecular energy for systems with long-range electrostatics
 * the total mean-square displacement (MSD) computed on the centre of mass of individual molecules.
@@ -1045,15 +1042,14 @@ The thermodynamics output is as follows:
 * Averaged MSD
 * Elapsed CPU time.
 
-Save a MD trajectory as a separate file (DCD or DUMP formats)."""@en ;
-                 skos:prefLabel "MSDmoleculeMD" .
+Save a MD trajectory as a separate file (DCD or DUMP formats)."""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#Markdown
 om:Markdown rdf:type owl:Class ;
             rdfs:subClassOf :EMMO_af7b627d_6528_4fdb_97df_ba4579c4bb5d ;
-            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Markdown is a lightweight markup language with plain text formatting syntax."@en ;
-            skos:prefLabel "Markdown" .
+            skos:prefLabel "Markdown" ;
+            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Markdown is a lightweight markup language with plain text formatting syntax."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#MasterLT
@@ -1068,9 +1064,9 @@ om:MasterLT rdf:type owl:Class ;
                                              ] ;
                               owl:someValuesFrom :EMMO_bc37743c_37c4_4ec7_9d58_d1aae5567352
                             ] ;
+            skos:prefLabel "MasterLT" ;
             :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The master file containing the high-level description of the Molecular Dynamics Simulation being performed.
-It contains a logical sequence of includes and commands which are executed by Moltemplate and converted into an input deck for LAMMPS."""@en ;
-            skos:prefLabel "MasterLT" .
+It contains a logical sequence of includes and commands which are executed by Moltemplate and converted into an input deck for LAMMPS."""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#MeanSquareDisplacement
@@ -1080,8 +1076,8 @@ om:MeanSquareDisplacement rdf:type owl:Class ;
                                             owl:onProperty :EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
                                             owl:someValuesFrom :EMMO_33433bb1_c68f_45ee_a466_f01e2c57b214
                                           ] ;
-                          :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The mean squared displacement (MSD) is a measure of the deviation of the position of a particle with respect to a reference position over time."@en ;
-                          skos:prefLabel "MeanSquareDisplacement" .
+                          skos:prefLabel "MeanSquareDisplacement" ;
+                          :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The mean squared displacement (MSD) is a measure of the deviation of the position of a particle with respect to a reference position over time."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#MolecularDynamicsOutput
@@ -1093,19 +1089,19 @@ om:MolecularDynamicsOutput rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#MolecularDynamicsTask
 om:MolecularDynamicsTask rdf:type owl:Class ;
                          rdfs:subClassOf :EMMO_e97af6ec_4371_4bbc_8936_34b76e33302f ;
+                         skos:prefLabel "MolecularDynamicsTask" ;
                          :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "NPT simulation (isothermal–isobaric ensemble)" ,
                                                                     "NVE simulation (microcanonical ensemble)" ,
                                                                     "NVT simulation (canonical ensemble)" ;
-                         :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A collection of tasks that can be executed in a MD simulation."@en ;
-                         skos:prefLabel "MolecularDynamicsTask" .
+                         :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A collection of tasks that can be executed in a MD simulation."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#MolecularTopology
 om:MolecularTopology rdf:type owl:Class ;
                      rdfs:subClassOf :EMMO_46f0f8df_4dc6_418f_8036_10427a3a288e ;
+                     skos:prefLabel "MolecularTopology" ;
                      :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """In chemistry, topology provides a way of describing and predicting the molecular structure within the constraints of three-dimensional space.
-This class includes the three-dimensional arrangement of the atoms that constitute a molecule and the molecular connectivity defined as the list of bonds, angles, dihedral angles, and improper angles between atoms."""@en ;
-                     skos:prefLabel "MolecularTopology" .
+This class includes the three-dimensional arrangement of the atoms that constitute a molecule and the molecular connectivity defined as the list of bonds, angles, dihedral angles, and improper angles between atoms."""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#MolecularType
@@ -1115,24 +1111,24 @@ om:MolecularType rdf:type owl:Class ;
                                    owl:onProperty :EMMO_02face50_43a1_40ce_a909_dfe54d5e186b ;
                                    owl:someValuesFrom xsd:string
                                  ] ;
+                 skos:prefLabel "MolecularType" ;
                  :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "TIP3P"@en ;
-                 :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A name identifying a molecular type in a Molecular Dynamics simulation."@en ;
-                 skos:prefLabel "MolecularType" .
+                 :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A name identifying a molecular type in a Molecular Dynamics simulation."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#MollerPlesset
 om:MollerPlesset rdf:type owl:Class ;
                  rdfs:subClassOf om:PostHartreeFock ;
-                 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Møller–Plesset perturbation theory (MP) is one of several quantum chemistry post–Hartree–Fock ab initio methods in the field of computational chemistry. It improves on the Hartree–Fock method by adding electron correlation effects by means of Rayleigh–Schrödinger perturbation theory (RS-PT), usually to second (MP2), third (MP3) or fourth (MP4) order."@en ;
-                 skos:prefLabel "MollerPlesset" .
+                 skos:prefLabel "MollerPlesset" ;
+                 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Møller–Plesset perturbation theory (MP) is one of several quantum chemistry post–Hartree–Fock ab initio methods in the field of computational chemistry. It improves on the Hartree–Fock method by adding electron correlation effects by means of Rayleigh–Schrödinger perturbation theory (RS-PT), usually to second (MP2), third (MP3) or fourth (MP4) order."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#Moltemplate
 om:Moltemplate rdf:type owl:Class ;
                rdfs:subClassOf :EMMO_cbf42aa6_9e11_4be8_932a_ae3c792ab17d ;
-               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Moltemplate is a general molecule builder and force-field database system for LAMMPS."@en ;
                rdfs:seeAlso "http://www.moltemplate.org/" ;
-               skos:prefLabel "Moltemplate"@en .
+               skos:prefLabel "Moltemplate"@en ;
+               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Moltemplate is a general molecule builder and force-field database system for LAMMPS."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#MoltemplateCondensedDPWrapper
@@ -1147,8 +1143,8 @@ om:MoltemplateCondensedDPWrapper rdf:type owl:Class ;
                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                    owl:onClass om:LTMasterCTX
                                                  ] ;
-                                 :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The hasInput some LTDependencyCTX should be optional. It should be triggered if the necessary input, LTMasterCTX, requires it."@en ;
-                                 skos:prefLabel "MoltemplateCondensedDPWrapper" .
+                                 skos:prefLabel "MoltemplateCondensedDPWrapper" ;
+                                 :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The hasInput some LTDependencyCTX should be optional. It should be triggered if the necessary input, LTMasterCTX, requires it."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#MoltemplateCondensedDataSet
@@ -1183,10 +1179,10 @@ om:MoltemplateCondensedDataSet rdf:type owl:Class ;
                                                                 ] ;
                                                  owl:someValuesFrom :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
                                                ] ;
+                               skos:prefLabel "MoltemplateCondensedDataSet" ;
                                :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Generic dataset for Moltemplate for computing solid-state properties such as density, temperature, pressure, and internal energy of a condensed system. The initial guess of the system is generated either with LAMMPS commands (create_atoms) or with the Moltemplate scripting language."@en ,
                                                                           """The command to create a row of 10 water molecules, defined by the macro named TIP3P, equally spaced along the X direction is:
-mol = new TIP3P[10].move(3,0,0)"""@en ;
-                               skos:prefLabel "MoltemplateCondensedDataSet" .
+mol = new TIP3P[10].move(3,0,0)"""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#MoltemplateCondensedExternalDataSet
@@ -1230,15 +1226,15 @@ om:MoltemplateCondensedExternalDataSet rdf:type owl:Class ;
                                                                         ] ;
                                                          owl:someValuesFrom :EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2
                                                        ] ;
+                                       skos:prefLabel "MoltemplateCondensedExternalDataSet" ;
                                        :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "Generic dataset for Moltemplate for computing solid-state properties such as density, temperature, pressure, and internal energy of a condensed system. The initial guess of the system is taken from an (external) atomic structure file such as PDB or XYZ."@en ,
-                                                                                  "This dataset describes the input dataset which is passed to step 3 of workflow_2oteapi.yaml"@en ;
-                                       skos:prefLabel "MoltemplateCondensedExternalDataSet" .
+                                                                                  "This dataset describes the input dataset which is passed to step 3 of workflow_2oteapi.yaml"@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#MoltemplateDataProcessing
 om:MoltemplateDataProcessing rdf:type owl:Class ;
-                             rdfs:subClassOf :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
-                                             :EMMO_1c7f2dfe_0db4_4bf6_a0f6_853054a34ead ,
+                             rdfs:subClassOf :EMMO_1c7f2dfe_0db4_4bf6_a0f6_853054a34ead ,
+                                             :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
                                              [ rdf:type owl:Restriction ;
                                                owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
                                                owl:someValuesFrom om:MoltemplateDataSet
@@ -1253,9 +1249,9 @@ om:MoltemplateDataProcessing rdf:type owl:Class ;
                                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                owl:onClass om:LAMMPSDataSet
                                              ] ;
+                             skos:prefLabel "MoltemplateDataProcessing"@en ;
                              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A task in which the software Moltemplate is executed and an input deck for LAMMPS is created. This task is a standalone execution."@en ;
-                             :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "moltemplate.sh -overlay-all -atomstyle full -pdb test.pdb myscript.lt" ;
-                             skos:prefLabel "MoltemplateDataProcessing"@en .
+                             :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "moltemplate.sh -overlay-all -atomstyle full -pdb test.pdb myscript.lt" .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#MoltemplateDataProcessingWrapper
@@ -1313,30 +1309,30 @@ om:MoltemplateWaterDataSet rdf:type owl:Class ;
                                                             ] ;
                                              owl:someValuesFrom om:water
                                            ] ;
+                           skos:prefLabel "MoltemplateWaterDataSet" ;
                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A particular class of the Moltemplate dataset referring specifically to a sample of water molecules."@en ;
-                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This class inherits being a model for water from the master file class WaterDensityLT, which specifically describes a simulation of water molecules."@en ;
-                           skos:prefLabel "MoltemplateWaterDataSet" .
+                           :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "This class inherits being a model for water from the master file class WaterDensityLT, which specifically describes a simulation of water molecules."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#NPT
 om:NPT rdf:type owl:Class ;
        rdfs:subClassOf om:MolecularDynamicsTask ;
-       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation, its MolecularDynamicsOutput, and perform time integration on Nose-Hoover style non-Hamiltonian equations of motion, keeping constant pressure and temperature."@en ;
-       skos:prefLabel "NPT" .
+       skos:prefLabel "NPT" ;
+       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation, its MolecularDynamicsOutput, and perform time integration on Nose-Hoover style non-Hamiltonian equations of motion, keeping constant pressure and temperature."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#NVE
 om:NVE rdf:type owl:Class ;
        rdfs:subClassOf om:MolecularDynamicsTask ;
-       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation, its MolecularDynamicsOutput, and perform time integration in the microcanonical ensemble."@en ;
-       skos:prefLabel "NVE" .
+       skos:prefLabel "NVE" ;
+       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation, its MolecularDynamicsOutput, and perform time integration in the microcanonical ensemble."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#NVT
 om:NVT rdf:type owl:Class ;
        rdfs:subClassOf om:MolecularDynamicsTask ;
-       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation, its MolecularDynamicsOutput, and perform time integration in the canonical ensemble using a Langevin thermostat."@en ;
-       skos:prefLabel "NVT" .
+       skos:prefLabel "NVT" ;
+       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation, its MolecularDynamicsOutput, and perform time integration in the canonical ensemble using a Langevin thermostat."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#NumberMolecules
@@ -1346,8 +1342,8 @@ om:NumberMolecules rdf:type owl:Class ;
                                      owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
                                      owl:allValuesFrom xsd:int
                                    ] ;
-                   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Number of molecules of a particular type in a Molecular Dynamics simulation."@en ;
-                   skos:prefLabel "NumberMolecules" .
+                   skos:prefLabel "NumberMolecules" ;
+                   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Number of molecules of a particular type in a Molecular Dynamics simulation."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#OPLS
@@ -1357,14 +1353,14 @@ om:OPLS rdf:type owl:Class ;
                           owl:onProperty :EMMO_a8bd7094_6b40_47af_b1f4_a69d81a3afbd ;
                           owl:someValuesFrom :EMMO_84cadc45_6758_46f2_ba2a_5ead65c70213
                         ] ;
+        skos:prefLabel "OPLS" ;
         :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """OPLS4: Improving Force Field Accuracy on Challenging Regimes of Chemical Space.
 J. Chem. Theory Comput., 17, 4291–4300 (2021).
 https://doi.org/10.1021/acs.jctc.1c00302"""@en ,
                                                    "The OPLS (Optimized Potentials for Liquid Simulations) force field was developed by Prof. William L. Jorgensen at Purdue University and later at Yale University, and is being further developed commercially by Schrödinger, Inc."@en ,
                                                    """The OPLS Force Field for Proteins. Energy Minimizations for Crystals of Cyclic Peptides and Crambin.
 J. Am. Chem. Soc., 110, 1657–1666 (1998).
-https://doi.org/10.1021/ja00214a001."""@en ;
-        skos:prefLabel "OPLS" .
+https://doi.org/10.1021/ja00214a001."""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#OTEAPIDataSet
@@ -1379,8 +1375,8 @@ om:OTEAPIDataSet rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo/domain/openmodel#OTEAPIpipeline
 om:OTEAPIpipeline rdf:type owl:Class ;
-                  rdfs:subClassOf :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
-                                  :EMMO_1c7f2dfe_0db4_4bf6_a0f6_853054a34ead ,
+                  rdfs:subClassOf :EMMO_1c7f2dfe_0db4_4bf6_a0f6_853054a34ead ,
+                                  :EMMO_4299e344_a321_4ef2_a744_bacfcce80afc ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
                                     owl:someValuesFrom om:OTEAPIDataSet
@@ -1393,9 +1389,9 @@ om:OTEAPIpipeline rdf:type owl:Class ;
                                     owl:onProperty :EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
                                     owl:someValuesFrom om:AiiDADataNodes
                                   ] ;
+                  skos:prefLabel "OTEAPIpipeline" ;
                   :EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "Open Translation Environment API"@en ;
-                  :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "OTEAPI allows the access to a large range of data resources. Semantic interoperability is supported via mapping of data models describing the data to ontologies."@en ;
-                  skos:prefLabel "OTEAPIpipeline" .
+                  :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "OTEAPI allows the access to a large range of data resources. Semantic interoperability is supported via mapping of data models describing the data to ontologies."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#OTEAPIpipelineDependency
@@ -1405,8 +1401,8 @@ om:OTEAPIpipelineDependency rdf:type owl:Class ;
                                               owl:onProperty :EMMO_36e69413_8c59_4799_946c_10b05d266e22 ;
                                               owl:someValuesFrom om:LTCondensedExternalDependencyDS
                                             ] ;
-                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A pipeline resolving the include files that contains macros, force fields, and commands for Moltemplate."@en ;
-                            skos:prefLabel "OTEAPIpipelineDependency" .
+                            skos:prefLabel "OTEAPIpipelineDependency" ;
+                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A pipeline resolving the include files that contains macros, force fields, and commands for Moltemplate."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#OTEAPIpipelineLTMaster
@@ -1445,8 +1441,8 @@ om:OTEwaterDensityDS rdf:type owl:Class ;
                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                        owl:onClass om:WaterTIP3PLT
                                      ] ;
-                     :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A subclass providing only the property density and being a model for a specific substance, water. It should be better to specify the hasModel and hasProperty restrictions in an instance of the parent class."@en ;
-                     skos:prefLabel "OTEwaterDensityDS" .
+                     skos:prefLabel "OTEwaterDensityDS" ;
+                     :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A subclass providing only the property density and being a model for a specific substance, water. It should be better to specify the hasModel and hasProperty restrictions in an instance of the parent class."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#PDBFile
@@ -1464,15 +1460,15 @@ om:PDF rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#PeriodicBoundaryConditions
 om:PeriodicBoundaryConditions rdf:type owl:Class ;
                               rdfs:subClassOf :EMMO_5f278af9_8593_4e27_a717_ccc9e07a0ddf ;
-                              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Periodic boundary conditions (PBCs) are a set of boundary conditions which are often chosen for approximating a large (infinite) system by using a small part called a unit cell."@en ;
-                              skos:prefLabel "PeriodicBoundaryConditions" .
+                              skos:prefLabel "PeriodicBoundaryConditions" ;
+                              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Periodic boundary conditions (PBCs) are a set of boundary conditions which are often chosen for approximating a large (infinite) system by using a small part called a unit cell."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#PostHartreeFock
 om:PostHartreeFock rdf:type owl:Class ;
                    rdfs:subClassOf :EMMO_6eca09be_17e9_445e_abc9_000aa61b7a11 ;
-                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Post–Hartree–Fock (post-HF) methods are the set of methods developed to improve on the Hartree–Fock (HF), or self-consistent field (SCF) method. They add electron correlation which is a more accurate way of including the repulsions between electrons than in the Hartree–Fock method where repulsions are only averaged."@en ;
-                   skos:prefLabel "PostHartreeFock" .
+                   skos:prefLabel "PostHartreeFock" ;
+                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Post–Hartree–Fock (post-HF) methods are the set of methods developed to improve on the Hartree–Fock (HF), or self-consistent field (SCF) method. They add electron correlation which is a more accurate way of including the repulsions between electrons than in the Hartree–Fock method where repulsions are only averaged."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#PotentialFunction
@@ -1489,17 +1485,17 @@ om:PotentialFunction rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#ProductionSteps
 om:ProductionSteps rdf:type owl:Class ;
                    rdfs:subClassOf om:Steps ;
+                   skos:prefLabel "ProductionSteps" ;
                    :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Number of steps used to sample a system *after* it has reached the thermodynamic equilibrium."@en ;
-                   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Number of steps used to integrate the equation of motions in a Molecular Dynamics simulation. The ProductionSteps*Timestep gives the actual time span of the simulation."@en ;
-                   skos:prefLabel "ProductionSteps" .
+                   :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Number of steps used to integrate the equation of motions in a Molecular Dynamics simulation. The ProductionSteps*Timestep gives the actual time span of the simulation."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#ProgrammingVariable
 om:ProgrammingVariable rdf:type owl:Class ;
                        rdfs:subClassOf :EMMO_1eed0732_e3f1_4b2c_a9c4_b4e75eeb5895 ,
                                        :EMMO_9ffffb55_3496_4307_82b8_a0d78fe1fcd8 ;
-                       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A variable is a named memory location that stores data."@en ;
-                       skos:prefLabel "ProgrammingVariable" .
+                       skos:prefLabel "ProgrammingVariable" ;
+                       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A variable is a named memory location that stores data."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#QuantumEspresso
@@ -1509,9 +1505,9 @@ om:QuantumEspresso rdf:type owl:Class ;
                                      owl:onProperty :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c ;
                                      owl:someValuesFrom :EMMO_6eca09be_17e9_445e_abc9_000aa61b7a11
                                    ] ;
-                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Quantum ESPRESSO is an integrated suite of Open-Source computer codes for electronic-structure calculations and materials modeling at the nanoscale. It is based on density-functional theory, plane waves, and pseudopotentials."@en ;
                    rdfs:seeAlso "https://www.quantum-espresso.org/" ;
-                   skos:prefLabel "QuantumEspresso" .
+                   skos:prefLabel "QuantumEspresso" ;
+                   :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Quantum ESPRESSO is an integrated suite of Open-Source computer codes for electronic-structure calculations and materials modeling at the nanoscale. It is based on density-functional theory, plane waves, and pseudopotentials."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#RandomGeneratorLT
@@ -1527,16 +1523,16 @@ om:RandomGeneratorLT rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#RandomNumber
 om:RandomNumber rdf:type owl:Class ;
                 rdfs:subClassOf :EMMO_888a5dea_3b7d_4dc0_93f2_d4e345a1f903 ;
-                :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A number with arbitrary value, selected using a random source or a pseudo-random algorithm."@en ;
-                skos:prefLabel "RandomNumber" .
+                skos:prefLabel "RandomNumber" ;
+                :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A number with arbitrary value, selected using a random source or a pseudo-random algorithm."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#Root
 om:Root rdf:type owl:Class ;
         rdfs:subClassOf om:FileName ;
+        skos:prefLabel "Root" ;
         :EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "\"notes\" is the root of the file name \"notes.txt\""@en ;
-        :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The root name of a file." ;
-        skos:prefLabel "Root" .
+        :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The root name of a file." .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#SamplingInterval
@@ -1546,34 +1542,34 @@ om:SamplingInterval rdf:type owl:Class ;
                                       owl:onProperty :EMMO_faf79f53_749d_40b2_807c_d34244c192f4 ;
                                       owl:allValuesFrom xsd:int
                                     ] ;
+                    skos:prefLabel "SamplingInterval" ;
                     :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """In LAMMPS, the thermodynamic output is averaged and returned with *fixes* whose general syntax is:
 fix ID group-ID ave/time Nevery Nrepeat Nfreq value1 value2 ... keyword args
 
 The sample length corresponds to Nevery and is the number of timesteps used to sample input values."""@en ;
-                    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Sample interval, used to sample the thermodynamic output."@en ;
-                    skos:prefLabel "SamplingInterval" .
+                    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Sample interval, used to sample the thermodynamic output."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#SemiEmpiricalHamiltonian
 om:SemiEmpiricalHamiltonian rdf:type owl:Class ;
                             rdfs:subClassOf om:HartreeFock ;
-                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Semi-empirical quantum chemistry methods are based on the Hartree–Fock formalism, but make many approximations and obtain some parameters from empirical data."@en ;
-                            skos:prefLabel "SemiEmpiricalHamiltonian" .
+                            skos:prefLabel "SemiEmpiricalHamiltonian" ;
+                            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Semi-empirical quantum chemistry methods are based on the Hartree–Fock formalism, but make many approximations and obtain some parameters from empirical data."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#Slab
 om:Slab rdf:type owl:Class ;
         rdfs:subClassOf om:PeriodicBoundaryConditions ;
-        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A slab geometry in a molecular dynamics simulation is a type of boundary condition that is used to model systems that are infinite in two dimensions and finite in one dimension. For example, a slab geometry can be used to simulate a thin layer of fluid or solid confined between two parallel walls, or a membrane-channel system that spans across a water box."@en ;
-        skos:prefLabel "Slab" .
+        skos:prefLabel "Slab" ;
+        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A slab geometry in a molecular dynamics simulation is a type of boundary condition that is used to model systems that are infinite in two dimensions and finite in one dimension. For example, a slab geometry can be used to simulate a thin layer of fluid or solid confined between two parallel walls, or a membrane-channel system that spans across a water box."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#Solvent
 om:Solvent rdf:type owl:Class ;
            rdfs:subClassOf :EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba ,
                            :EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b ;
-           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A solvent (from the Latin solvō, \"loosen, untie, solve\") is a substance that dissolves a solute, resulting in a solution."@en ;
-           skos:prefLabel "Solvent" .
+           skos:prefLabel "Solvent" ;
+           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A solvent (from the Latin solvō, \"loosen, untie, solve\") is a substance that dissolves a solute, resulting in a solution."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#Steps
@@ -1596,25 +1592,25 @@ om:TOML rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#TemperatureMDT
 om:TemperatureMDT rdf:type owl:Class ;
                   rdfs:subClassOf om:MolecularDynamicsTask ;
-                  :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Set the velocity of all atoms to the initial temperature."@en ;
-                  skos:prefLabel "TemperatureMDT" .
+                  skos:prefLabel "TemperatureMDT" ;
+                  :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Set the velocity of all atoms to the initial temperature."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#TemperatureScanMDT
 om:TemperatureScanMDT rdf:type owl:Class ;
                       rdfs:subClassOf om:MolecularDynamicsTask ;
+                      skos:prefLabel "TemperatureScanMDT" ;
                       :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Initialise the run section of a MD simulation, its MolecularDynamicsOutput, and perform a scan in temperature at constant pressure. The scan is defined by a ramp where the temperature is linearly increased, and equilibration phase, and a production phase. Each step is controlled with its own number of steps, and the sequence is repeated from T_start to T_stop with increments DT.
 
-The time integration is done in the isenthalpic (NPH) ensemble with a Nose-Hoover barostat, while the temperature control is done with a Langevin thermostat. The resulting ensemble is NPT."""@en ;
-                      skos:prefLabel "TemperatureScanMDT" .
+The time integration is done in the isenthalpic (NPH) ensemble with a Nose-Hoover barostat, while the temperature control is done with a Langevin thermostat. The resulting ensemble is NPT."""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#Timestep
 om:Timestep rdf:type owl:Class ;
             rdfs:subClassOf :EMMO_d1d436e7_72fc_49cd_863b_7bfb4ba5276a ,
                             :EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7 ;
-            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A timestep is a number (in time units) used to integrate numerically the equations of motion in a subsequent molecular dynamics simulation."@en ;
-            skos:prefLabel "Timestep" .
+            skos:prefLabel "Timestep" ;
+            :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "A timestep is a number (in time units) used to integrate numerically the equations of motion in a subsequent molecular dynamics simulation."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#URI
@@ -1647,8 +1643,8 @@ om:WaterDensityLT rdf:type owl:Class ;
                                                    ] ;
                                     owl:someValuesFrom om:water
                                   ] ;
-                  :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The master file describing a MD simulation returning the density of water."@en ;
-                  skos:prefLabel "WaterDensityLT" .
+                  skos:prefLabel "WaterDensityLT" ;
+                  :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "The master file describing a MD simulation returning the density of water."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#WaterDensityPipelineMaster
@@ -1658,8 +1654,8 @@ om:WaterDensityPipelineMaster rdf:type owl:Class ;
                                                 owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
                                                 owl:someValuesFrom om:LTCondensedExternalMasterDS
                                               ] ;
-                              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Input dataset for a MD simulation computing the density of water, including parameters that the user wants to specify (e.g. temperature and pressure, system size, etc.) and other settings (e.g. timestep, simulation length, sampling intervals).  It is serialised in YAML."@en ;
-                              skos:prefLabel "WaterDensityPipelineMaster" .
+                              skos:prefLabel "WaterDensityPipelineMaster" ;
+                              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Input dataset for a MD simulation computing the density of water, including parameters that the user wants to specify (e.g. temperature and pressure, system size, etc.) and other settings (e.g. timestep, simulation length, sampling intervals).  It is serialised in YAML."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#WaterTIP3PLT
@@ -1671,24 +1667,24 @@ om:WaterTIP3PLT rdf:type owl:Class ;
                                                  ] ;
                                   owl:someValuesFrom om:water
                                 ] ,
-                                _:genid168 ,
+                                _:genid165 ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                   owl:onClass om:MolecularType
                                 ] ;
+                skos:prefLabel "WaterTIP3PLT" ;
                 :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "LT file containing the TIP3P water model to be used with the GROMOS force field."@en ,
-                                                           "Modify the restriction: hasModel only GROMOS. Use an object property that implies that this file is also a ForceField, as it contains the parameters that describe a water molecule and refer to a specific force field."@en ;
-                skos:prefLabel "WaterTIP3PLT" .
+                                                           "Modify the restriction: hasModel only GROMOS. Use an object property that implies that this file is also a ForceField, as it contains the parameters that describe a water molecule and refer to a specific force field."@en .
 
-_:genid168 rdf:type owl:Restriction ;
+_:genid165 rdf:type owl:Restriction ;
             owl:onProperty :EMMO_24c71baf_6db6_48b9_86c8_8c70cf36db0c ;
             owl:allValuesFrom om:GROMOS .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource om:WaterTIP3PLT ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid168 ;
+   owl:annotatedTarget _:genid165 ;
    :EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Here I want to say that the force field describing the TIP3P water model is part of the GROMOS force field."@en
  ] .
 
@@ -1696,8 +1692,8 @@ _:genid168 rdf:type owl:Restriction ;
 ###  https://w3id.org/emmo/domain/openmodel#Wrapper
 om:Wrapper rdf:type owl:Class ;
            rdfs:subClassOf :EMMO_8681074a_e225_4e38_b586_e85b0f43ce38 ;
-           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A wrapper is a program or code that encapsulates and hides the underlying complexity of another program or code by means of a well-defined interface."@en ;
-           skos:prefLabel "Wrapper" .
+           skos:prefLabel "Wrapper" ;
+           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A wrapper is a program or code that encapsulates and hides the underlying complexity of another program or code by means of a well-defined interface."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#XML
@@ -1716,8 +1712,8 @@ om:XYZFile rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#YAML
 om:YAML rdf:type owl:Class ;
         rdfs:subClassOf :EMMO_13fea749_0b3b_4756_9c81_22cce620fc25 ;
-        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "YAML (acronym for YAML Ain't Markup Language) is a data serialization language used to represent data in a structured and human-readable way."@en ;
-        skos:prefLabel "YAML" .
+        skos:prefLabel "YAML" ;
+        :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "YAML (acronym for YAML Ain't Markup Language) is a data serialization language used to represent data in a structured and human-readable way."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#YAMLFile
@@ -1740,6 +1736,7 @@ om:benzene rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#defaultMD
 om:defaultMD rdf:type owl:Class ;
              rdfs:subClassOf om:MolecularDynamicsOutput ;
+             skos:prefLabel "defaultMD" ;
              :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Compute standard thermodynamic quantities in this order:
 * Simulation step
 * Total Energy
@@ -1758,8 +1755,7 @@ om:defaultMD rdf:type owl:Class ;
 * Density
 * Elapsed CPU time
 
-Save a MD trajectory as a separate file (DCD or DUMP formats)."""@en ;
-             skos:prefLabel "defaultMD" .
+Save a MD trajectory as a separate file (DCD or DUMP formats)."""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#hexane
@@ -1772,13 +1768,14 @@ om:hexane rdf:type owl:Class ;
 ###  https://w3id.org/emmo/domain/openmodel#initialiseMDT
 om:initialiseMDT rdf:type owl:Class ;
                  rdfs:subClassOf om:MolecularDynamicsTask ;
-                 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation and its MolecularDynamicsOutput, without defining any time integrator."@en ;
-                 skos:prefLabel "initialiseMDT" .
+                 skos:prefLabel "initialiseMDT" ;
+                 :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation and its MolecularDynamicsOutput, without defining any time integrator."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#interLongMD
 om:interLongMD rdf:type owl:Class ;
                rdfs:subClassOf om:MolecularDynamicsOutput ;
+               skos:prefLabel "interLongMD" ;
                :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Compute standard thermodynamic quantities, plus the inter-molecular energy for systems with long-range electrostatics.
 
 The thermodynamics output is as follows:
@@ -1800,29 +1797,28 @@ The thermodynamics output is as follows:
 * Inter-molecular Energy
 * Elapsed CPU time.
 
-Save a MD trajectory as a separate file (DCD or DUMP formats)."""@en ;
-               skos:prefLabel "interLongMD" .
+Save a MD trajectory as a separate file (DCD or DUMP formats)."""@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#minimizeMDT
 om:minimizeMDT rdf:type owl:Class ;
                rdfs:subClassOf om:MolecularDynamicsTask ;
-               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Minimisation of the initial structure and resetting of all atom velocities to the initial temperature."@en ;
-               skos:prefLabel "minimizeMDT" .
+               skos:prefLabel "minimizeMDT" ;
+               :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Minimisation of the initial structure and resetting of all atom velocities to the initial temperature."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#rerunMDT
 om:rerunMDT rdf:type owl:Class ;
             rdfs:subClassOf om:MolecularDynamicsTask ;
-            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation and compute the selected MolecularDynamicsOutput using the rerun command."@en ;
-            skos:prefLabel "rerunMDT" .
+            skos:prefLabel "rerunMDT" ;
+            :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Initialise the run section of a MD simulation and compute the selected MolecularDynamicsOutput using the rerun command."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#saveMDT
 om:saveMDT rdf:type owl:Class ;
            rdfs:subClassOf om:MolecularDynamicsTask ;
-           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Save the current status of a MD simulation by writing DATA and RESTART files."@en ;
-           skos:prefLabel "saveMDT" .
+           skos:prefLabel "saveMDT" ;
+           :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Save the current status of a MD simulation by writing DATA and RESTART files."@en .
 
 
 ###  https://w3id.org/emmo/domain/openmodel#water
@@ -1839,8 +1835,8 @@ om:waterDensityPipelineDependencies rdf:type owl:Class ;
                                                       owl:onProperty :EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe ;
                                                       owl:someValuesFrom om:LTCondensedExternalDependencyDS
                                                     ] ;
-                                    :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Input dataset for a MD simulation computing the density of water, listing the file includes. It is serialised in YAML."@en ;
-                                    skos:prefLabel "waterDensityPipelineDependencies" .
+                                    skos:prefLabel "waterDensityPipelineDependencies" ;
+                                    :EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Input dataset for a MD simulation computing the density of water, listing the file includes. It is serialised in YAML."@en .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
