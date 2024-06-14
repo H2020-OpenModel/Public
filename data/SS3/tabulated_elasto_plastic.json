@@ -1,11 +1,10 @@
 {
   "e64efab9-1740-4a76-b026-8a8cbdc1e103":{
-    "meta": "http://www.sintef.no/calm/0.1/AluminiumMaterialCard",
+    "meta": "http://www.sintef.no/calm/0.1/TabulatedElastoPlastic",
     "dimensions": {
       "nplastic": 200
     },
     "properties": {
-      "materialName": "alu",
       "density": 2.7e-09,
       "E_elastic": 70000,
       "Nu_elastic": 0.3,
@@ -412,8 +411,7 @@
         739.0451,
         743.5699,
         748.1301
-      ],
-      "Yield_stress": 340
+      ]
     }
   }
 }
