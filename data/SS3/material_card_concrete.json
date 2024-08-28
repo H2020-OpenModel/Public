@@ -1,0 +1,17 @@
+{
+  "bd737c31-f5d3-4d08-bed2-95c01f1d20fb":{
+    "meta": "http://www.sintef.no/calm/0.1/ConcreteMaterialCard",
+    "dimensions": {
+      "nplastic": 0
+    },
+    "properties": {
+      "materialName": "concrete",
+      "density": 2.4e-09,
+      "E_elastic": 30000,
+      "Nu_elastic": 0.15,
+      "Strain_plastic": [],
+      "Stress_plastic": [],
+      "Yield_stress": 0
+    }
+  }
+}

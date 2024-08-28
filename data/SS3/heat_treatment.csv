@@ -1,0 +1,7 @@
+Duration,Unit,StartTemp(°C),EndTemp(°C),Comment
+10,s,560,560,"Solution heat treatment"
+2,s,560,20,"Water cooling"
+30,min,20,20,"Room temperature storage"
+2,h,90,90,Pre-aging
+2,days,20,20,"Natural aging"
+5,h,185,185,Aging
