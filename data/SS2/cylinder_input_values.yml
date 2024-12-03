@@ -1,0 +1,16 @@
+cylinder_input:
+    meta: http://openmodel.eu/meta/0.1/Cylinder
+    dimensions: {}
+    properties:
+        radius: 1.0
+        height: 1.0
+        mesh_size: 0.1
+        mesh_type: 'tetra'  #tetra(Simcenter 3D, SALOME ), tetra10 (Simcenter 3D), hex (SALOME)
+        Output format type: 'cgns' #cgns (Simcenter 3D, SALOME ), unv(Simcenter 3D)
+        name: 'cylinder'
+#       Mesh_format: "cgns"   #unv, cgns
+#       Mesh_elt_type: "CTETRA(4)" #CTETRA(10)
+#       Mesh_file_name: "cylinder"
+#       Cylinder_radius: 1
+#       Cylinder_height: 5
+#       Mesh_elt_size: 0.1
