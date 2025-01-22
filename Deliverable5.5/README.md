@@ -22,7 +22,7 @@ The local execution of this demonstration requires the following software compon
   Then (from AiiDA instructions):
 
   ```bash
-  python -m venv ~/envs/aiida
+  python -m venv ~/envs/aiida # Create the AiiDA environment (do it once!)
   source ~/envs/aiida/bin/activate
   (aiida) verdi quicksetup
   (aiida) verdi daemon start 2

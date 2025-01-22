@@ -18,8 +18,8 @@ strategies:
     triples:
       - ["fluid:run", "map:mapsTo", "om:Root"]
       - ["fluid:ts", "map:mapsTo", "om:Timestep"]
-      - ["fluid:temp", "map:mapsTo", "om:ThermodynamicTemperature"]
-      - ["fluid:p", "map:mapsTo", "om:Pressure"]
+      - ["fluid:temp", "map:mapsTo", "emmo:ThermodynamicTemperature"]
+      - ["fluid:p", "map:mapsTo", "emmo:Pressure"]
       - ["fluid:cutoff", "map:mapsTo", "om:CutoffRadius"]
       - ["fluid:cl", "map:mapsTo", "om:CorrelationLength"]
       - ["fluid:s", "map:mapsTo", "om:SamplingInterval"]
